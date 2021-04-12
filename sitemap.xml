@@ -22,6 +22,13 @@
     
   </url>
   
+  <url>
+    <loc>http://havebear.com/2021/04/12/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/js/JavaScript%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</loc>
+    
+    <lastmod>2021-04-12</lastmod>
+    
+  </url>
+  
 
   <url>
     <loc>http://havebear.com/</loc>
@@ -32,6 +39,13 @@
 
   
   <url>
+    <loc>http://havebear.com/tags/hexo/</loc>
+    <lastmod>2021-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://havebear.com/tags/vue/</loc>
     <lastmod>2021-04-12</lastmod>
     <changefreq>daily</changefreq>
@@ -39,7 +53,14 @@
   </url>
   
   <url>
-    <loc>http://havebear.com/tags/hexo/</loc>
+    <loc>http://havebear.com/tags/JavaScript/</loc>
+    <lastmod>2021-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/tags/%E8%BD%AC%E8%BD%BD/</loc>
     <lastmod>2021-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
