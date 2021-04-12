@@ -46,13 +46,6 @@
   </url>
   
   <url>
-    <loc>http://havebear.com/tags/vue/</loc>
-    <lastmod>2021-04-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://havebear.com/tags/JavaScript/</loc>
     <lastmod>2021-04-12</lastmod>
     <changefreq>daily</changefreq>
@@ -61,6 +54,13 @@
   
   <url>
     <loc>http://havebear.com/tags/%E8%BD%AC%E8%BD%BD/</loc>
+    <lastmod>2021-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/tags/vue/</loc>
     <lastmod>2021-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
