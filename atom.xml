@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2021-04-12T06:15:40.751Z</updated>
+  <updated>2021-04-14T09:20:50.830Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浏览器输入URL后发生了什么?</title>
+    <link href="http://havebear.com/2021/04/14/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BE%93%E5%85%A5URL%E5%9B%9E%E8%BD%A6%E5%88%B0%E6%98%BE%E7%A4%BA%E7%BD%91%E9%A1%B5%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/"/>
+    <id>http://havebear.com/2021/04/14/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BE%93%E5%85%A5URL%E5%9B%9E%E8%BD%A6%E5%88%B0%E6%98%BE%E7%A4%BA%E7%BD%91%E9%A1%B5%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/</id>
+    <published>2021-04-14T08:46:53.089Z</published>
+    <updated>2021-04-14T09:20:50.830Z</updated>
+    
+    <content type="html"><![CDATA[<p>从输入 URL 到页面渲染发生了什么？比如在浏览器输入了 <a href="http://www.qq.com/">www.qq.com</a> 后浏览器是怎么把最终的页面呈现，这是一个非常经典的面试题，不管是大公司还是小公司甚至前端或后端的面试中命中率都极高，因为涉及到的知识点和可挖掘的地方比较多，而且这中间几乎每一步都是可以优化的。</p><p>整个过程可以分<strong>网络通信</strong>和<strong>页面渲染</strong>两个部分，大致的流程如下：</p><ol><li>合成URL</li><li>DNS解析</li><li>建立TCP连接</li><li>发送HTTP请求，服务器处理请求，返回响应结果</li><li>关闭TCP连接，四次挥手</li><li>浏览器渲染</li></ol><h2 id="合成URL"><a href="#合成URL" class="headerlink" title="合成URL"></a>合成URL</h2><p>判断用户输入的是什么，如果是查询字符串，拼接搜索引擎地址为 URL ，最终拿到的都是URL，进入下一步</p><h2 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h2><p><strong>DNS 服务器</strong>，相当于地址本，映射了域名和 IP<br><strong>根 DNS 服务器</strong>，返回顶级域 DNS 服务器的 IP 地址<br><strong>顶级域 DNS 服务器</strong>，返回权威 DNS 服务器的 IP 地址<br><strong>权威 DNS 服务器</strong>，返回相应主机 IP 地址</p><p>流程：</p><p>在客户端输入 URL 后，会有一个递归查找的过程，从浏览器缓存中查找 -&gt; 本地的 hosts 文件查找 -&gt; 找本地 DNS 解析器缓存查找 -&gt; 本地 DNS 服务器查找，这个过程中任何一步找到了都会结束查找流程。</p><p>如果本地 DNS 服务器无法查询到，则根据本地DNS服务器设置的转发器进行查询。若未用转发模式，则迭代查找过程如下：</p><ul><li>客户端 -search-&gt; 本地 DNS 服务器</li><li>本地 DNS 服务器 -search-&gt; 根 DNS 服务器 -return-&gt; 本地 DNS 服务器</li><li>本地 DNS 服务器 -search-&gt; 顶级域 DNS 服务器 -return-&gt; 本地 DNS 服务器</li><li>本地 DNS 服务器 -search-&gt; 权威 DNS 服务器 -return-&gt; 权威 DNS 服务器</li><li>权威 DNS 服务器 -return-&gt; 客户端</li></ul><p>在查找过程中，有以下优化点：<br>DNS存在着多级缓存，从离浏览器的距离排序的话，有以下几种:<br>浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存。<br>在域名和 IP 的映射过程中，给了应用基于域名做负载均衡的机会，可以是简单的负载均衡，也可以根据地址和运营商做全局的负载均衡。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;从输入 URL 到页面渲染发生了什么？比如在浏览器输入了 &lt;a href=&quot;http://www.qq.com/&quot;&gt;www.qq.com&lt;/a&gt; 后浏览器是怎么把最终的页面呈现，这是一个非常经典的面试题，不管是大公司还是小公司甚至前端或后端的面试中命中率都极高，因为涉及到的</summary>
+      
+    
+    
+    
+    
+    <category term="面试" scheme="http://havebear.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript中的事件委托</title>
