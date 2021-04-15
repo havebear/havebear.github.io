@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>输入URL到渲染全面梳理上-网络通信篇 | Have Bear</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="从输入 URL 到页面渲染发生了什么？比如在浏览器输入了 www.qq.com 后浏览器是怎么把最终的页面呈现，这是一个非常经典的面试题，不管是大公司还是小公司甚至前端或后端的面试中命中率都极高，因为涉及到的知识点和可挖掘的地方比较多，而且这中间几乎每一步都是可以优化的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="输入URL到渲染全面梳理上-网络通信篇">
+<meta property="og:url" content="http://havebear.com/2021/04/14/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8A-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%AF%87/index.html">
+<meta property="og:site_name" content="Have Bear">
+<meta property="og:description" content="从输入 URL 到页面渲染发生了什么？比如在浏览器输入了 www.qq.com 后浏览器是怎么把最终的页面呈现，这是一个非常经典的面试题，不管是大公司还是小公司甚至前端或后端的面试中命中率都极高，因为涉及到的知识点和可挖掘的地方比较多，而且这中间几乎每一步都是可以优化的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-14T08:46:53.089Z">
+<meta property="article:modified_time" content="2021-04-15T06:33:30.782Z">
+<meta property="article:author" content="havebear">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="转载">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Have Bear" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Have Bear</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://havebear.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-编程/面试/输入URL到渲染全面梳理上-网络通信篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/14/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8A-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%AF%87/" class="article-date">
+  <time datetime="2021-04-14T08:46:53.089Z" itemprop="datePublished">2021-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      输入URL到渲染全面梳理上-网络通信篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从输入 URL 到页面渲染发生了什么？比如在浏览器输入了 <a target="_blank" rel="noopener" href="http://www.qq.com/">www.qq.com</a> 后浏览器是怎么把最终的页面呈现，这是一个非常经典的面试题，不管是大公司还是小公司甚至前端或后端的面试中命中率都极高，因为涉及到的知识点和可挖掘的地方比较多，而且这中间几乎每一步都是可以优化的</p>
+<span id="more"></span>
+
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>URL从输入到页面渲染这整个过程可以分为 网络通信 和 页面渲染 两个方面，一般后端程序猿回答这个问题侧重网络通信就行了，但是前端页面渲染也得了解，总之回答的越详细分值越高<br>那么开始吧，这篇文章我们先来看网络通信方面，可能前端同学大家对网络方面的认知应该没有后端同学强，其实这道面试题最能突出自己的也是网络方面，因为它涉及到了很多网络通信原理的知识，所以这块咱们慢慢梳理</p>
+<h3 id="网络分层的由来"><a href="#网络分层的由来" class="headerlink" title="网络分层的由来"></a>网络分层的由来</h3><p>从输入 URL 到页面渲染发生了什么？比如在浏览器输入了 <a target="_blank" rel="noopener" href="http://www.qq.com/">www.qq.com</a> 后浏览器是怎么把最终的页面呈现，这是一个非常经典的面试题，不管是大公司还是小公司甚至前端或后端的面试中命中率都极高，因为涉及到的知识点和可挖掘的地方比较多，而且这中间几乎每一步都是可以优化的。</p>
+<p>整个过程可以分<strong>网络通信</strong>和<strong>页面渲染</strong>两个部分，大致的流程如下：</p>
+<ol>
+<li>合成URL</li>
+<li>DNS解析</li>
+<li>建立TCP连接</li>
+<li>发送HTTP请求，服务器处理请求，返回响应结果</li>
+<li>关闭TCP连接，四次挥手</li>
+<li>浏览器渲染</li>
+</ol>
+<h2 id="合成URL"><a href="#合成URL" class="headerlink" title="合成URL"></a>合成URL</h2><p>判断用户输入的是什么，如果是查询字符串，拼接搜索引擎地址为 URL ，最终拿到的都是URL，进入下一步</p>
+<h2 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h2><p><strong>DNS 服务器</strong>，相当于地址本，映射了域名和 IP<br><strong>根 DNS 服务器</strong>，返回顶级域 DNS 服务器的 IP 地址<br><strong>顶级域 DNS 服务器</strong>，返回权威 DNS 服务器的 IP 地址<br><strong>权威 DNS 服务器</strong>，返回相应主机 IP 地址</p>
+<p>流程：</p>
+<p>在客户端输入 URL 后，会有一个递归查找的过程，从浏览器缓存中查找 -&gt; 本地的 hosts 文件查找 -&gt; 找本地 DNS 解析器缓存查找 -&gt; 本地 DNS 服务器查找，这个过程中任何一步找到了都会结束查找流程。</p>
+<p>如果本地 DNS 服务器无法查询到，则根据本地DNS服务器设置的转发器进行查询。若未用转发模式，则迭代查找过程如下：</p>
+<ul>
+<li>客户端 -search-&gt; 本地 DNS 服务器</li>
+<li>本地 DNS 服务器 -search-&gt; 根 DNS 服务器 -return-&gt; 本地 DNS 服务器</li>
+<li>本地 DNS 服务器 -search-&gt; 顶级域 DNS 服务器 -return-&gt; 本地 DNS 服务器</li>
+<li>本地 DNS 服务器 -search-&gt; 权威 DNS 服务器 -return-&gt; 权威 DNS 服务器</li>
+<li>权威 DNS 服务器 -return-&gt; 客户端</li>
+</ul>
+<p>在查找过程中，有以下优化点：<br>DNS存在着多级缓存，从离浏览器的距离排序的话，有以下几种:<br>浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存。<br>在域名和 IP 的映射过程中，给了应用基于域名做负载均衡的机会，可以是简单的负载均衡，也可以根据地址和运营商做全局的负载均衡。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2021/04/14/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8A-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%AF%87/" data-id="cknip3y1700027sw4hn0wb277" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/04/12/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/js/JavaScript%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript中的事件委托</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 20px;">转载</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/04/14/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8A-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%AF%87/">输入URL到渲染全面梳理上-网络通信篇</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/12/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/js/JavaScript%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">JavaScript中的事件委托</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/12/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/vue/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E5%9C%A8vue-cli3+%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E7%9A%84less%E6%88%96%E8%80%85sass/">vue-cli 3.x 中配置全局less或者sass</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/12/hexo/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/">Hexo常见问题处理</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/12/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 havebear<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
