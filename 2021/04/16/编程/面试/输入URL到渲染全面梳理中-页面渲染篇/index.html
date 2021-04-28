@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>输入URL到渲染全面梳理下-总结篇 | Have Bear</title>
+  <title>输入URL到渲染全面梳理中-页面渲染篇 | Have Bear</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端、博客、总结、资源">
+  <meta name="description" content="接上文，上文我们讲了网络通信的部分，详细请看 「一道面试题」输入URL到渲染全面梳理上-网络通信篇 ，那么该说说页面渲染的流程了，也就是当输入一个URL拿到了页面后，浏览器怎么解析，怎么呈现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="输入URL到渲染全面梳理下-总结篇">
+<meta property="og:title" content="输入URL到渲染全面梳理中-页面渲染篇">
 <meta property="og:url" content="http://havebear.com/2021/04/16/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%AD-%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E7%AF%87/index.html">
 <meta property="og:site_name" content="Have Bear">
-<meta property="og:description" content="前端、博客、总结、资源">
+<meta property="og:description" content="接上文，上文我们讲了网络通信的部分，详细请看 「一道面试题」输入URL到渲染全面梳理上-网络通信篇 ，那么该说说页面渲染的流程了，也就是当输入一个URL拿到了页面后，浏览器怎么解析，怎么呈现">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-16T12:10:36.178Z">
-<meta property="article:modified_time" content="2021-04-16T12:13:03.325Z">
+<meta property="article:modified_time" content="2021-04-20T14:32:15.285Z">
 <meta property="article:author" content="havebear">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="前端">
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      输入URL到渲染全面梳理下-总结篇
+      输入URL到渲染全面梳理中-页面渲染篇
     </h1>
   
 
@@ -91,7 +91,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>接上文，上文我们讲了网络通信的部分，详细请看 「一道面试题」输入URL到渲染全面梳理上-网络通信篇 ，那么该说说页面渲染的流程了，也就是当输入一个URL拿到了页面后，浏览器怎么解析，怎么呈现</p>
+<span id="more"></span>
+
+<p>首先要了解这块内容，需要对下面这些知识点有一个简单认知</p>
+<p>线程/进程概念及区别<br>多线程/多进程概念<br>浏览器的主要进程<br>浏览器为什么是多进程<br>渲染进程Renderer的主要线程</p>
+<p>GUI渲染线程<br>JS引擎线程<br>事件触发线程<br>定时触发线程<br>异步http请求线程</p>
+<p>渲染进程的各个线程之间关系及配合</p>
+
       
     </div>
     <footer class="article-footer">
@@ -110,7 +117,7 @@
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          输入URL到渲染全面梳理中-页面渲染篇
+          输入URL到渲染全面梳理下-总结篇
         
       </div>
     </a>
@@ -169,11 +176,11 @@
       <ul>
         
           <li>
-            <a href="/2021/04/16/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8B-%E6%80%BB%E7%BB%93/">输入URL到渲染全面梳理中-页面渲染篇</a>
+            <a href="/2021/04/16/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8B-%E6%80%BB%E7%BB%93/">输入URL到渲染全面梳理下-总结篇</a>
           </li>
         
           <li>
-            <a href="/2021/04/16/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%AD-%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E7%AF%87/">输入URL到渲染全面梳理下-总结篇</a>
+            <a href="/2021/04/16/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%AD-%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E7%AF%87/">输入URL到渲染全面梳理中-页面渲染篇</a>
           </li>
         
           <li>
