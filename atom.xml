@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2021-04-29T14:45:06.739Z</updated>
+  <updated>2021-04-29T14:48:04.487Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue的生命周期</title>
+    <link href="http://havebear.com/2021/04/29/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/vue/Vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <id>http://havebear.com/2021/04/29/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/vue/Vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
+    <published>2021-04-29T14:47:18.613Z</published>
+    <updated>2021-04-29T14:48:04.487Z</updated>
+    
+    
+    
+    
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈JavaScript中的this</title>
+    <link href="http://havebear.com/2021/04/29/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/js/%E6%B5%85%E8%B0%88JavaScript%E4%B8%AD%E7%9A%84this/"/>
+    <id>http://havebear.com/2021/04/29/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/js/%E6%B5%85%E8%B0%88JavaScript%E4%B8%AD%E7%9A%84this/</id>
+    <published>2021-04-29T14:46:05.383Z</published>
+    <updated>2021-04-29T14:46:26.455Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>发布订阅模式</title>
@@ -74,7 +111,7 @@
     <link href="http://havebear.com/2021/04/29/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/js/%E6%B5%85%E8%B0%88%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
     <id>http://havebear.com/2021/04/29/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/js/%E6%B5%85%E8%B0%88%E4%BD%9C%E7%94%A8%E5%9F%9F/</id>
     <published>2021-04-29T14:42:03.272Z</published>
-    <updated>2021-04-29T14:43:24.301Z</updated>
+    <updated>2021-04-29T14:46:27.761Z</updated>
     
     
     
@@ -126,11 +163,11 @@
   </entry>
   
   <entry>
-    <title>vue2中的响应式原理</title>
-    <link href="http://havebear.com/2021/04/28/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/vue/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/"/>
-    <id>http://havebear.com/2021/04/28/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/vue/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</id>
+    <title>Vue2响应式原理</title>
+    <link href="http://havebear.com/2021/04/28/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/vue/Vue2%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/"/>
+    <id>http://havebear.com/2021/04/28/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/vue/Vue2%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</id>
     <published>2021-04-28T12:47:45.740Z</published>
-    <updated>2021-04-28T12:48:20.740Z</updated>
+    <updated>2021-04-29T14:48:06.019Z</updated>
     
     
     <summary type="html">近期学习vue源码的总结</summary>
