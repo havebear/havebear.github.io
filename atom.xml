@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2021-04-30T09:05:36.379Z</updated>
+  <updated>2021-04-30T09:07:14.643Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Array中会改变自身的方法</title>
+    <title>Array中不会改变自身的方法</title>
     <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/</id>
     <published>2021-04-30T08:57:33.099Z</published>
-    <updated>2021-04-30T09:05:36.379Z</updated>
+    <updated>2021-04-30T09:07:14.643Z</updated>
     
     <content type="html"><![CDATA[<p>concat、entries、every、filter、find、findIndex、flat、flatMap、forEach、form、includes、indexOf、isArray、join、keys、lastIndexOf、map、of、reduce、reduceRight、slice、some、toLocaleString、toSource、toString、values</p>]]></content>
     
