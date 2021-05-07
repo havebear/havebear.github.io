@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2021-04-30T09:07:14.643Z</updated>
+  <updated>2021-05-06T03:16:37.958Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>实现对象的深拷贝</title>
+    <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D/</id>
+    <published>2021-04-30T09:24:23.907Z</published>
+    <updated>2021-05-06T03:16:37.958Z</updated>
+    
+    
+    
+    
+    
+    <category term="面试" scheme="http://havebear.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript笔试" scheme="http://havebear.com/tags/JavaScript%E7%AC%94%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实现防抖和节流函数</title>
+    <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/"/>
+    <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/</id>
+    <published>2021-04-30T09:23:29.105Z</published>
+    <updated>2021-05-07T06:27:19.749Z</updated>
+    
+    <content type="html"><![CDATA[<p>防抖函数原理：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。</p><span id="more"></span><p><strong>适用场景</strong></p><ul><li>按钮提交场景：防止多次提交按钮，只执行最后提交的一次</li><li>服务端验证场景：表单验证需要服务端配合，只执行一段连续的输入事件的最后一次，还有搜索联想词功能类似</li></ul><p><strong>简化版本</strong></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> debounce = <span class="function">(<span class="params">fn, delay</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">const</span> args = [].slice.call(<span class="built_in">arguments</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      fn.apply(<span class="built_in">this</span>, args)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;防抖函数原理：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="面试" scheme="http://havebear.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript笔试" scheme="http://havebear.com/tags/JavaScript%E7%AC%94%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈跨域</title>
+    <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88%E8%B7%A8%E5%9F%9F/"/>
+    <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88%E8%B7%A8%E5%9F%9F/</id>
+    <published>2021-04-30T09:22:55.859Z</published>
+    <updated>2021-04-30T09:23:05.895Z</updated>
+    
+    
+    
+    
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈浏览器渲染过程</title>
+    <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B/"/>
+    <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B/</id>
+    <published>2021-04-30T09:22:29.521Z</published>
+    <updated>2021-04-30T09:22:40.745Z</updated>
+    
+    
+    
+    
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈垃圾回收</title>
+    <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
+    <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</id>
+    <published>2021-04-30T09:21:48.741Z</published>
+    <updated>2021-04-30T09:22:14.427Z</updated>
+    
+    
+    
+    
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>Array中不会改变自身的方法</title>
@@ -66,9 +153,9 @@
     <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E6%A8%A1%E6%8B%9FJavaScript%E4%B8%AD%E7%9A%84new/"/>
     <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E6%A8%A1%E6%8B%9FJavaScript%E4%B8%AD%E7%9A%84new/</id>
     <published>2021-04-30T07:34:53.068Z</published>
-    <updated>2021-04-30T08:55:12.441Z</updated>
+    <updated>2021-05-07T06:27:19.749Z</updated>
     
-    <content type="html"><![CDATA[<p>new 操作符做了那些事情</p><ul><li>创建一个全新的对象</li><li>将对象的__proto__指向（链接）构造函数的prototype属性（原型对象）</li><li>构造函数通过call或者apply执行，将创建的对象传入，使this指向创建的对象</li><li>如果函数没有返回对象类型Object（Function、Array、Data、RegExg、Error），则返回创建的对象的引用<span id="more"></span></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">objectFactory</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">  <span class="comment">// 获取第一个参数，即构造函数</span></span><br><span class="line">  <span class="keyword">const</span> Constructor = [].shift.call(<span class="built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更改obj的__proto__为构造函数的原型对象</span></span><br><span class="line">  obj.__proto__ = Constructor.prototype;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 执行构造函数，并改变this指向，为obj绑定属性</span></span><br><span class="line">  <span class="keyword">const</span> ret = Constructor.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 判断ret类型是否为对象类型，是则返回ret，否则返回obj的引用</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> ret === <span class="string">&quot;object&quot;</span> ? ret : obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = objectFactory(A, <span class="string">&#x27;张三&#x27;</span>) <span class="comment">// A &#123;name: &quot;test&quot;&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>new 操作符做了那些事情</p><ul><li>创建一个全新的对象</li><li>将对象的__proto__指向（链接）构造函数的prototype属性（原型对象）</li><li>构造函数通过call或者apply执行，将创建的对象传入，使this指向创建的对象</li><li>如果函数没有返回对象类型Object（Function、Array、Data、RegExg、Error），则返回创建的对象的引用<span id="more"></span></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">objectFactory</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">  <span class="comment">// 获取第一个参数，即构造函数</span></span><br><span class="line">  <span class="keyword">const</span> Constructor = [].shift.call(<span class="built_in">arguments</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更改obj的__proto__为构造函数的原型对象</span></span><br><span class="line">  obj.__proto__ = Constructor.prototype</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 执行构造函数，并改变this指向，为obj绑定属性</span></span><br><span class="line">  <span class="keyword">const</span> ret = Constructor.apply(obj, <span class="built_in">arguments</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 判断ret类型是否为对象类型，是则返回ret，否则返回obj的引用</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> ret === <span class="string">&quot;object&quot;</span> ? ret : obj</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = objectFactory(A, <span class="string">&#x27;张三&#x27;</span>) <span class="comment">// A &#123;name: &quot;test&quot;&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
     
     
     <summary type="html">&lt;p&gt;new 操作符做了那些事情&lt;/p&gt;
@@ -84,6 +171,8 @@
     <category term="面试" scheme="http://havebear.com/tags/%E9%9D%A2%E8%AF%95/"/>
     
     <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript笔试" scheme="http://havebear.com/tags/JavaScript%E7%AC%94%E8%AF%95/"/>
     
   </entry>
   
@@ -308,71 +397,6 @@
     <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</id>
     <published>2021-04-30T07:33:49.820Z</published>
     <updated>2021-04-30T07:33:49.820Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
-    <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</id>
-    <published>2021-04-30T07:33:49.819Z</published>
-    <updated>2021-04-30T07:33:49.819Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/"/>
-    <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/</id>
-    <published>2021-04-30T07:33:49.818Z</published>
-    <updated>2021-04-30T07:33:49.818Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</id>
-    <published>2021-04-30T07:33:49.818Z</published>
-    <updated>2021-04-30T07:33:49.818Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/"/>
-    <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/</id>
-    <published>2021-04-30T07:33:49.816Z</published>
-    <updated>2021-04-30T07:33:49.816Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    <id>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
-    <published>2021-04-30T07:33:49.815Z</published>
-    <updated>2021-04-30T07:33:49.815Z</updated>
     
     
     
