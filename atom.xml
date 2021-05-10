@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2021-05-10T03:01:24.135Z</updated>
+  <updated>2021-05-10T03:14:26.585Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://havebear.com/2021/05/10/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/package.json%E8%AF%A6%E8%A7%A3/"/>
     <id>http://havebear.com/2021/05/10/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/package.json%E8%AF%A6%E8%A7%A3/</id>
     <published>2021-05-10T02:51:32.150Z</published>
-    <updated>2021-05-10T03:01:24.135Z</updated>
+    <updated>2021-05-10T03:14:26.585Z</updated>
     
-    <content type="html"><![CDATA[<p>什么是Node.js的模块（Module）？在Node.js中，模块是一个库或框架，也是一个Node.js项目。Node.js项目遵循模块化的架构，当我们创建了一个Node.js项目，意味着创建了一个模块，这个模块的描述文件，被称为package.json。</p><span id="more"></span><h2 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h2><ul><li>name                            包名</li><li>version                         包的版本号</li><li>description                     包的描述</li><li>homepage                        包的官网URL</li><li>author                          包的作者</li><li>contributors                    包的其他贡献者</li><li>dependencies / devDependencies  生产/开发环境依赖包列表</li><li>repository                      包代码的Repo信息</li><li>main                            程序的主入口文件</li><li>keywords                        关键字</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>什么是Node.js的模块（Module）？在Node.js中，模块是一个库或框架，也是一个Node.js项目。Node.js项目遵循模块化的架构，当我们创建了一个Node.js项目，意味着创建了一个模块，这个模块的描述文件，被称为package.json。</p><span id="more"></span><p><a href="https://docs.npmjs.com/cli/v7/configuring-npm/package-json">官网对于package.json文件的描述</a></p><h2 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h2><ul><li>name                            包名</li><li>version                         包的版本号</li><li>description                     包的描述</li><li>homepage                        包的官网URL</li><li>author                          包的作者</li><li>contributors                    包的其他贡献者</li><li>dependencies / devDependencies  生产/开发环境依赖包列表</li><li>repository                      包代码的Repo信息</li><li>main                            程序的主入口文件</li><li>keywords                        关键字</li><li>bin                             指定各个内部命令对应的可执行文件的位置</li></ul>]]></content>
     
     
     <summary type="html">&lt;p&gt;什么是Node.js的模块（Module）？在Node.js中，模块是一个库或框架，也是一个Node.js项目。Node.js项目遵循模块化的架构，当我们创建了一个Node.js项目，意味着创建了一个模块，这个模块的描述文件，被称为package.json。&lt;/p&gt;</summary>
