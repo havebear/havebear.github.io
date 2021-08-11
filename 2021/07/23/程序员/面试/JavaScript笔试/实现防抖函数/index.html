@@ -5,15 +5,15 @@
   
   <title>实现防抖函数 | Have Bear</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="防抖函数原理：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。">
+  <meta name="description" content="防抖函数原理：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。 适用场景 按钮提交场景：防止多次提交按钮，只执行最后提交的一次 服务端验证场景：表单验证需要服务端配合，只执行一段连续的输入事件的最后一次，还有搜索联想词功能类似  简单实现1234567891011const debounce &#x3D; (fn, delay &#x3D; 500) &#x3D;&gt; &amp;#123;  let timer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现防抖函数">
 <meta property="og:url" content="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E9%98%B2%E6%8A%96%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Have Bear">
-<meta property="og:description" content="防抖函数原理：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。">
+<meta property="og:description" content="防抖函数原理：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。 适用场景 按钮提交场景：防止多次提交按钮，只执行最后提交的一次 服务端验证场景：表单验证需要服务端配合，只执行一段连续的输入事件的最后一次，还有搜索联想词功能类似  简单实现1234567891011const debounce &#x3D; (fn, delay &#x3D; 500) &#x3D;&gt; &amp;#123;  let timer">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-23T09:22:57.876Z">
-<meta property="article:modified_time" content="2021-07-23T09:22:57.876Z">
+<meta property="article:modified_time" content="2021-08-11T08:44:31.991Z">
 <meta property="article:author" content="havebear">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="前端">
@@ -92,8 +92,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>防抖函数原理：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。</p>
-<span id="more"></span>
-
 <h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
 <li>按钮提交场景：防止多次提交按钮，只执行最后提交的一次</li>
 <li>服务端验证场景：表单验证需要服务端配合，只执行一段连续的输入事件的最后一次，还有搜索联想词功能类似</li>

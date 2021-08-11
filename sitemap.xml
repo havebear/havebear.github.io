@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E6%A8%A1%E6%8B%9FJavaScript%E4%B8%AD%E7%9A%84new/</loc>
+    
+    <lastmod>2021-08-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2021-08-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E9%98%B2%E6%8A%96%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2021-08-11</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://havebear.com/2021/08/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/Webpack%E4%B8%ADLoader%E5%92%8CPlugin%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
     
     <lastmod>2021-08-11</lastmod>
@@ -10,20 +31,6 @@
   
   <url>
     <loc>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/vue/vue-cli3+%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E7%9A%84less%E6%88%96%E8%80%85sass/</loc>
-    
-    <lastmod>2021-07-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E9%98%B2%E6%8A%96%E5%87%BD%E6%95%B0/</loc>
-    
-    <lastmod>2021-07-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/</loc>
     
     <lastmod>2021-07-23</lastmod>
     
@@ -199,13 +206,6 @@
   
   <url>
     <loc>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88Object.freeze()/</loc>
-    
-    <lastmod>2021-05-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E6%A8%A1%E6%8B%9FJavaScript%E4%B8%AD%E7%9A%84new/</loc>
     
     <lastmod>2021-05-07</lastmod>
     
