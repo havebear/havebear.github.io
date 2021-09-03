@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2021-08-11T08:39:47.503Z</updated>
+  <updated>2021-09-03T03:34:59.982Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>vue选项中name属性的作用</title>
+    <link href="http://havebear.com/2021/09/03/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/vue/vue%E9%80%89%E9%A1%B9%E4%B8%ADname%E5%B1%9E%E6%80%A7%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <id>http://havebear.com/2021/09/03/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/vue/vue%E9%80%89%E9%A1%B9%E4%B8%ADname%E5%B1%9E%E6%80%A7%E7%9A%84%E4%BD%9C%E7%94%A8/</id>
+    <published>2021-09-03T03:33:22.368Z</published>
+    <updated>2021-09-03T03:34:59.982Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>递归组件运用（指组件自身组件调用自身组件）</li><li>keep-alive包裹动态组件时，会缓存不活动的组件实例，会出现include和exclude属性，包含或者排除指定name组件</li><li>vue-tools插件调试，组件树中显示name</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;递归组件运用（指组件自身组件调用自身组件）&lt;/li&gt;
+&lt;li&gt;keep-alive包裹动态组件时，会缓存不活动的组件实例，会出现include和exclude属性，包含或者排除指定name组件&lt;/li&gt;
+&lt;li&gt;vue-tools插件调试，组件树中显示name&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+    <category term="Vue" scheme="http://havebear.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Webpack中Loader和Plugin的区别</title>
-    <link href="http://havebear.com/2021/08/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/Webpack%E4%B8%ADLoader%E5%92%8CPlugin%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://havebear.com/2021/08/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/Webpack%E4%B8%ADLoader%E5%92%8CPlugin%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <link href="http://havebear.com/2021/08/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E5%B7%A5%E7%A8%8B%E5%8C%96/Webpack%E4%B8%ADLoader%E5%92%8CPlugin%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://havebear.com/2021/08/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E5%B7%A5%E7%A8%8B%E5%8C%96/Webpack%E4%B8%ADLoader%E5%92%8CPlugin%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
     <published>2021-08-11T08:38:49.521Z</published>
-    <updated>2021-08-11T08:39:47.503Z</updated>
+    <updated>2021-08-11T09:14:44.648Z</updated>
     
     <content type="html"><![CDATA[<p>简单的说：</p><p>Loader是一个模块转换器，将非JS模块转换成JS模块；<br>Plugin是webpack运行生命周期的各个阶段上挂载的事件，会被指定的时间节点被触发（相当于订阅/发布模式），能够改变构建结果、拆分和优化bundle等。</p>]]></content>
     
@@ -335,21 +362,6 @@
     <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E6%9C%80%E5%B0%91%E7%9F%A5%E8%AF%86%E5%8E%9F%E5%88%99/</id>
     <published>2021-07-23T09:22:57.857Z</published>
     <updated>2021-07-23T09:22:57.857Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计原则和编程技巧" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>代码重构</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/</id>
-    <published>2021-07-23T09:22:57.856Z</published>
-    <updated>2021-07-23T09:22:57.856Z</updated>
     
     
     
