@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2021-09-03T03:34:59.982Z</updated>
+  <updated>2021-12-02T04:40:20.738Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -15,6 +15,189 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>代码重构</title>
+    <link href="http://havebear.com/2021/12/02/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E6%B5%85%E8%B0%88MVVM/"/>
+    <id>http://havebear.com/2021/12/02/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E6%B5%85%E8%B0%88MVVM/</id>
+    <published>2021-12-02T04:23:47.898Z</published>
+    <updated>2021-12-02T04:40:20.738Z</updated>
+    
+    <content type="html"><![CDATA[<p>MVVM是Model-View-ViewModel的简写。是一个软件架构设计模式，由微软 WPF 和 Silverlight 的架构师 Ken Cooper 和 Ted Peters 开发，是一种简化用户界面的事件驱动编程方式。由 John Gossman（同样也是 WPF 和 Silverlight 的架构师）于2005年在他的博客上发表。即模型-视图-视图模型。</p><span id="more"></span><h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>关于Module的变化，让MVVM框架去自动更新DOM的状态，从而把开发者从操作DOM的繁琐步骤中解脱出来。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;MVVM是Model-View-ViewModel的简写。是一个软件架构设计模式，由微软 WPF 和 Silverlight 的架构师 Ken Cooper 和 Ted Peters 开发，是一种简化用户界面的事件驱动编程方式。由 John Gossman（同样也是 WPF 和 Silverlight 的架构师）于2005年在他的博客上发表。即模型-视图-视图模型。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="转载" scheme="http://havebear.com/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+    <category term="架构" scheme="http://havebear.com/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+    <category term="框架" scheme="http://havebear.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实现类的继承</title>
+    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/"/>
+    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/</id>
+    <published>2021-11-27T07:26:40.011Z</published>
+    <updated>2021-11-27T07:26:40.011Z</updated>
+    
+    <content type="html"><![CDATA[<p>类的继承在几年前是重点内容，有n种继承方式各有优劣，es6普及后越来越不重要，那么多种写法有点『回字有四样写法』的意思，如果还想深入理解的去看红宝书即可，我们目前只实现一种最理想的继承方式。</p><span id="more"></span><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.parent = name</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.parent&#125;</span>: 你打篮球的样子像kunkun`</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name, parent</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 将父类的构造函数绑定在子类上</span></span><br><span class="line">    Parent.call(<span class="built_in">this</span>, parent)</span><br><span class="line">    <span class="built_in">this</span>.child = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> 1. 这一步不用Child.prototype =Parent.prototype的原因是怕共享内存，修改父类原型对象就会影响子类</span></span><br><span class="line"><span class="comment"> 2. 不用Child.prototype = new Parent()的原因是会调用2次父类的构造方法（另一次是call），会存在一份多余的父类实例属性</span></span><br><span class="line"><span class="comment">3. Object.create是创建了父类原型的副本，与父类原型完全隔离</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);</span><br><span class="line">Child.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.parent&#125;</span>好，我是练习时长两年半的<span class="subst">$&#123;<span class="built_in">this</span>.child&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意记得把子类的构造指向子类本身</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Parent(<span class="string">&#x27;father&#x27;</span>);</span><br><span class="line">parent.say() <span class="comment">// father: 你打篮球的样子像kunkun</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child(<span class="string">&#x27;cxk&#x27;</span>, <span class="string">&#x27;father&#x27;</span>);</span><br><span class="line">child.say() <span class="comment">// father好，我是练习时长两年半的cxk</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;类的继承在几年前是重点内容，有n种继承方式各有优劣，es6普及后越来越不重要，那么多种写法有点『回字有四样写法』的意思，如果还想深入理解的去看红宝书即可，我们目前只实现一种最理想的继承方式。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="面试" scheme="http://havebear.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript笔试" scheme="http://havebear.com/tags/JavaScript%E7%AC%94%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>首屏优化</title>
+    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E7%99%BD%E5%B1%8F%E4%BC%98%E5%8C%96/"/>
+    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E7%99%BD%E5%B1%8F%E4%BC%98%E5%8C%96/</id>
+    <published>2021-11-27T07:26:40.010Z</published>
+    <updated>2021-11-27T07:26:40.010Z</updated>
+    
+    
+    
+    
+    
+    <category term="前端工程化" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈前端工程化</title>
+    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</id>
+    <published>2021-11-27T07:26:40.009Z</published>
+    <updated>2021-11-27T07:26:40.009Z</updated>
+    
+    
+    
+    
+    
+    <category term="前端工程化" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈BEM</title>
+    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88BEM/"/>
+    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88BEM/</id>
+    <published>2021-11-27T07:26:40.008Z</published>
+    <updated>2021-11-27T07:26:40.009Z</updated>
+    
+    
+    
+    
+    
+    <category term="前端工程化" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Array中会改变自身的方法</title>
+    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+    <published>2021-11-27T07:26:40.007Z</published>
+    <updated>2021-11-27T07:26:40.007Z</updated>
+    
+    <content type="html"><![CDATA[<p>es6之前: push、pop、shift、unshift、reverse、sort、splice<br>es6: fill、copyWithin</p><span id="more"></span><h2 id="Array-prototype-push"><a href="#Array-prototype-push" class="headerlink" title="Array.prototype.push()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push">Array.prototype.push()</a></h2><p><strong>push() 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。</strong></p><ul><li><p>push 方法具有通用性。该方法和 call() 或 apply() 一起使用时，可应用在类似数组的对象上。</p></li><li><p>push 方法根据 length 属性来决定从哪里开始插入给定的值。如果 length 不能被转成一个数值，则插入的元素索引为 0，包括 length 不存在时。当 length 不存在时，将会创建它。</p></li><li><p>唯一的原生类数组（array-like）对象是 Strings，尽管如此，它们并不适用该方法，因为字符串是不可改变的。</p></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</span><br><span class="line"><span class="keyword">const</span> arr2 = [ <span class="number">5</span>, <span class="number">6</span> ]</span><br><span class="line"></span><br><span class="line">arr.push(<span class="number">4</span>) <span class="comment">// 4</span></span><br><span class="line"><span class="comment">// arr = [ 1, 2, 3, 4 ]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr, arr2) <span class="comment">// 6</span></span><br><span class="line"><span class="comment">// arr = [ 1, 2, 3, 4, 5, 6 ]</span></span><br></pre></td></tr></table></figure><h2 id="Array-prototype-pop"><a href="#Array-prototype-pop" class="headerlink" title="Array.prototype.pop()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push">Array.prototype.pop()</a></h2><p><strong>pop() 方法从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。</strong></p><ul><li><p>pop 方法有意具有通用性。该方法和 call() 或 apply() 一起使用时，可应用在类似数组的对象上。pop方法根据 length属性来确定最后一个元素的位置。如果不包含length属性或length属性不能被转成一个数值，会将length置为0，并返回undefined。</p></li><li><p>如果你在一个空数组上调用 pop()，它返回  undefined。</p></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</span><br><span class="line"></span><br><span class="line">arr.pop() <span class="comment">// 3</span></span><br><span class="line"><span class="comment">// arr = [ 1, 2 ]</span></span><br></pre></td></tr></table></figure><h2 id="Array-prototype-shift"><a href="#Array-prototype-shift" class="headerlink" title="Array.prototype.shift()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push">Array.prototype.shift()</a></h2><p><strong>shift() 方法从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。</strong></p><ul><li><p>shift 方法移除索引为 0 的元素(即第一个元素)，并返回被移除的元素，其他元素的索引值随之减 1。如果 length 属性的值为 0 (长度为 0)，则返回 undefined。</p></li><li><p>shift 方法并不局限于数组：这个方法能够通过 call 或 apply 方法作用于类似数组的对象上。但是对于没有 length 属性（从0开始的一系列连续的数字属性的最后一个）的对象，调用该方法可能没有任何意义。</p></li><li><p>Array.prototype.pop() 有着和 shift相似的行为, 但是是作用在数组的最后一个元素上的。</p></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</span><br><span class="line"></span><br><span class="line">arr.shift() <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// arr = [ 2, 3 ]</span></span><br></pre></td></tr></table></figure><h2 id="Array-prototype-unshift"><a href="#Array-prototype-unshift" class="headerlink" title="Array.prototype.unshift()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push">Array.prototype.unshift()</a></h2><p><strong>unshift() 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度(该方法修改原有数组)。</strong></p><ul><li><p>unshift 方法会在调用它的类数组对象的开始位置插入给定的参数。</p></li><li><p>unshift 特意被设计成具有通用性；这个方法能够通过 call 或 apply 方法作用于类数组对象上。不过对于没有 length 属性（代表从0开始的一系列连续的数字属性的最后一个）的对象，调用该方法可能没有任何意义。</p></li><li><p>注意, 如果传入多个参数，它们会被以块的形式插入到对象的开始位置，它们的顺序和被作为参数传入时的顺序一致。 于是，传入多个参数调用一次 unshift ，和传入一个参数调用多次 unshift (例如，循环调用)，它们将得到不同的结果。</p></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</span><br><span class="line"></span><br><span class="line">arr.unshift(<span class="number">4</span>, <span class="number">5</span>) <span class="comment">// 5</span></span><br><span class="line"><span class="comment">// arr = [ 1, 2, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure><h2 id="Array-prototype-reverse"><a href="#Array-prototype-reverse" class="headerlink" title="Array.prototype.reverse()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push">Array.prototype.reverse()</a></h2><p><strong>reverse() 方法将数组中元素的位置颠倒，并返回该数组。数组的第一个元素会变成最后一个，数组的最后一个元素变成第一个。该方法会改变原数组。</strong></p><ul><li><p>reverse 方法颠倒数组中元素的位置，改变了数组，并返回该数组的引用。</p></li><li><p>reverse方法是特意类化的；此方法可被 called 或 applied于类似数组对象。对象如果不包含反映一系列连续的、基于零的数值属性中的最后一个长度的属性，则该对象可能不会以任何有意义的方式运行。</p></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ]</span><br><span class="line"></span><br><span class="line">arr.reverse() <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br><span class="line"><span class="comment">// arr = [ 1, 2, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure><h2 id="Array-prototype-sort"><a href="#Array-prototype-sort" class="headerlink" title="Array.prototype.sort()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push">Array.prototype.sort()</a></h2><p><strong>sort() 方法用原地算法对数组的元素进行排序，并返回数组。默认排序顺序是在将元素转换为字符串，然后比较它们的UTF-16代码单元值序列时构建的</strong></p><ul><li><p>如果没有指明 compareFunction ，那么元素会按照转换为的字符串的诸个字符的Unicode位点进行排序。例如 “Banana” 会被排列到 “cherry” 之前。当数字按由小到大排序时，9 出现在 80 之前，但因为（没有指明 compareFunction），比较的数字会先被转换为字符串，所以在Unicode顺序上 “80” 要比 “9” 要靠前。</p></li><li><p>如果指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：</p><ul><li><p>如果 compareFunction(a, b) 小于 0 ，那么 a 会被排列到 b 之前；</p></li><li><p>如果 compareFunction(a, b) 等于 0 ， a 和 b 的相对位置不变。备注： ECMAScript 标准并不保证这一行为，而且也不是所有浏览器都会遵守（例如 Mozilla 在 2003 年之前的版本）；</p></li><li><p>如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。compareFunction(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。</p></li></ul></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [ <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span> ]</span><br><span class="line"></span><br><span class="line">arr.sort() <span class="comment">// [ 1, 2, 3 ]</span></span><br><span class="line"><span class="comment">// arr = [ 1, 2, 3 ]</span></span><br><span class="line"></span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b)) <span class="comment">// [ 1, 2, 3 ]</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b - a)) <span class="comment">// [ 3, 2, 1 ]</span></span><br></pre></td></tr></table></figure><h2 id="Array-prototype-splice"><a href="#Array-prototype-splice" class="headerlink" title="Array.prototype.splice()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push">Array.prototype.splice()</a></h2><p><strong>splice() 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。</strong></p><p><strong>语法</strong></p><p>array.splice(start[, deleteCount[, item1[, item2[, …]]]])</p><p><strong>start</strong></p><p>指定修改的开始位置（从0计数）。如果超出了数组的长度，则从数组末尾开始添加内容；如果是负值，则表示从数组末位开始的第几位（从-1计数，这意味着-n是倒数第n个元素并且等价于array.length-n）；如果负数的绝对值大于数组的长度，则表示开始位置为第0位。</p><p><strong>deleteCount - 可选参数</strong></p><ul><li><p>整数，表示要移除的数组元素的个数。</p></li><li><p>如果 deleteCount 大于 start 之后的元素的总数，则从 start 后面的元素都将被删除（含第 start 位）。</p></li><li><p>如果 deleteCount 被省略了，或者它的值大于等于array.length - start(也就是说，如果它大于或者等于start之后的所有元素的数量)，那么start之后数组的所有元素都会被删除。</p></li><li><p>如果 deleteCount 是 0 或者负数，则不移除元素。这种情况下，至少应添加一个新元素。</p></li></ul><p><strong>item1, item2, … - 可选参数</strong></p><ul><li>要添加进数组的元素,从start 位置开始。如果不指定，则 splice() 将只删除数组元素。</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [ <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span> ]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入2和3</span></span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>) <span class="comment">// []</span></span><br><span class="line"> <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除2</span></span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">1</span>) <span class="comment">// [ 2 ]</span></span><br><span class="line"> <span class="comment">// [ 1, 3, 4, 5 ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除最后一个</span></span><br><span class="line">arr.splice(-<span class="number">1</span>, <span class="number">1</span>) <span class="comment">// [5]</span></span><br><span class="line"><span class="comment">// [ 1, 3, 4 ]</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;es6之前: push、pop、shift、unshift、reverse、sort、splice&lt;br&gt;es6: fill、copyWithin&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>toFixed的bug</title>
+    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/toFixed%E7%9A%84bug/"/>
+    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/toFixed%E7%9A%84bug/</id>
+    <published>2021-11-27T07:26:40.007Z</published>
+    <updated>2021-11-27T07:26:40.007Z</updated>
+    
+    
+    
+    
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Array中不会改变自身的方法</title>
+    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+    <published>2021-11-27T07:26:40.005Z</published>
+    <updated>2021-11-27T07:26:40.005Z</updated>
+    
+    <content type="html"><![CDATA[<p>concat、entries、every、filter、find、findIndex、flat、flatMap、forEach、form、includes、indexOf、isArray、join、keys、lastIndexOf、map、of、reduce、reduceRight、slice、some、toLocaleString、toSource、toString、values</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;concat、entries、every、filter、find、findIndex、flat、flatMap、forEach、form、includes、indexOf、isArray、join、keys、lastIndexOf、map、of、reduce、reduceR</summary>
+      
+    
+    
+    
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈Vue和React的对比和个人的思考</title>
+    <link href="http://havebear.com/2021/11/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88Vue%E5%92%8CReact%E7%9A%84%E5%AF%B9%E6%AF%94%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%80%9D%E8%80%83/"/>
+    <id>http://havebear.com/2021/11/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88Vue%E5%92%8CReact%E7%9A%84%E5%AF%B9%E6%AF%94%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%80%9D%E8%80%83/</id>
+    <published>2021-11-18T01:54:39.064Z</published>
+    <updated>2021-11-18T02:13:09.856Z</updated>
+    
+    <content type="html"><![CDATA[<p>“Vue和React都是目前最流行、生态最好的前端框架之一。框架本身没有优劣之分，只有适用之别，选择符合自身业务场景、团队基础的技术才是我们最主要的目的。”</p><span id="more"></span><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p>vue的整体思想仍然是拥抱经典的html(结构)+css(表现)+js(行为)的形式，vue鼓励开发者使用template模板，并提供指令供开发者使用(v-if、v-show、v-for等等)，因此在开发vue应用的时候会有一种在写经典web应用（结构、表现、行为分离）的感觉。另一方面，在针对组件数据上，vue2.0通过Object.defineProperty对数据做到了更细致的监听，精准实现组件级别的更新。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;“Vue和React都是目前最流行、生态最好的前端框架之一。框架本身没有优劣之分，只有适用之别，选择符合自身业务场景、团队基础的技术才是我们最主要的目的。”&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="前端工程化" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mousedown、mouseup、click事件的关系及执行顺序</title>
+    <link href="http://havebear.com/2021/09/09/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/mousedown%E3%80%81mouseup%E3%80%81click%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
+    <id>http://havebear.com/2021/09/09/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/mousedown%E3%80%81mouseup%E3%80%81click%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</id>
+    <published>2021-09-09T03:18:28.078Z</published>
+    <updated>2021-09-09T03:18:43.277Z</updated>
+    
+    
+    
+    
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>vue选项中name属性的作用</title>
@@ -218,156 +401,6 @@
     
     
     <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>状态模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-07-23T09:22:57.860Z</published>
-    <updated>2021-07-23T09:22:57.860Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>策略模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-07-23T09:22:57.860Z</published>
-    <updated>2021-07-23T09:22:57.860Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>单例模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-07-23T09:22:57.859Z</published>
-    <updated>2021-07-23T09:22:57.859Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>命令模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-07-23T09:22:57.859Z</published>
-    <updated>2021-07-23T09:22:57.859Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模板方法模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-07-23T09:22:57.859Z</published>
-    <updated>2021-07-23T09:22:57.860Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>中介者模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-07-23T09:22:57.858Z</published>
-    <updated>2021-07-23T09:22:57.858Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>享元模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-07-23T09:22:57.858Z</published>
-    <updated>2021-07-23T09:22:57.858Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>代理模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-07-23T09:22:57.858Z</published>
-    <updated>2021-07-23T09:22:57.858Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>接口和面向接口编程</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E6%8E%A5%E5%8F%A3%E5%92%8C%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E6%8E%A5%E5%8F%A3%E5%92%8C%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B/</id>
-    <published>2021-07-23T09:22:57.857Z</published>
-    <updated>2021-07-23T09:22:57.857Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计原则和编程技巧" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最少知识原则原则</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E6%9C%80%E5%B0%91%E7%9F%A5%E8%AF%86%E5%8E%9F%E5%88%99/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E6%9C%80%E5%B0%91%E7%9F%A5%E8%AF%86%E5%8E%9F%E5%88%99/</id>
-    <published>2021-07-23T09:22:57.857Z</published>
-    <updated>2021-07-23T09:22:57.857Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计原则和编程技巧" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   

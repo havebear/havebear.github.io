@@ -2,6 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://havebear.com/2021/12/02/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E6%B5%85%E8%B0%88MVVM/</loc>
+    
+    <lastmod>2021-12-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/</loc>
+    
+    <lastmod>2021-11-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E7%99%BD%E5%B1%8F%E4%BC%98%E5%8C%96/</loc>
+    
+    <lastmod>2021-11-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</loc>
+    
+    <lastmod>2021-11-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88BEM/</loc>
+    
+    <lastmod>2021-11-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
+    
+    <lastmod>2021-11-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/toFixed%E7%9A%84bug/</loc>
+    
+    <lastmod>2021-11-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
+    
+    <lastmod>2021-11-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/11/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88Vue%E5%92%8CReact%E7%9A%84%E5%AF%B9%E6%AF%94%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%80%9D%E8%80%83/</loc>
+    
+    <lastmod>2021-11-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/09/09/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/mousedown%E3%80%81mouseup%E3%80%81click%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</loc>
+    
+    <lastmod>2021-09-09</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://havebear.com/2021/09/03/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/vue/vue%E9%80%89%E9%A1%B9%E4%B8%ADname%E5%B1%9E%E6%80%A7%E7%9A%84%E4%BD%9C%E7%94%A8/</loc>
     
     <lastmod>2021-09-03</lastmod>
@@ -254,20 +324,6 @@
   </url>
   
   <url>
-    <loc>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
-    
-    <lastmod>2021-04-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
-    
-    <lastmod>2021-04-30</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88JavaScript%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</loc>
     
     <lastmod>2021-04-30</lastmod>
@@ -508,7 +564,7 @@
 
   <url>
     <loc>http://havebear.com/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -516,98 +572,112 @@
   
   <url>
     <loc>http://havebear.com/tags/%E9%9D%A2%E8%AF%95/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/%E8%BD%AC%E8%BD%BD/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/hexo/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/JavaScript/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/vue/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/JavaScript%E7%AC%94%E8%AF%95/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/webpack/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/Vue/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-12-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/tags/%E6%9E%B6%E6%9E%84/</loc>
+    <lastmod>2021-12-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/tags/%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
