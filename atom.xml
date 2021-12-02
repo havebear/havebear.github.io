@@ -131,8 +131,17 @@
     <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/toFixed%E7%9A%84bug/"/>
     <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/toFixed%E7%9A%84bug/</id>
     <published>2021-11-27T07:26:40.007Z</published>
-    <updated>2021-11-27T07:26:40.007Z</updated>
+    <updated>2021-12-02T05:40:13.304Z</updated>
     
+    <content type="html"><![CDATA[<p>javascript中toFixed使用的是银行家舍入规则。</p><p>银行家舍入:所谓银行家舍入法，其实质是一种四舍六入五取偶（又称四舍六入五留双）法。</p><p>简单来说就是：四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为偶应舍去，五前为奇要进一。但是不论引入toFixed解决浮点数计算精度缺失的问题也好，它有没有使用银行家舍入法也罢，都是为了解决精度的问题，但是又离不开二进制浮点数的环境，但至少他帮助我们找到了问题所在，从而让我们有解决方法。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;javascript中toFixed使用的是银行家舍入规则。&lt;/p&gt;
+&lt;p&gt;银行家舍入:所谓银行家舍入法，其实质是一种四舍六入五取偶（又称四舍六入五留双）法。&lt;/p&gt;
+&lt;p&gt;简单来说就是：四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为偶应舍去，五前为奇要进一。但是不</summary>
+      
     
     
     
