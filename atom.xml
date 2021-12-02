@@ -31,11 +31,11 @@
     
     
     
-    <category term="转载" scheme="http://havebear.com/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
     <category term="架构" scheme="http://havebear.com/tags/%E6%9E%B6%E6%9E%84/"/>
     
     <category term="框架" scheme="http://havebear.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+    <category term="转载" scheme="http://havebear.com/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
@@ -360,9 +360,9 @@
   </entry>
   
   <entry>
-    <title>组合模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</id>
+    <title>职责链模式</title>
+    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/</id>
     <published>2021-07-23T09:22:57.861Z</published>
     <updated>2021-07-23T09:22:57.861Z</updated>
     
@@ -375,9 +375,9 @@
   </entry>
   
   <entry>
-    <title>职责链模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/</id>
+    <title>组合模式</title>
+    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</id>
     <published>2021-07-23T09:22:57.861Z</published>
     <updated>2021-07-23T09:22:57.861Z</updated>
     
