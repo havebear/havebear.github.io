@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2021-12-29T03:35:40.090Z</updated>
+  <updated>2022-07-21T07:25:16.909Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>拷贝对象部分属性</title>
+    <link href="http://havebear.com/2022/07/21/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%A4%87%E5%BF%98%E5%BD%95/%E6%8B%B7%E8%B4%9D%E5%AF%B9%E8%B1%A1%E9%83%A8%E5%88%86%E5%B1%9E%E6%80%A7/"/>
+    <id>http://havebear.com/2022/07/21/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%A4%87%E5%BF%98%E5%BD%95/%E6%8B%B7%E8%B4%9D%E5%AF%B9%E8%B1%A1%E9%83%A8%E5%88%86%E5%B1%9E%E6%80%A7/</id>
+    <published>2022-07-21T07:24:30.057Z</published>
+    <updated>2022-07-21T07:25:16.909Z</updated>
+    
+    <content type="html"><![CDATA[<p>lodash pick function</p><p>const newObj = _.pick(obj, [keyA, keyB])</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;lodash pick function&lt;/p&gt;
+&lt;p&gt;const newObj = _.pick(obj, [keyA, keyB])&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="备忘录" scheme="http://havebear.com/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>for-in 和 for-of 的区别</title>
+    <link href="http://havebear.com/2021/12/31/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/for-in%20%E5%92%8C%20for-of%20%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://havebear.com/2021/12/31/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/for-in%20%E5%92%8C%20for-of%20%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2021-12-31T07:09:56.850Z</published>
+    <updated>2021-12-31T07:13:24.955Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h2><ul><li>index索引为字符串型数字，不能直接进行几何运算</li><li>遍历顺序有可能不是按照实际数组的内部顺序</li><li>使用for in会遍历数组所有的可枚举属性，包括原型。例如上栗的原型方法method和name属性</li></ul><p>所以 for-in 更适合遍历对象，不要使用for in遍历数组。</p><p>for-in 遍历的是数组的索引（即键名），而for of遍历的是数组元素值。</p><p>for-of 遍历的只是数组内的元素，而不包括数组的原型属性method和索引name</p><p>for in 可以遍历到myObject的原型方法method,如果不想遍历原型方法和属性的话，可以在循环内部判断一下,hasOwnPropery方法可以判断某属性是否是该对象的实例属性</p><p>同样可以通过ES5的Object.keys(myObject)获取对象的实例属性组成的数组，不包括原型方法和属性</p><p>for..of适用遍历数/数组对象/字符串/map/set等拥有迭代器对象的集合.但是不能遍历对象,因为没有迭代器对象.与forEach()不同的是，它可以正确响应break、continue和return语句</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;for-in&quot;&gt;&lt;a href=&quot;#for-in&quot; class=&quot;headerlink&quot; title=&quot;for-in&quot;&gt;&lt;/a&gt;for-in&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;index索引为字符串型数字，不能直接进行几何运算&lt;/li&gt;
+&lt;li&gt;遍历顺序有可能不是按照实际</summary>
+      
+    
+    
+    
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>通过WeakMap实现私有类变量</title>
@@ -384,36 +434,6 @@
     <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</id>
     <published>2021-07-23T09:22:57.862Z</published>
     <updated>2021-07-23T09:22:57.862Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>职责链模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-07-23T09:22:57.861Z</published>
-    <updated>2021-07-23T09:22:57.861Z</updated>
-    
-    
-    
-    
-    
-    <category term="设计模式" scheme="http://havebear.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>组合模式</title>
-    <link href="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-07-23T09:22:57.861Z</published>
-    <updated>2021-07-23T09:22:57.861Z</updated>
     
     
     
