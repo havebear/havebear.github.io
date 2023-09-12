@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://havebear.com/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/0.1+0.2!==0.3%EF%BC%9F/</loc>
+    
+    <lastmod>2023-09-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2022/04/12/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/scss/SCSS%E7%9A%84%E5%BE%AA%E7%8E%AF/</loc>
+    
+    <lastmod>2023-09-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88Object.freeze()/</loc>
+    
+    <lastmod>2023-09-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://havebear.com/2023/09/12/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%A4%87%E5%BF%98%E5%BD%95/%E6%89%8B%E7%BB%98%E9%A3%8E%E6%A0%BC%E5%9B%BE%E8%A1%A8%20chart.xkcd/</loc>
     
     <lastmod>2023-09-12</lastmod>
@@ -327,13 +348,6 @@
     <loc>http://havebear.com/2021/05/10/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/package.json%E8%AF%A6%E8%A7%A3/</loc>
     
     <lastmod>2021-05-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88Object.freeze()/</loc>
-    
-    <lastmod>2021-05-07</lastmod>
     
   </url>
   
@@ -740,6 +754,13 @@
   
   <url>
     <loc>http://havebear.com/tags/Vue3/</loc>
+    <lastmod>2023-09-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://havebear.com/tags/SCSS/</loc>
     <lastmod>2023-09-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
