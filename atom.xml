@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2024-09-11T02:32:43.566Z</updated>
+  <updated>2024-09-11T02:35:46.569Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://havebear.com/2024/09/11/%E7%AC%94%E8%AE%B0/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/"/>
     <id>http://havebear.com/2024/09/11/%E7%AC%94%E8%AE%B0/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/</id>
     <published>2024-09-11T02:31:40.667Z</published>
-    <updated>2024-09-11T02:32:43.566Z</updated>
+    <updated>2024-09-11T02:35:46.569Z</updated>
     
-    <content type="html"><![CDATA[<p>用人月+人天这种作为衡量一项工作的规模是非常危险和具有欺骗性的，它暗示着人员的数量和时间是可以相互替换的，任务是没有次序上的限制的，且不需要开发人员沟通交流的。随着人手的增多，沟通成本也会越来越多，甚至会比之前更加缓慢。</p>]]></content>
+    <content type="html"><![CDATA[<p>用人月+人天这种作为衡量一项工作的规模是非常危险和具有欺骗性的，它暗示着人员的数量和时间是可以相互替换的，任务是没有次序上的限制的，且不需要开发人员沟通交流的。随着人手的增多，沟通成本也会越来越多，甚至会比之前更加缓慢。</p><p>经验显示，一个需求的开发的时间安排是这样的，1/3计划，1/6做编码，1/4单元+组件+系统测试，1/4端到端系统测试测试。</p>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;用人月+人天这种作为衡量一项工作的规模是非常危险和具有欺骗性的，它暗示着人员的数量和时间是可以相互替换的，任务是没有次序上的限制的，且不需要开发人员沟通交流的。随着人手的增多，沟通成本也会越来越多，甚至会比之前更加缓慢。&lt;/p&gt;
-</summary>
+&lt;p&gt;经验显示，一个需求的开发的时间安排是这</summary>
       
     
     
