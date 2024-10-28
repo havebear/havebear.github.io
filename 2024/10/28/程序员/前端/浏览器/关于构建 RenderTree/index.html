@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vue-cli 3.x 中配置全局less或者sass | Have Bear</title>
+  <title>关于构建 RenderTree | Have Bear</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于如何在vue-cli3+中配置全局的less&#x2F;sass">
+  <meta name="description" content="在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系： 一、解析 HTML 文档  当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。 DOM 树是一个由节点组成的树状结构，每个节点代表 HTML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue-cli 3.x 中配置全局less或者sass">
-<meta property="og:url" content="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/vue/vue-cli3+%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E7%9A%84less%E6%88%96%E8%80%85sass/index.html">
+<meta property="og:title" content="关于构建 RenderTree">
+<meta property="og:url" content="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/index.html">
 <meta property="og:site_name" content="Have Bear">
-<meta property="og:description" content="关于如何在vue-cli3+中配置全局的less&#x2F;sass">
+<meta property="og:description" content="在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系： 一、解析 HTML 文档  当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。 DOM 树是一个由节点组成的树状结构，每个节点代表 HTML">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-23T09:22:57.877Z">
-<meta property="article:modified_time" content="2021-07-23T09:22:57.877Z">
+<meta property="article:published_time" content="2024-10-28T09:39:13.107Z">
+<meta property="article:modified_time" content="2024-10-28T09:40:03.882Z">
 <meta property="article:author" content="havebear">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Have Bear" type="application/atom+xml">
@@ -67,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-程序员/前端/vue/vue-cli3+中配置全局的less或者sass" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-程序员/前端/浏览器/关于构建 RenderTree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/vue/vue-cli3+%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E7%9A%84less%E6%88%96%E8%80%85sass/" class="article-date">
-  <time datetime="2021-07-23T09:22:57.877Z" itemprop="datePublished">2021-07-23</time>
+    <a href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/" class="article-date">
+  <time datetime="2024-10-28T09:39:13.107Z" itemprop="datePublished">2024-10-28</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      vue-cli 3.x 中配置全局less或者sass
+      关于构建 RenderTree
     </h1>
   
 
@@ -89,20 +89,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>执行命令<br>vue add style-resources-loader<br>自动在根目录增加vue.config.js文件，内容如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  pluginOptions: &#123;</span><br><span class="line">    <span class="string">&#x27;style-resources-loader&#x27;</span>: &#123;</span><br><span class="line">      preProcessor: <span class="string">&#x27;less&#x27;</span>,</span><br><span class="line">      patterns: [],</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>变动：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  pluginOptions: &#123;</span><br><span class="line">    <span class="string">&#x27;style-resources-loader&#x27;</span>: &#123;</span><br><span class="line">      preProcessor: <span class="string">&#x27;less&#x27;</span>,</span><br><span class="line">      patterns: [</span><br><span class="line">          path.resolve(__dirname, <span class="string">&#x27;./src/assets/styles/variable.less&#x27;</span>)</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>tig：<br>sass的话，将less改为sass即可，文件后缀名为.scss<br>报未安装相关包的错，按照提示，安装即可，如less，执行npm install less less-loader –dev</p>
+        <p>在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系：</p>
+<p><strong>一、解析 HTML 文档</strong></p>
+<ol>
+<li>当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。</li>
+<li>DOM 树是一个由节点组成的树状结构，每个节点代表 HTML 文档中的一个元素。例如，<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>、<code>&lt;div&gt;</code>等都是 DOM 树中的节点。</li>
+<li>解析 HTML 文档是一个逐步的过程，浏览器会按照 HTML 文本的顺序依次处理每个标签，构建 DOM 树的节点，并确定它们之间的父子关系。</li>
+</ol>
+<p><strong>二、解析 CSS 样式表</strong></p>
+<ol>
+<li>同时，浏览器也会解析网页中引用的 CSS 样式表。CSS 样式表定义了网页中元素的外观样式，如颜色、字体、布局等。</li>
+<li>解析 CSS 样式表的过程是将 CSS 文本转换为一组规则的过程。这些规则描述了如何将样式应用于特定的 HTML 元素。</li>
+<li>浏览器会根据 CSS 选择器和元素的属性来确定哪些规则适用于哪些元素。例如，选择器<code>p</code>将适用于所有<code>&lt;p&gt;</code>标签的元素。</li>
+</ol>
+<p><strong>三、构建渲染树</strong></p>
+<ol>
+<li>在解析 HTML 文档和 CSS 样式表之后，浏览器开始构建渲染树。渲染树是由可视元素及其对应的样式信息组成的树状结构。</li>
+<li>构建渲染树的过程是将 DOM 树中的节点与 CSS 样式表中的规则进行匹配，确定每个节点的最终样式。只有可见的元素才会被包含在渲染树中，例如<code>&lt;head&gt;</code>标签中的内容通常不会在渲染树中。</li>
+<li>渲染树中的每个节点都包含了元素的样式信息，如颜色、字体大小、位置等。这些信息将用于后续的布局和绘制过程。</li>
+</ol>
+<p><strong>四、关系总结</strong></p>
+<ol>
+<li>解析 HTML 文档是构建渲染树的基础，它提供了网页的结构信息。</li>
+<li>解析 CSS 样式表为构建渲染树提供了样式信息，确定了每个元素的外观。</li>
+<li>构建渲染树是将 HTML 结构和 CSS 样式结合起来的过程，它确定了网页中每个可见元素的最终外观和位置，为后续的布局和绘制过程提供了输入。</li>
+</ol>
+<p>总之，解析 HTML 文档、解析 CSS 样式表和构建渲染树是浏览器渲染网页的关键步骤，它们相互协作以将网页内容以可视化的形式呈现给用户。</p>
+<p><strong>直行顺序</strong><br>在浏览器中，解析 HTML 构建 DOM 和解析 CSS 样式表并不是严格意义上的同时进行，但也不是完全顺序进行的。</p>
+<p>一般来说，浏览器在解析 HTML 的过程中，一旦遇到 <code>&lt;link&gt;</code> 标签引用外部 CSS 文件或者 <code>&lt;style&gt;</code> 标签内的 CSS 样式定义时，会发起对 CSS 资源的请求并开始解析 CSS 样式表，但并不会等待 CSS 完全解析完成后才继续解析 HTML。</p>
+<p>浏览器会一边继续解析 HTML 构建 DOM，一边逐步接收和解析 CSS 样式表。当 DOM 构建完成并且 CSS 样式表也解析完成后，浏览器会根据 DOM 和 CSS 信息构建渲染树。</p>
+<p>所以，可以认为这两个过程是部分并行进行的，但最终的渲染树构建需要等待两者都完成一定程度的处理。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://havebear.com/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/vue/vue-cli3+%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E7%9A%84less%E6%88%96%E8%80%85sass/" data-id="ckwohqmgl002ooww405hx9o4c" class="article-share-link">Share</a>
+      <a data-url="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/" data-id="cm2stvopf0000a8w472dr19n2" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
 
     </footer>
   </div>
@@ -110,19 +134,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/08/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E5%B7%A5%E7%A8%8B%E5%8C%96/Webpack%E4%B8%ADLoader%E5%92%8CPlugin%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Webpack 中 Loader 和 Plugin 的区别
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/07/23/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E9%98%B2%E6%8A%96%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">实现防抖函数</div>
+      <div class="article-nav-title">前端代码优化</div>
     </a>
   
 </nav>

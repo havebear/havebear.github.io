@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2024-10-28T06:52:03.354Z</updated>
+  <updated>2024-10-28T09:40:03.882Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于构建 RenderTree</title>
+    <link href="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/"/>
+    <id>http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/</id>
+    <published>2024-10-28T09:39:13.107Z</published>
+    <updated>2024-10-28T09:40:03.882Z</updated>
+    
+    <content type="html"><![CDATA[<p>在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系：</p><p><strong>一、解析 HTML 文档</strong></p><ol><li>当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。</li><li>DOM 树是一个由节点组成的树状结构，每个节点代表 HTML 文档中的一个元素。例如，<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>、<code>&lt;div&gt;</code>等都是 DOM 树中的节点。</li><li>解析 HTML 文档是一个逐步的过程，浏览器会按照 HTML 文本的顺序依次处理每个标签，构建 DOM 树的节点，并确定它们之间的父子关系。</li></ol><p><strong>二、解析 CSS 样式表</strong></p><ol><li>同时，浏览器也会解析网页中引用的 CSS 样式表。CSS 样式表定义了网页中元素的外观样式，如颜色、字体、布局等。</li><li>解析 CSS 样式表的过程是将 CSS 文本转换为一组规则的过程。这些规则描述了如何将样式应用于特定的 HTML 元素。</li><li>浏览器会根据 CSS 选择器和元素的属性来确定哪些规则适用于哪些元素。例如，选择器<code>p</code>将适用于所有<code>&lt;p&gt;</code>标签的元素。</li></ol><p><strong>三、构建渲染树</strong></p><ol><li>在解析 HTML 文档和 CSS 样式表之后，浏览器开始构建渲染树。渲染树是由可视元素及其对应的样式信息组成的树状结构。</li><li>构建渲染树的过程是将 DOM 树中的节点与 CSS 样式表中的规则进行匹配，确定每个节点的最终样式。只有可见的元素才会被包含在渲染树中，例如<code>&lt;head&gt;</code>标签中的内容通常不会在渲染树中。</li><li>渲染树中的每个节点都包含了元素的样式信息，如颜色、字体大小、位置等。这些信息将用于后续的布局和绘制过程。</li></ol><p><strong>四、关系总结</strong></p><ol><li>解析 HTML 文档是构建渲染树的基础，它提供了网页的结构信息。</li><li>解析 CSS 样式表为构建渲染树提供了样式信息，确定了每个元素的外观。</li><li>构建渲染树是将 HTML 结构和 CSS 样式结合起来的过程，它确定了网页中每个可见元素的最终外观和位置，为后续的布局和绘制过程提供了输入。</li></ol><p>总之，解析 HTML 文档、解析 CSS 样式表和构建渲染树是浏览器渲染网页的关键步骤，它们相互协作以将网页内容以可视化的形式呈现给用户。</p><p><strong>直行顺序</strong><br>在浏览器中，解析 HTML 构建 DOM 和解析 CSS 样式表并不是严格意义上的同时进行，但也不是完全顺序进行的。</p><p>一般来说，浏览器在解析 HTML 的过程中，一旦遇到 <code>&lt;link&gt;</code> 标签引用外部 CSS 文件或者 <code>&lt;style&gt;</code> 标签内的 CSS 样式定义时，会发起对 CSS 资源的请求并开始解析 CSS 样式表，但并不会等待 CSS 完全解析完成后才继续解析 HTML。</p><p>浏览器会一边继续解析 HTML 构建 DOM，一边逐步接收和解析 CSS 样式表。当 DOM 构建完成并且 CSS 样式表也解析完成后，浏览器会根据 DOM 和 CSS 信息构建渲染树。</p><p>所以，可以认为这两个过程是部分并行进行的，但最终的渲染树构建需要等待两者都完成一定程度的处理。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一、解析 HTML 文档&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;当浏览器接收到一个 HT</summary>
+      
+    
+    
+    
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>前端代码优化</title>
@@ -415,21 +440,6 @@
     <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E7%99%BD%E5%B1%8F%E4%BC%98%E5%8C%96/</id>
     <published>2021-11-27T07:26:40.010Z</published>
     <updated>2021-11-27T07:26:40.010Z</updated>
-    
-    
-    
-    
-    
-    <category term="前端工程化" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浅谈前端工程化</title>
-    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
-    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</id>
-    <published>2021-11-27T07:26:40.009Z</published>
-    <updated>2021-11-27T07:26:40.009Z</updated>
     
     
     

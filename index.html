@@ -66,6 +66,74 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-程序员/前端/浏览器/关于构建 RenderTree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/" class="article-date">
+  <time datetime="2024-10-28T09:39:13.107Z" itemprop="datePublished">2024-10-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/">关于构建 RenderTree</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系：</p>
+<p><strong>一、解析 HTML 文档</strong></p>
+<ol>
+<li>当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。</li>
+<li>DOM 树是一个由节点组成的树状结构，每个节点代表 HTML 文档中的一个元素。例如，<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>、<code>&lt;div&gt;</code>等都是 DOM 树中的节点。</li>
+<li>解析 HTML 文档是一个逐步的过程，浏览器会按照 HTML 文本的顺序依次处理每个标签，构建 DOM 树的节点，并确定它们之间的父子关系。</li>
+</ol>
+<p><strong>二、解析 CSS 样式表</strong></p>
+<ol>
+<li>同时，浏览器也会解析网页中引用的 CSS 样式表。CSS 样式表定义了网页中元素的外观样式，如颜色、字体、布局等。</li>
+<li>解析 CSS 样式表的过程是将 CSS 文本转换为一组规则的过程。这些规则描述了如何将样式应用于特定的 HTML 元素。</li>
+<li>浏览器会根据 CSS 选择器和元素的属性来确定哪些规则适用于哪些元素。例如，选择器<code>p</code>将适用于所有<code>&lt;p&gt;</code>标签的元素。</li>
+</ol>
+<p><strong>三、构建渲染树</strong></p>
+<ol>
+<li>在解析 HTML 文档和 CSS 样式表之后，浏览器开始构建渲染树。渲染树是由可视元素及其对应的样式信息组成的树状结构。</li>
+<li>构建渲染树的过程是将 DOM 树中的节点与 CSS 样式表中的规则进行匹配，确定每个节点的最终样式。只有可见的元素才会被包含在渲染树中，例如<code>&lt;head&gt;</code>标签中的内容通常不会在渲染树中。</li>
+<li>渲染树中的每个节点都包含了元素的样式信息，如颜色、字体大小、位置等。这些信息将用于后续的布局和绘制过程。</li>
+</ol>
+<p><strong>四、关系总结</strong></p>
+<ol>
+<li>解析 HTML 文档是构建渲染树的基础，它提供了网页的结构信息。</li>
+<li>解析 CSS 样式表为构建渲染树提供了样式信息，确定了每个元素的外观。</li>
+<li>构建渲染树是将 HTML 结构和 CSS 样式结合起来的过程，它确定了网页中每个可见元素的最终外观和位置，为后续的布局和绘制过程提供了输入。</li>
+</ol>
+<p>总之，解析 HTML 文档、解析 CSS 样式表和构建渲染树是浏览器渲染网页的关键步骤，它们相互协作以将网页内容以可视化的形式呈现给用户。</p>
+<p><strong>直行顺序</strong><br>在浏览器中，解析 HTML 构建 DOM 和解析 CSS 样式表并不是严格意义上的同时进行，但也不是完全顺序进行的。</p>
+<p>一般来说，浏览器在解析 HTML 的过程中，一旦遇到 <code>&lt;link&gt;</code> 标签引用外部 CSS 文件或者 <code>&lt;style&gt;</code> 标签内的 CSS 样式定义时，会发起对 CSS 资源的请求并开始解析 CSS 样式表，但并不会等待 CSS 完全解析完成后才继续解析 HTML。</p>
+<p>浏览器会一边继续解析 HTML 构建 DOM，一边逐步接收和解析 CSS 样式表。当 DOM 构建完成并且 CSS 样式表也解析完成后，浏览器会根据 DOM 和 CSS 信息构建渲染树。</p>
+<p>所以，可以认为这两个过程是部分并行进行的，但最终的渲染树构建需要等待两者都完成一定程度的处理。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/" data-id="cm2stvopf0000a8w472dr19n2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-程序员/前端/工程化/前端代码优化" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" class="article-date">
@@ -544,44 +612,6 @@
 
 
   
-    <article id="post-程序员/前端/工程化/Yarn安装全局包" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/07/22/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/Yarn%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E5%8C%85/" class="article-date">
-  <time datetime="2022-07-22T06:25:25.248Z" itemprop="datePublished">2022-07-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/22/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/Yarn%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E5%8C%85/">Yarn 安装全局包</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://havebear.com/2022/07/22/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/Yarn%E5%AE%89%E8%A3%85%E5%85%A8%E5%B1%80%E5%8C%85/" data-id="clmfzoj4r0003w0w4aqt54a75" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -630,6 +660,10 @@
       <ul>
         
           <li>
+            <a href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/">关于构建 RenderTree</a>
+          </li>
+        
+          <li>
             <a href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/">前端代码优化</a>
           </li>
         
@@ -643,10 +677,6 @@
         
           <li>
             <a href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/">变量是如何在内存中存储的，以及垃圾回收机制</a>
-          </li>
-        
-          <li>
-            <a href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/">JavaScript reduce 方法</a>
           </li>
         
       </ul>
