@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2024-09-11T02:35:46.569Z</updated>
+  <updated>2024-10-28T02:55:16.319Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -17,9 +17,95 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>requestAnimationFrame</title>
+    <link href="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/requestAnimationFrame/"/>
+    <id>http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/requestAnimationFrame/</id>
+    <published>2024-10-28T02:54:12.168Z</published>
+    <updated>2024-10-28T02:55:16.319Z</updated>
+    
+    <content type="html"><![CDATA[<p>为什么不会卡顿？</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;为什么不会卡顿？&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>变量是如何在内存中存储的，以及垃圾回收机制</title>
+    <link href="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/"/>
+    <id>http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/</id>
+    <published>2024-10-28T02:53:33.129Z</published>
+    <updated>2024-10-28T02:57:41.857Z</updated>
+    
+    <content type="html"><![CDATA[<p>存储的数据结构：栈和堆</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;存储的数据结构：栈和堆&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>toFixed的bug</title>
+    <link href="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/"/>
+    <id>http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/</id>
+    <published>2024-10-28T02:52:21.065Z</published>
+    <updated>2024-10-28T02:56:43.443Z</updated>
+    
+    <content type="html"><![CDATA[<p>设置初始值的情况，未设置初始值，会直接使用第一个元素作为当前值，第二个元素作为下一个值，对于复杂类型的数据，比如对象，会报错，提示从一个不存在的对象上取属性。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;设置初始值的情况，未设置初始值，会直接使用第一个元素作为当前值，第二个元素作为下一个值，对于复杂类型的数据，比如对象，会报错，提示从一个不存在的对象上取属性。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>人月神话阅读笔记</title>
-    <link href="http://havebear.com/2024/09/11/%E7%AC%94%E8%AE%B0/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/"/>
-    <id>http://havebear.com/2024/09/11/%E7%AC%94%E8%AE%B0/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/</id>
+    <link href="http://havebear.com/2024/09/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/react/%E7%AC%AC%E4%B8%80%E4%B8%AA%20React%20%E9%A1%B9%E7%9B%AE/%E7%AC%94%E8%AE%B01/"/>
+    <id>http://havebear.com/2024/09/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/react/%E7%AC%AC%E4%B8%80%E4%B8%AA%20React%20%E9%A1%B9%E7%9B%AE/%E7%AC%94%E8%AE%B01/</id>
+    <published>2024-09-11T02:45:58.148Z</published>
+    <updated>2024-09-11T02:46:11.985Z</updated>
+    
+    
+    
+    
+    
+    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="人月神话" scheme="http://havebear.com/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>人月神话阅读笔记</title>
+    <link href="http://havebear.com/2024/09/11/%E4%B9%A6%E7%B1%8D/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/"/>
+    <id>http://havebear.com/2024/09/11/%E4%B9%A6%E7%B1%8D/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/</id>
     <published>2024-09-11T02:31:40.667Z</published>
     <updated>2024-09-11T02:35:46.569Z</updated>
     
@@ -46,7 +132,7 @@
     <link href="http://havebear.com/2023/09/12/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0Event/"/>
     <id>http://havebear.com/2023/09/12/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0Event/</id>
     <published>2023-09-12T07:40:37.322Z</published>
-    <updated>2024-09-11T02:32:58.143Z</updated>
+    <updated>2024-09-11T02:43:51.835Z</updated>
     
     
     
@@ -56,7 +142,7 @@
     
     <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="JavaScript笔试" scheme="http://havebear.com/tags/JavaScript%E7%AC%94%E8%AF%95/"/>
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
     
   </entry>
   
@@ -254,7 +340,7 @@
     <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/"/>
     <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/</id>
     <published>2021-11-27T07:26:40.011Z</published>
-    <updated>2021-11-27T07:26:40.011Z</updated>
+    <updated>2024-09-11T02:43:51.835Z</updated>
     
     <content type="html"><![CDATA[<p>类的继承在几年前是重点内容，有n种继承方式各有优劣，es6普及后越来越不重要，那么多种写法有点『回字有四样写法』的意思，如果还想深入理解的去看红宝书即可，我们目前只实现一种最理想的继承方式。</p><span id="more"></span><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.parent = name</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.parent&#125;</span>: 你打篮球的样子像kunkun`</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name, parent</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 将父类的构造函数绑定在子类上</span></span><br><span class="line">    Parent.call(<span class="built_in">this</span>, parent)</span><br><span class="line">    <span class="built_in">this</span>.child = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> 1. 这一步不用Child.prototype =Parent.prototype的原因是怕共享内存，修改父类原型对象就会影响子类</span></span><br><span class="line"><span class="comment"> 2. 不用Child.prototype = new Parent()的原因是会调用2次父类的构造方法（另一次是call），会存在一份多余的父类实例属性</span></span><br><span class="line"><span class="comment">3. Object.create是创建了父类原型的副本，与父类原型完全隔离</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);</span><br><span class="line">Child.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.parent&#125;</span>好，我是练习时长两年半的<span class="subst">$&#123;<span class="built_in">this</span>.child&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意记得把子类的构造指向子类本身</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Parent(<span class="string">&#x27;father&#x27;</span>);</span><br><span class="line">parent.say() <span class="comment">// father: 你打篮球的样子像kunkun</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child(<span class="string">&#x27;cxk&#x27;</span>, <span class="string">&#x27;father&#x27;</span>);</span><br><span class="line">child.say() <span class="comment">// father好，我是练习时长两年半的cxk</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -268,7 +354,7 @@
     
     <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="JavaScript笔试" scheme="http://havebear.com/tags/JavaScript%E7%AC%94%E8%AF%95/"/>
+    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
     
   </entry>
   
@@ -331,88 +417,6 @@
     
     
     
-    
-    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>toFixed的bug</title>
-    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/toFixed%E7%9A%84bug/"/>
-    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/toFixed%E7%9A%84bug/</id>
-    <published>2021-11-27T07:26:40.007Z</published>
-    <updated>2021-12-02T05:40:13.304Z</updated>
-    
-    <content type="html"><![CDATA[<p>javascript中toFixed使用的是银行家舍入规则。</p><p>银行家舍入:所谓银行家舍入法，其实质是一种四舍六入五取偶（又称四舍六入五留双）法。</p><p>简单来说就是：四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为偶应舍去，五前为奇要进一。但是不论引入toFixed解决浮点数计算精度缺失的问题也好，它有没有使用银行家舍入法也罢，都是为了解决精度的问题，但是又离不开二进制浮点数的环境，但至少他帮助我们找到了问题所在，从而让我们有解决方法。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;javascript中toFixed使用的是银行家舍入规则。&lt;/p&gt;
-&lt;p&gt;银行家舍入:所谓银行家舍入法，其实质是一种四舍六入五取偶（又称四舍六入五留双）法。&lt;/p&gt;
-&lt;p&gt;简单来说就是：四舍六入五考虑，五后非零就进一，五后为零看奇偶，五前为偶应舍去，五前为奇要进一。但是不</summary>
-      
-    
-    
-    
-    
-    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Array中不会改变自身的方法</title>
-    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/</id>
-    <published>2021-11-27T07:26:40.005Z</published>
-    <updated>2021-11-27T07:26:40.005Z</updated>
-    
-    <content type="html"><![CDATA[<p>concat、entries、every、filter、find、findIndex、flat、flatMap、forEach、form、includes、indexOf、isArray、join、keys、lastIndexOf、map、of、reduce、reduceRight、slice、some、toLocaleString、toSource、toString、values</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;concat、entries、every、filter、find、findIndex、flat、flatMap、forEach、form、includes、indexOf、isArray、join、keys、lastIndexOf、map、of、reduce、reduceR</summary>
-      
-    
-    
-    
-    
-    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浅谈Vue和React的对比和个人的思考</title>
-    <link href="http://havebear.com/2021/11/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88Vue%E5%92%8CReact%E7%9A%84%E5%AF%B9%E6%AF%94%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%80%9D%E8%80%83/"/>
-    <id>http://havebear.com/2021/11/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E6%B5%85%E8%B0%88Vue%E5%92%8CReact%E7%9A%84%E5%AF%B9%E6%AF%94%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%80%9D%E8%80%83/</id>
-    <published>2021-11-18T01:54:39.064Z</published>
-    <updated>2021-11-18T02:13:09.856Z</updated>
-    
-    <content type="html"><![CDATA[<p>“Vue和React都是目前最流行、生态最好的前端框架之一。框架本身没有优劣之分，只有适用之别，选择符合自身业务场景、团队基础的技术才是我们最主要的目的。”</p><span id="more"></span><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p>vue的整体思想仍然是拥抱经典的html(结构)+css(表现)+js(行为)的形式，vue鼓励开发者使用template模板，并提供指令供开发者使用(v-if、v-show、v-for等等)，因此在开发vue应用的时候会有一种在写经典web应用（结构、表现、行为分离）的感觉。另一方面，在针对组件数据上，vue2.0通过Object.defineProperty对数据做到了更细致的监听，精准实现组件级别的更新。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;“Vue和React都是目前最流行、生态最好的前端框架之一。框架本身没有优劣之分，只有适用之别，选择符合自身业务场景、团队基础的技术才是我们最主要的目的。”&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="前端工程化" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mousedown、mouseup、click事件的关系及执行顺序</title>
-    <link href="http://havebear.com/2021/09/09/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/mousedown%E3%80%81mouseup%E3%80%81click%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
-    <id>http://havebear.com/2021/09/09/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/mousedown%E3%80%81mouseup%E3%80%81click%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</id>
-    <published>2021-09-09T03:18:28.078Z</published>
-    <updated>2021-09-09T03:18:43.277Z</updated>
-    
-    
-    
-    
-    
-    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
     
