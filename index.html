@@ -132,7 +132,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>为什么不会卡顿？</p>
+        <p>requestAnimationFrame是浏览器提供的一个用于在浏览器下一次重绘之前执行特定代码的方法。</p>
+<p><strong>用途和优势：</strong></p>
+<ul>
+<li><p>高效的动画实现：与传统的使用setInterval或setTimeout来实现动画不同，requestAnimationFrame会在浏览器下一次重绘之前调用指定的函数，这样可以确保动画与浏览器的刷新频率同步，从而更加流畅，减少不必要的计算资源浪费。</p>
+</li>
+<li><p>性能优化：浏览器可以对多个使用requestAnimationFrame的动画进行优化，例如在页面不可见时暂停动画，当页面重新可见时恢复动画，从而提高性能和节省电量。</p>
+</li>
+</ul>
+<p>为什么不会卡顿？</p>
 
       
     </div>
