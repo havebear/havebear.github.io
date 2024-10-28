@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2024-10-28T09:40:03.882Z</updated>
+  <updated>2024-10-28T09:45:05.979Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -17,22 +17,66 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>关于解析 HTML 过程中遇到 script 标签</title>
+    <link href="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E8%A7%A3%E6%9E%90%20HTML%20%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%20script%20%E6%A0%87%E7%AD%BE/"/>
+    <id>http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E8%A7%A3%E6%9E%90%20HTML%20%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%20script%20%E6%A0%87%E7%AD%BE/</id>
+    <published>2024-10-28T09:42:46.027Z</published>
+    <updated>2024-10-28T09:45:05.979Z</updated>
+    
+    <content type="html"><![CDATA[<p>当在解析 HTML 的过程中遇到 <code>&lt;script&gt;</code> 标签时，浏览器的处理方式如下：</p><p><strong>1. 阻塞解析</strong>：</p><ul><li>如果 <code>&lt;script&gt;</code> 标签没有设置 <code>async</code> 或 <code>defer</code> 属性，浏览器会暂停 HTML 的解析，直到该脚本下载、解析和执行完成。这是因为 JavaScript 代码可能会修改正在构建的 DOM，所以浏览器需要确保在执行脚本之前 DOM 的状态是稳定的。</li></ul><p><strong>2. 异步加载和执行（使用 <code>async</code> 属性）</strong>：</p><ul><li>如果 <code>&lt;script&gt;</code> 标签设置了 <code>async</code> 属性，浏览器会在后台异步下载该脚本。一旦脚本下载完成，浏览器会暂停 HTML 的解析，执行该脚本，然后继续解析 HTML。</li></ul><p><strong>3. 延迟执行（使用 <code>defer</code> 属性）</strong>：</p><ul><li>如果 <code>&lt;script&gt;</code> 标签设置了 <code>defer</code> 属性，浏览器会在后台异步下载该脚本，但不会暂停 HTML 的解析。脚本会在 HTML 文档解析完成后，按照它们在文档中出现的顺序执行。</li></ul><p>总的来说，<code>&lt;script&gt;</code> 标签的出现会影响 HTML 的解析过程，开发人员可以根据具体需求使用 <code>async</code> 和 <code>defer</code> 属性来控制脚本的加载和执行时机，以优化页面的性能和加载速度。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;当在解析 HTML 的过程中遇到 &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 标签时，浏览器的处理方式如下：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 阻塞解析&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果 &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于构建 RenderTree</title>
     <link href="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/"/>
     <id>http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/</id>
     <published>2024-10-28T09:39:13.107Z</published>
-    <updated>2024-10-28T09:40:03.882Z</updated>
+    <updated>2024-10-28T09:56:13.192Z</updated>
     
-    <content type="html"><![CDATA[<p>在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系：</p><p><strong>一、解析 HTML 文档</strong></p><ol><li>当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。</li><li>DOM 树是一个由节点组成的树状结构，每个节点代表 HTML 文档中的一个元素。例如，<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>、<code>&lt;div&gt;</code>等都是 DOM 树中的节点。</li><li>解析 HTML 文档是一个逐步的过程，浏览器会按照 HTML 文本的顺序依次处理每个标签，构建 DOM 树的节点，并确定它们之间的父子关系。</li></ol><p><strong>二、解析 CSS 样式表</strong></p><ol><li>同时，浏览器也会解析网页中引用的 CSS 样式表。CSS 样式表定义了网页中元素的外观样式，如颜色、字体、布局等。</li><li>解析 CSS 样式表的过程是将 CSS 文本转换为一组规则的过程。这些规则描述了如何将样式应用于特定的 HTML 元素。</li><li>浏览器会根据 CSS 选择器和元素的属性来确定哪些规则适用于哪些元素。例如，选择器<code>p</code>将适用于所有<code>&lt;p&gt;</code>标签的元素。</li></ol><p><strong>三、构建渲染树</strong></p><ol><li>在解析 HTML 文档和 CSS 样式表之后，浏览器开始构建渲染树。渲染树是由可视元素及其对应的样式信息组成的树状结构。</li><li>构建渲染树的过程是将 DOM 树中的节点与 CSS 样式表中的规则进行匹配，确定每个节点的最终样式。只有可见的元素才会被包含在渲染树中，例如<code>&lt;head&gt;</code>标签中的内容通常不会在渲染树中。</li><li>渲染树中的每个节点都包含了元素的样式信息，如颜色、字体大小、位置等。这些信息将用于后续的布局和绘制过程。</li></ol><p><strong>四、关系总结</strong></p><ol><li>解析 HTML 文档是构建渲染树的基础，它提供了网页的结构信息。</li><li>解析 CSS 样式表为构建渲染树提供了样式信息，确定了每个元素的外观。</li><li>构建渲染树是将 HTML 结构和 CSS 样式结合起来的过程，它确定了网页中每个可见元素的最终外观和位置，为后续的布局和绘制过程提供了输入。</li></ol><p>总之，解析 HTML 文档、解析 CSS 样式表和构建渲染树是浏览器渲染网页的关键步骤，它们相互协作以将网页内容以可视化的形式呈现给用户。</p><p><strong>直行顺序</strong><br>在浏览器中，解析 HTML 构建 DOM 和解析 CSS 样式表并不是严格意义上的同时进行，但也不是完全顺序进行的。</p><p>一般来说，浏览器在解析 HTML 的过程中，一旦遇到 <code>&lt;link&gt;</code> 标签引用外部 CSS 文件或者 <code>&lt;style&gt;</code> 标签内的 CSS 样式定义时，会发起对 CSS 资源的请求并开始解析 CSS 样式表，但并不会等待 CSS 完全解析完成后才继续解析 HTML。</p><p>浏览器会一边继续解析 HTML 构建 DOM，一边逐步接收和解析 CSS 样式表。当 DOM 构建完成并且 CSS 样式表也解析完成后，浏览器会根据 DOM 和 CSS 信息构建渲染树。</p><p>所以，可以认为这两个过程是部分并行进行的，但最终的渲染树构建需要等待两者都完成一定程度的处理。</p>]]></content>
+    <content type="html"><![CDATA[<p>在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系：</p><p><strong>一、解析 HTML 文档</strong></p><ol><li>当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。</li><li>DOM 树是一个由节点组成的树状结构，每个节点代表 HTML 文档中的一个元素。例如，<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>、<code>&lt;div&gt;</code>等都是 DOM 树中的节点。</li><li>解析 HTML 文档是一个逐步的过程，浏览器会按照 HTML 文本的顺序依次处理每个标签，构建 DOM 树的节点，并确定它们之间的父子关系。</li></ol><p><strong>二、解析 CSS 样式表</strong></p><ol><li>同时，浏览器也会解析网页中引用的 CSS 样式表。CSS 样式表定义了网页中元素的外观样式，如颜色、字体、布局等。</li><li>解析 CSS 样式表的过程是将 CSS 文本转换为一组规则的过程。这些规则描述了如何将样式应用于特定的 HTML 元素。</li><li>浏览器会根据 CSS 选择器和元素的属性来确定哪些规则适用于哪些元素。例如，选择器<code>p</code>将适用于所有<code>&lt;p&gt;</code>标签的元素。</li></ol><p><strong>三、构建渲染树</strong></p><ol><li>在解析 HTML 文档和 CSS 样式表之后，浏览器开始构建渲染树。渲染树是由可视元素及其对应的样式信息组成的树状结构。</li><li>构建渲染树的过程是将 DOM 树中的节点与 CSS 样式表中的规则进行匹配，确定每个节点的最终样式。只有可见的元素才会被包含在渲染树中，例如<code>&lt;head&gt;</code>标签中的内容通常不会在渲染树中。</li><li>渲染树中的每个节点都包含了元素的样式信息，如颜色、字体大小、位置等。这些信息将用于后续的布局和绘制过程。</li></ol><p><strong>四、关系总结</strong></p><ol><li>解析 HTML 文档是构建渲染树的基础，它提供了网页的结构信息。</li><li>解析 CSS 样式表为构建渲染树提供了样式信息，确定了每个元素的外观。</li><li>构建渲染树是将 HTML 结构和 CSS 样式结合起来的过程，它确定了网页中每个可见元素的最终外观和位置，为后续的布局和绘制过程提供了输入。</li></ol><p>总之，解析 HTML 文档、解析 CSS 样式表和构建渲染树是浏览器渲染网页的关键步骤，它们相互协作以将网页内容以可视化的形式呈现给用户。</p><span id="more"></span><p><strong>执行顺序</strong><br>在浏览器中，解析 HTML 构建 DOM 和解析 CSS 样式表并不是严格意义上的同时进行，但也不是完全顺序进行的。</p><p>一般来说，浏览器在解析 HTML 的过程中，一旦遇到 <code>&lt;link&gt;</code> 标签引用外部 CSS 文件或者 <code>&lt;style&gt;</code> 标签内的 CSS 样式定义时，会发起对 CSS 资源的请求并开始解析 CSS 样式表，但并不会等待 CSS 完全解析完成后才继续解析 HTML。</p><p>浏览器会一边继续解析 HTML 构建 DOM，一边逐步接收和解析 CSS 样式表。当 DOM 构建完成并且 CSS 样式表也解析完成后，浏览器会根据 DOM 和 CSS 信息构建渲染树。</p><p>所以，可以认为这两个过程是部分并行进行的，但最终的渲染树构建需要等待两者都完成一定程度的处理。</p><p><strong>渲染树是在 解析 HTML 文档和解析样式完成后才创建的吗?</strong></p><p>渲染树是在解析 HTML 文档和解析 CSS 样式表基本完成后创建的。</p><p>具体来说：</p><ul><li>浏览器一边解析 HTML 文档构建 DOM 树，一边解析 CSS 样式表生成样式规则。</li><li>当 HTML 文档解析到一定程度且 CSS 样式表也有足够的信息可用时，浏览器就开始构建渲染树。并不是要完全等 HTML 和 CSS 都百分百解析完才创建渲染树。</li><li>渲染树只包含那些最终会在页面上显示的元素，并且每个元素都带有其对应的计算后的样式信息。</li></ul><p>所以，可以认为渲染树是在 HTML 文档和 CSS 样式表的解析过程中逐步构建起来的，而不是等到二者完全解析完成后才一次性创建。</p><p><strong>怎么确定渲染树构建完成</strong></p><p>以下是关于确定渲染树构建完成以及页面渲染时机的相关内容：</p><p><strong>一、确定渲染树构建完成</strong></p><p>通常可以通过以下几种方式来大致判断渲染树构建完成：</p><ol><li><p>浏览器开发者工具中的性能分析：</p><ul><li>在现代浏览器的开发者工具中，可以使用性能分析工具来观察页面加载的各个阶段。当看到“Paint”（绘制）事件发生时，通常意味着渲染树已经构建完成并且开始进行页面的绘制。</li><li>通过观察“Network”（网络）面板，可以确定所有关键资源（如 HTML、CSS、JavaScript 和图像等）是否已经加载完成，这也可以作为渲染树可能构建完成的一个标志。</li></ul></li><li><p>监听事件：</p><ul><li>可以监听 <code>DOMContentLoaded</code> 事件，这个事件在 DOM 树构建完成后触发，但此时渲染树可能还未完全构建完成，因为 CSS 等资源可能还在加载或解析中。</li><li>监听 <code>load</code> 事件，这个事件在页面的所有资源（包括图像、脚本、样式表等）加载完成后触发，此时渲染树通常已经构建完成并且页面已经进行了至少一次的渲染。</li></ul></li></ol><p><strong>二、页面渲染时机</strong></p><p>页面渲染的时机主要取决于以下几个因素：</p><ol><li><p>HTML 和 CSS 的加载与解析：</p><ul><li>浏览器首先下载 HTML 文档并开始解析，构建 DOM 树。同时，如果遇到 <code>&lt;link&gt;</code> 标签引用的外部 CSS 文件，会下载并解析这些样式表。当 HTML 和 CSS 的解析达到一定程度，有足够的信息可以构建渲染树时，浏览器就会开始进行渲染。</li><li>如果 CSS 文件较大或者网络较慢，可能会延迟渲染树的构建和页面的渲染。</li></ul></li><li><p>JavaScript 的执行：</p><ul><li>如前面提到的，如果没有设置 <code>async</code> 或 <code>defer</code> 属性的 <code>&lt;script&gt;</code> 标签会阻塞 HTML 的解析，从而也会影响渲染树的构建和页面渲染。设置了 <code>async</code> 或 <code>defer</code> 属性的脚本会在不阻塞 HTML 解析的情况下异步加载和执行，但它们仍然可能在渲染树构建完成之前或之后影响页面的渲染。</li></ul></li><li><p>图像和其他资源的加载：</p><ul><li>图像和其他外部资源（如视频、音频等）的加载也会影响页面的渲染。如果图像较大或者网络较慢，可能会导致页面在等待图像加载完成后才进行渲染。</li></ul></li><li><p>浏览器的优化策略：</p><ul><li>不同的浏览器可能有不同的优化策略来决定何时进行渲染。例如，一些浏览器可能会在 CSS 解析完成之前进行一些初步的渲染，以提供更快的反馈给用户。</li></ul></li></ol><p>总的来说，页面渲染的时机是一个复杂的过程，受到多种因素的影响。开发人员可以通过优化 HTML、CSS 和 JavaScript 的加载和执行，以及合理管理图像和其他资源的加载，来提高页面的渲染性能。</p><p>当渲染树构建完成后，通常会进行以下步骤：</p><p><strong>一、布局（Layout）</strong></p><ol><li>确定每个元素在页面上的大小和位置。浏览器会根据渲染树中的元素及其对应的样式信息，计算出每个元素在视口（viewport）中的准确位置和尺寸。<ul><li>对于块级元素，会考虑其宽度、高度、外边距（margin）、内边距（padding）等属性来确定其在页面上占据的空间。</li><li>对于行内元素和文本，会根据字体大小、行高、字间距等属性来确定其在一行中的位置。</li></ul></li></ol><p><strong>二、绘制（Paint）</strong></p><ol><li>将每个元素绘制到屏幕上。这一步骤是将布局阶段确定的元素的视觉表现实际绘制出来。<ul><li>浏览器会遍历渲染树，根据每个元素的样式属性（如颜色、背景、边框等），使用图形库将元素绘制到屏幕上的相应位置。</li><li>绘制过程可以分为多个层次，例如先绘制背景，然后绘制文本和图像等内容。</li></ul></li></ol><p><strong>三、合成（Composite）</strong></p><ol><li>对于一些复杂的页面，可能会涉及到多个图层的合成。例如，如果一个元素设置了 <code>transform</code> 或 <code>opacity</code> 属性，浏览器可能会将其单独放在一个图层中，以便更高效地进行动画和变换。</li><li>浏览器会将各个图层组合在一起，形成最终的页面图像，并显示在屏幕上。</li><li>在合成过程中，浏览器还会进行一些优化，例如避免不必要的重绘和重排，以提高页面的性能和响应速度。</li></ol><p>总之，渲染树构建完成后，浏览器会依次进行布局、绘制和合成等步骤，以将页面呈现给用户。这些步骤是一个复杂的过程，涉及到多个子系统的协同工作，并且会受到各种因素的影响，如页面的复杂度、资源的加载速度、用户的交互等。开发人员可以通过优化页面的结构、样式和脚本，以及合理使用浏览器的性能优化技术，来提高页面的渲染性能和用户体验。</p><p>以下是一些优化渲染树构建和绘制过程的方法：</p><p><strong>一、优化 HTML 结构</strong></p><ol><li><p>保持 HTML 结构简洁：</p><ul><li>避免不必要的嵌套和复杂的 DOM 结构。简洁的 HTML 可以更快地被解析，减少构建渲染树的时间。</li><li>删除不必要的注释和空元素。</li></ul></li><li><p>使用语义化标签：</p><ul><li>语义化的 HTML 标签不仅有助于提高代码的可读性和可维护性，还能让浏览器更高效地解析和构建渲染树。例如，使用 <code>&lt;header&gt;</code>、<code>&lt;nav&gt;</code>、<code>&lt;main&gt;</code>、<code>&lt;footer&gt;</code> 等标签来明确页面的结构。</li></ul></li></ol><p><strong>二、优化 CSS</strong></p><ol><li><p>避免使用复杂的选择器：</p><ul><li>复杂的 CSS 选择器会增加样式匹配的时间，从而影响渲染性能。尽量使用简单、直接的选择器。</li><li>例如，避免使用过多的层级选择器和属性选择器。</li></ul></li><li><p>减少不必要的样式规则：</p><ul><li>去除页面中未使用的样式规则，避免加载和解析不必要的 CSS。</li><li>可以使用工具来检查和优化 CSS 文件的大小和复杂度。</li></ul></li><li><p>避免使用 <code>@import</code>：</p><ul><li><code>@import</code> 语句会阻止浏览器并行下载 CSS 文件，从而延长页面的加载时间。尽量使用 <code>&lt;link&gt;</code> 标签来引入外部 CSS 文件。</li></ul></li><li><p>压缩和合并 CSS 文件：</p><ul><li>减小 CSS 文件的大小可以加快下载速度。可以使用工具来压缩 CSS 文件，并将多个 CSS 文件合并为一个，减少 HTTP 请求次数。</li></ul></li></ol><p><strong>三、优化 JavaScript</strong></p><ol><li><p>避免阻塞 DOM 构建和渲染：</p><ul><li>如前面提到的，没有设置 <code>async</code> 或 <code>defer</code> 属性的 <code>&lt;script&gt;</code> 标签会阻塞 HTML 的解析和渲染树的构建。尽量将脚本放在页面底部，或者使用 <code>async</code> 或 <code>defer</code> 属性来异步加载脚本。</li><li>避免在脚本中进行长时间的计算或操作，以免阻塞页面的渲染。</li></ul></li><li><p>减少 DOM 操作：</p><ul><li>频繁的 DOM 操作会导致重排（reflow）和重绘（repaint），影响渲染性能。尽量减少对 DOM 的添加、删除和修改操作。</li><li>可以使用文档片段（document fragment）或虚拟 DOM 等技术来减少实际的 DOM 操作次数。</li></ul></li></ol><p><strong>四、优化图像和其他资源</strong></p><ol><li><p>优化图像：</p><ul><li>压缩图像大小，以减少下载时间。可以使用工具来压缩图像，同时保持图像的质量。</li><li>使用适当的图像格式。例如，对于照片可以使用 JPEG 格式，对于图标和简单的图形可以使用 PNG 或 SVG 格式。</li><li>延迟加载图像。对于不在视口内的图像，可以使用懒加载技术，在用户滚动到图像位置时再加载图像。</li></ul></li><li><p>优化其他资源：</p><ul><li>对于视频、音频等资源，也可以进行压缩和优化，以减少加载时间。</li><li>合理使用缓存，避免重复下载相同的资源。</li></ul></li></ol><p><strong>五、使用性能优化工具和技术</strong></p><ol><li><p>浏览器开发者工具：</p><ul><li>使用浏览器的开发者工具来分析页面的性能，找出潜在的瓶颈和优化点。</li><li>可以查看网络请求、资源加载时间、JavaScript 执行时间等信息，以便针对性地进行优化。</li></ul></li><li><p>性能监测工具：</p><ul><li>使用性能监测工具，如 Google PageSpeed Insights、WebPageTest 等，来评估页面的性能，并获得优化建议。</li></ul></li><li><p>预加载和预渲染：</p><ul><li>可以使用预加载技术，提前加载页面可能需要的资源，如 CSS、JavaScript 和图像等，以减少用户等待时间。</li><li>预渲染可以在用户访问页面之前，提前渲染页面的内容，提供更快的用户体验。但预渲染需要谨慎使用，因为它可能会消耗大量的资源。</li></ul></li></ol><p>通过以上方法，可以有效地优化渲染树的构建和绘制过程，提高页面的性能和用户体验。</p>]]></content>
     
     
-      
-      
     <summary type="html">&lt;p&gt;在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;一、解析 HTML 文档&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;当浏览器接收到一个 HT</summary>
-      
+&lt;li&gt;当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。&lt;/li&gt;
+&lt;li&gt;DOM 树是一个由节点组成的树状结构，每个节点代表 HTML 文档中的一个元素。例如，&lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;等都是 DOM 树中的节点。&lt;/li&gt;
+&lt;li&gt;解析 HTML 文档是一个逐步的过程，浏览器会按照 HTML 文本的顺序依次处理每个标签，构建 DOM 树的节点，并确定它们之间的父子关系。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;二、解析 CSS 样式表&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同时，浏览器也会解析网页中引用的 CSS 样式表。CSS 样式表定义了网页中元素的外观样式，如颜色、字体、布局等。&lt;/li&gt;
+&lt;li&gt;解析 CSS 样式表的过程是将 CSS 文本转换为一组规则的过程。这些规则描述了如何将样式应用于特定的 HTML 元素。&lt;/li&gt;
+&lt;li&gt;浏览器会根据 CSS 选择器和元素的属性来确定哪些规则适用于哪些元素。例如，选择器&lt;code&gt;p&lt;/code&gt;将适用于所有&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;标签的元素。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;三、构建渲染树&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在解析 HTML 文档和 CSS 样式表之后，浏览器开始构建渲染树。渲染树是由可视元素及其对应的样式信息组成的树状结构。&lt;/li&gt;
+&lt;li&gt;构建渲染树的过程是将 DOM 树中的节点与 CSS 样式表中的规则进行匹配，确定每个节点的最终样式。只有可见的元素才会被包含在渲染树中，例如&lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt;标签中的内容通常不会在渲染树中。&lt;/li&gt;
+&lt;li&gt;渲染树中的每个节点都包含了元素的样式信息，如颜色、字体大小、位置等。这些信息将用于后续的布局和绘制过程。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;四、关系总结&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;解析 HTML 文档是构建渲染树的基础，它提供了网页的结构信息。&lt;/li&gt;
+&lt;li&gt;解析 CSS 样式表为构建渲染树提供了样式信息，确定了每个元素的外观。&lt;/li&gt;
+&lt;li&gt;构建渲染树是将 HTML 结构和 CSS 样式结合起来的过程，它确定了网页中每个可见元素的最终外观和位置，为后续的布局和绘制过程提供了输入。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;总之，解析 HTML 文档、解析 CSS 样式表和构建渲染树是浏览器渲染网页的关键步骤，它们相互协作以将网页内容以可视化的形式呈现给用户。&lt;/p&gt;</summary>
     
     
     
@@ -431,21 +475,6 @@
     <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>首屏优化</title>
-    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E7%99%BD%E5%B1%8F%E4%BC%98%E5%8C%96/"/>
-    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%B7%A5%E7%A8%8B%E5%8C%96/%E7%99%BD%E5%B1%8F%E4%BC%98%E5%8C%96/</id>
-    <published>2021-11-27T07:26:40.010Z</published>
-    <updated>2021-11-27T07:26:40.010Z</updated>
-    
-    
-    
-    
-    
-    <category term="前端工程化" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
     
   </entry>
   
