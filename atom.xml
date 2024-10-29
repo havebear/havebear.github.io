@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2024-10-28T09:45:05.979Z</updated>
+  <updated>2024-10-29T05:53:20.188Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于解析 HTML 过程中遇到 script 标签</title>
+    <link href="http://havebear.com/2024/10/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/"/>
+    <id>http://havebear.com/2024/10/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/</id>
+    <published>2024-10-29T05:51:15.681Z</published>
+    <updated>2024-10-29T05:53:20.188Z</updated>
+    
+    <content type="html"><![CDATA[<p>浏览器缓存策略主要有以下几种：</p><p><strong>一、强缓存</strong></p><ol><li><p>原理：</p><ul><li>当浏览器访问资源时，会先检查强缓存。如果资源在强缓存中有效，浏览器直接从缓存中读取资源，不会向服务器发送请求。</li><li>强缓存通过 HTTP 响应头中的 <code>Cache-Control</code> 和 <code>Expires</code> 字段来控制。</li></ul></li><li><p><code>Cache-Control</code>：</p><ul><li>可以设置多种指令，如 <code>max-age</code> 指定资源的缓存时间（单位为秒）。</li><li>例如，<code>Cache-Control: max-age=3600</code> 表示资源在 3600 秒内有效，可以直接从缓存中读取。</li><li>其他指令还包括 <code>no-cache</code>（强制每次请求都向服务器验证资源是否更新）、<code>no-store</code>（不允许缓存资源）等。</li></ul></li><li><p><code>Expires</code>：</p><ul><li>指定资源的过期时间，是一个绝对时间。</li><li>例如，<code>Expires: Thu, 31 Dec 2024 23:59:59 GMT</code> 表示资源在这个时间点之前有效。</li><li>但由于 <code>Expires</code> 是绝对时间，可能会受到客户端时间不准确的影响，所以现在更推荐使用 <code>Cache-Control</code>。</li></ul></li></ol><p><strong>二、协商缓存</strong></p><ol><li><p>原理：</p><ul><li>当强缓存失效时，浏览器会向服务器发送请求，同时携带缓存的标识。服务器根据这些标识判断资源是否有更新。如果资源没有更新，服务器返回 304 Not Modified 状态码，浏览器继续从缓存中读取资源；如果资源有更新，服务器返回新的资源和新的缓存标识。</li><li>协商缓存通过 HTTP 响应头中的 <code>Last-Modified</code> 和 <code>If-Modified-Since</code> 或者 <code>ETag</code> 和 <code>If-None-Match</code> 字段来实现。</li></ul></li><li><p><code>Last-Modified</code> 和 <code>If-Modified-Since</code>：</p><ul><li><code>Last-Modified</code> 是服务器在响应资源时返回的资源最后修改时间。</li><li>浏览器在下次请求时，会在 <code>If-Modified-Since</code> 请求头中携带上一次资源的 <code>Last-Modified</code> 值。</li><li>服务器比较资源的最后修改时间和 <code>If-Modified-Since</code> 的值，如果相同则返回 304，否则返回新的资源和新的 <code>Last-Modified</code> 值。</li></ul></li><li><p><code>ETag</code> 和 <code>If-None-Match</code>：</p><ul><li><code>ETag</code> 是服务器为资源生成的唯一标识，通常是基于资源内容生成的哈希值。</li><li>浏览器在下次请求时，会在 <code>If-None-Match</code> 请求头中携带上一次资源的 <code>ETag</code> 值。</li><li>服务器比较资源的 <code>ETag</code> 值和 <code>If-None-Match</code> 的值，如果相同则返回 304，否则返回新的资源和新的 <code>ETag</code> 值。</li></ul></li></ol><p><strong>三、缓存的优先级</strong></p><p>强缓存优先级高于协商缓存。如果强缓存有效，浏览器不会发送请求进行协商缓存。</p><p><strong>四、实际应用中的注意事项</strong></p><ol><li><p>合理设置缓存时间：</p><ul><li>根据资源的更新频率和重要性，合理设置强缓存的 <code>Cache-Control</code> 或 <code>Expires</code> 值。对于经常更新的资源，可以设置较短的缓存时间；对于不常更新的资源，可以设置较长的缓存时间。</li><li>例如，对于静态的 CSS、JavaScript 文件，可以设置较长的缓存时间，以提高页面加载速度；对于动态生成的内容，如 API 响应，可以设置较短的缓存时间或不使用强缓存。</li></ul></li><li><p>动态更新缓存：</p><ul><li>如果资源的内容发生了变化，需要确保浏览器能够获取到新的资源而不是使用旧的缓存。可以通过在资源的 URL 中添加版本号、时间戳或随机数等方式来强制浏览器重新获取资源。</li><li>例如，<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css?v=1.0.1&quot;&gt;</code>，当更新 CSS 文件时，修改版本号可以让浏览器重新下载新的资源。</li></ul></li><li><p>缓存控制的粒度：</p><ul><li>可以根据不同的资源类型和需求，设置不同的缓存策略。例如，可以对图片、字体等静态资源设置较长的缓存时间，对 HTML 页面设置较短的缓存时间，以便及时获取最新的页面内容。</li></ul></li><li><p>考虑用户体验：</p><ul><li>在设置缓存策略时，要考虑用户体验。如果缓存时间过长，可能会导致用户在资源更新后无法及时看到新的内容。可以提供手动刷新或清除缓存的方式，让用户能够获取到最新的资源。</li></ul></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;浏览器缓存策略主要有以下几种：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一、强缓存&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;原理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当浏览器访问资源时，会先检查强缓存。如果资源在强缓存中有效，浏览器直接从缓存中读取资源，不会向服务器发送请求。&lt;/l</summary>
+      
+    
+    
+    
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="浏览器" scheme="http://havebear.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>关于解析 HTML 过程中遇到 script 标签</title>
@@ -457,29 +486,6 @@
     <category term="框架" scheme="http://havebear.com/tags/%E6%A1%86%E6%9E%B6/"/>
     
     <category term="转载" scheme="http://havebear.com/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实现类的继承</title>
-    <link href="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/"/>
-    <id>http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/</id>
-    <published>2021-11-27T07:26:40.011Z</published>
-    <updated>2024-09-11T02:43:51.835Z</updated>
-    
-    <content type="html"><![CDATA[<p>类的继承在几年前是重点内容，有n种继承方式各有优劣，es6普及后越来越不重要，那么多种写法有点『回字有四样写法』的意思，如果还想深入理解的去看红宝书即可，我们目前只实现一种最理想的继承方式。</p><span id="more"></span><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.parent = name</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.parent&#125;</span>: 你打篮球的样子像kunkun`</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name, parent</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 将父类的构造函数绑定在子类上</span></span><br><span class="line">    Parent.call(<span class="built_in">this</span>, parent)</span><br><span class="line">    <span class="built_in">this</span>.child = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> 1. 这一步不用Child.prototype =Parent.prototype的原因是怕共享内存，修改父类原型对象就会影响子类</span></span><br><span class="line"><span class="comment"> 2. 不用Child.prototype = new Parent()的原因是会调用2次父类的构造方法（另一次是call），会存在一份多余的父类实例属性</span></span><br><span class="line"><span class="comment">3. Object.create是创建了父类原型的副本，与父类原型完全隔离</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);</span><br><span class="line">Child.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.parent&#125;</span>好，我是练习时长两年半的<span class="subst">$&#123;<span class="built_in">this</span>.child&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意记得把子类的构造指向子类本身</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Parent(<span class="string">&#x27;father&#x27;</span>);</span><br><span class="line">parent.say() <span class="comment">// father: 你打篮球的样子像kunkun</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child(<span class="string">&#x27;cxk&#x27;</span>, <span class="string">&#x27;father&#x27;</span>);</span><br><span class="line">child.say() <span class="comment">// father好，我是练习时长两年半的cxk</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;类的继承在几年前是重点内容，有n种继承方式各有优劣，es6普及后越来越不重要，那么多种写法有点『回字有四样写法』的意思，如果还想深入理解的去看红宝书即可，我们目前只实现一种最理想的继承方式。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="面试" scheme="http://havebear.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
     
   </entry>
   
