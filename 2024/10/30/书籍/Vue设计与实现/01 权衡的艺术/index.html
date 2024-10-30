@@ -13,7 +13,7 @@
 <meta property="og:description" content="“框架设计里到处都体现了权衡的艺术” 深入探讨 Vue.js 3 各个模块的实现思路和细节之前，我认为有必要先来讨论视图层框架设计方面的内容。为什么呢？因为当我们设计一个框架的时候，框架本身各个模块之间并不是相互独立的，而是相互关联、相互制约的。作为框架设计者，一定要对框架的定位和方向拥有全局的把控，这样才能做好后续的模块设计和拆分。同样，作为学习中，我们在学习框架时，也应该从全局的角度对框架的设">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-30T05:23:00.476Z">
-<meta property="article:modified_time" content="2024-10-30T08:19:59.049Z">
+<meta property="article:modified_time" content="2024-10-30T08:26:51.270Z">
 <meta property="article:author" content="havebear">
 <meta property="article:tag" content="阅读">
 <meta property="article:tag" content="Vue.js 设计与实现">
@@ -95,13 +95,13 @@
 <p><code>命令式（性能）</code> <code>声明式（维护）</code> <code>虚拟DOM</code> <code>运行时</code> <code>编译时#行编译时</code></p>
 <span id="more"></span>
 
-<h3 id="1-1-命令式和声明式"><a href="#1-1-命令式和声明式" class="headerlink" title="1.1 命令式和声明式"></a>1.1 命令式和声明式</h3><p>从范式上来看，视图层框架通常分为命令式和声明式，它们各有优缺点。作为框架的设计者，应该对两种范式都有足够的认知，这样才能做出正确的选择，甚至想办法集合两者的优点。</p>
+<h3 id="1-1-命令式和声明式"><a href="#1-1-命令式和声明式" class="headerlink" title="1.1 命令式和声明式"></a>1.1 命令式和声明式</h3><p>从范式上来看，视图层框架通常分为<code>命令式</code>和<code>声明式</code>，它们各有优缺点。作为框架的设计者，应该对两种范式都有足够的认知，这样才能做出正确的选择，甚至想办法集合两者的优点。</p>
 <p><strong>命令式</strong></p>
-<p>如 JQuery，命令式框架的一大特点就是<strong>关注过程</strong>，可以看到下面的代码中，自然语言描述能够与代码产生一一对应的关系，代码本身描述的是“做事的过程”。</p>
+<p>如 JQuery，命令式框架的一大特点就是<code>关注过程</code>，可以看到下面的代码中，自然语言描述能够与代码产生一一对应的关系，代码本身描述的是“做事的过程”。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取 id 为 app 的 div 标签</span></span><br><span class="line"><span class="comment">// 设置它的文本内容</span></span><br><span class="line"><span class="comment">// 为其绑定点击事件，当点击时弹出提示：ok</span></span><br><span class="line">$(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line">  .text(<span class="string">&#x27;hello world&#x27;</span>)</span><br><span class="line">  .on(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> alert(<span class="string">&#x27;ok&#x27;</span>))</span><br></pre></td></tr></table></figure>
 
 <p><strong>声明式</strong></p>
-<p>如 Vue，声明式框架的一大特点就是<strong>关注结果</strong>，代码本身描述的是“要做什么”，即结果，而不是“怎么做”。至于实现该结果的过程，则由 Vue.js 帮我们完成的，换句话说，Vue.js 帮我们封装了过程。因此，能够猜到 Vue.js 的内部实现是命令式的，暴露给用户的确是声明式。</p>
+<p>如 Vue，声明式框架的一大特点就是<code>关注结果</code>，代码本身描述的是“要做什么”，即结果，而不是“怎么做”。至于实现该结果的过程，则由 Vue.js 帮我们完成的，换句话说，Vue.js 帮我们封装了过程。因此，能够猜到 Vue.js 的内部实现是命令式的，暴露给用户的确是声明式。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div @click=<span class="string">&quot;() =&gt; alert(&#x27;ok&#x27;)&quot;</span>&gt;hello world&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="1-2-性能和可维护性的权衡"><a href="#1-2-性能和可维护性的权衡" class="headerlink" title="1.2 性能和可维护性的权衡"></a>1.2 性能和可维护性的权衡</h3><p>命令式和声明式各有优缺点，在框架设计方面，则体现在性能与可维护性之间的权衡 —— <strong>声明式的代码不优于命令式代码的性能</strong></p>
@@ -109,8 +109,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.textContent = <span class="string">&#x27;hello world2&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>对于 Vue.js 来讲，为了实现最优的更新性能，它需要找出差异并只更新变化的地方，所以：</p>
 <ul>
-<li>命令式代码的更新性能消耗 = 直接修改的性能消耗</li>
-<li>声明式代码的更新性能消耗 = 找出差异的性能消耗 + 直接修改的性能消耗</li>
+<li><code>命令式代码的更新性能消耗</code> = <code>直接修改的性能消耗</code></li>
+<li><code>声明式代码的更新性能消耗</code> = <code>找出差异的性能消耗</code> + <code>直接修改的性能消耗</code></li>
 </ul>
 <p>框架本身就是封装了命令式代码才实现了面向用户的声明式。</p>
 <p><strong>为什么 Vue.js 选择声明式的设计方案呢？</strong></p>
