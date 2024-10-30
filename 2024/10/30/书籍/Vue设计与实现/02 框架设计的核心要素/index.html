@@ -13,7 +13,7 @@
 <meta property="og:description" content="框架设计要比想象得复杂，并不是说只把功能开发完成，能用就算大功告成了，这里还有很多问题：  框架应该给用户提供哪些构建的产物？ 产物的模块格式如何？ 当用户没有以预期的方式使用框架时，是否应该答应合适的警告信息从而提供更好的开发体验，让用户快速定位问题？ 开发版本的构建和生产版本的构建有何区别？ 热更新（Hot Module Replacement，HMR）需要框架层面的支持，我们是否考虑？ 框架">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-30T05:29:53.058Z">
-<meta property="article:modified_time" content="2024-10-30T07:40:03.435Z">
+<meta property="article:modified_time" content="2024-10-30T08:49:31.106Z">
 <meta property="article:author" content="havebear">
 <meta property="article:tag" content="阅读">
 <meta property="article:tag" content="Vue.js 设计与实现">
@@ -99,9 +99,17 @@
 <li>热更新（Hot Module Replacement，HMR）需要框架层面的支持，我们是否考虑？</li>
 <li>框架提供了多个功能，而用户只需要其中几个功能时，用户能都选择关闭其他功能从而减少最终资源的打包体积</li>
 </ul>
-<p>上述问题，是我们在设计框架时需要考虑的。学习本章时，要求大家对常用的模块格式有一定的了解，尤其是 rollup.js 和 webpack。</p>
+<p><code>webpack</code> <code>rollup.js</code> <code>Tree-Shaking</code> <code>函数副作用</code> <code>压缩工具 terser</code></p>
 <span id="more"></span>
 
+<h3 id="2-1-提升用户体验"><a href="#2-1-提升用户体验" class="headerlink" title="2.1 提升用户体验"></a>2.1 提升用户体验</h3><p>在框架设计和开发过程中，提供友好的警告信息至关重要。帮助用户快速定位问题，节省时间。</p>
+<h3 id="2-2-控制代码体积"><a href="#2-2-控制代码体积" class="headerlink" title="2.2 控制代码体积"></a>2.2 控制代码体积</h3><p>通过静态配置的方式，让用户可以控制最终打包的产物。如 <strong>DEV</strong> 这个变量，它在开发环境下为 true，在生产环境下为 false。</p>
+<h3 id="2-3-框架要做到良好的-Tree-Shaking"><a href="#2-3-框架要做到良好的-Tree-Shaking" class="headerlink" title="2.3 框架要做到良好的 Tree-Shaking"></a>2.3 框架要做到良好的 Tree-Shaking</h3><p>想要实现 Tree-Shaking，必须满足的条件是，模块必须是 ESM（ES Module），因为 Tree-Shaking 依赖 ESM 的静态结构。</p>
+<p>第二个关键点在于，如果一个函数调用会产生副作用（函数执行时对外部产生了影响，如修改了全局变量），那么就不能将其移除。当函数内部读取了一个外部对象 obj 的属性值时，有可能会产生副作用，如 obj 对象是一个通过 Proxy 创建的代理对象，当我们读取对象属性时，会触发代理对象的 get 方法，在get 方法中有可能会对外部对象进行修改，这就会产生副作用。</p>
+<p>因为静态分析 JavaScript 代码很困难，所以像 rollup.js 这类工具都会提供一个机制，让我们明确的告诉工具哪些函数调用不会产生副作用，这样工具才能正确的进行 Tree-Shaking（Vue 3 源码中大量使用）。webpack 以及压缩工具（terser）都能识别。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="string">&#x27;./foo.js&#x27;</span></span><br><span class="line"><span class="comment">/*#__PURE__*/</span> foo()</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-框架应该输出怎样的构建产物"><a href="#2-4-框架应该输出怎样的构建产物" class="headerlink" title="2.4 框架应该输出怎样的构建产物"></a>2.4 框架应该输出怎样的构建产物</h3><h3 id="2-5-特性开关"><a href="#2-5-特性开关" class="headerlink" title="2.5 特性开关"></a>2.5 特性开关</h3><h3 id="2-6-错误处理"><a href="#2-6-错误处理" class="headerlink" title="2.6 错误处理"></a>2.6 错误处理</h3><h3 id="2-7-良好的-TypeScript-支持"><a href="#2-7-良好的-TypeScript-支持" class="headerlink" title="2.7 良好的 TypeScript 支持"></a>2.7 良好的 TypeScript 支持</h3>
       
     </div>
     <footer class="article-footer">
