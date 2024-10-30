@@ -13,7 +13,7 @@
 <meta property="og:description" content="在第 1 章中，我们阐述了框架设计是权衡的艺术，这里面存在取舍，例如性能和可维护性之间的取舍、运行时和编译时之间的取舍。在第 2 章中，我们详细讨论了框架设计的几个核心要素，有些要素是框架设计者必须要考虑的，另一些要素则是从专业和提升开发体验的角度考虑的。框架的设计将就全局视角的把控，一个项目就算在大，也是存在一条核心思路的，并围绕核心展开。本章就从全局视角了解 Vue.js 3 的设计思路、工作">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-30T05:37:22.973Z">
-<meta property="article:modified_time" content="2024-10-30T09:10:45.020Z">
+<meta property="article:modified_time" content="2024-10-30T09:24:19.413Z">
 <meta property="article:author" content="havebear">
 <meta property="article:tag" content="阅读">
 <meta property="article:tag" content="Vue.js 设计与实现">
@@ -94,7 +94,7 @@
 <p><code>虚拟DOM</code> <code>渲染器 Render</code></p>
 <span id="more"></span>
 
-<h3 id="3-1-声明式描述-UI"><a href="#3-1-声明式描述-UI" class="headerlink" title="3.1 声明式描述 UI"></a>3.1 声明式描述 UI</h3><p>Vue.js 3 是一个声明式的 UI 框架，意思是用户在使用 Vue.js 3 开发页面时是声明式地描述 UI 的。</p>
+<h3 id="3-1-声明式描述-UI（模板、Javascript-对象）"><a href="#3-1-声明式描述-UI（模板、Javascript-对象）" class="headerlink" title="3.1 声明式描述 UI（模板、Javascript 对象）"></a>3.1 声明式描述 UI（模板、Javascript 对象）</h3><p>Vue.js 3 是一个声明式的 UI 框架，意思是用户在使用 Vue.js 3 开发页面时是声明式地描述 UI 的。</p>
 <p>在 Vue 中，我们可以使用模板来描述 UI，模板中可以使用各种标签来描述 UI，哪怕是事件，也有与之对应的描述方式。用户不需要手写任何命令式代码，这就是所谓的声明式描述 UI。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div @click&#x3D;&quot;handleClick&quot;&gt;</span><br><span class="line">  &lt;span&gt;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
 
@@ -103,7 +103,7 @@
 
 <p>使用 JavaScript 对象描述 UI 更加灵活，但是它的可读性不如模板。而用 JavaScript 对象描述 UI 的方式，就是所谓的<code>虚拟DOM</code></p>
 <p>Vue 会根据组件的 render 函数的返回值，拿到虚拟 DOM，然后根据虚拟 DOM 生成真实 DOM，最后将真实 DOM 挂载到页面中。</p>
-<h3 id="3-2-初识渲染器"><a href="#3-2-初识渲染器" class="headerlink" title="3.2 初识渲染器"></a>3.2 初识渲染器</h3><p>我们已经了解了什么是<code>虚拟DOM</code>，它其实就是用 JavaScript 对象来描述真实的 DOM 结构。那么，<code>虚拟DOM</code> 是如何变成真实 DOM 渲染到浏览器页面中的呢 —— 渲染器</p>
+<h3 id="3-2-初识渲染器"><a href="#3-2-初识渲染器" class="headerlink" title="3.2 初识渲染器"></a>3.2 初识渲染器</h3><p>我们已经了解了什么是<code>虚拟DOM</code>（用JavaScript 对象来描述真实的 DOM 结构）。那么，<code>虚拟DOM</code> 是如何变成真实 DOM 渲染到浏览器页面中的呢 —— 渲染器</p>
 <p>实现思路：</p>
 <ul>
 <li>把 vnode.tag 作为标签名创建 DOM 元素</li>
@@ -117,7 +117,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-3-组件的本质"><a href="#3-3-组件的本质" class="headerlink" title="3.3 组件的本质"></a>3.3 组件的本质</h3><h3 id="3-4-模板的工作原理"><a href="#3-4-模板的工作原理" class="headerlink" title="3.4 模板的工作原理"></a>3.4 模板的工作原理</h3><h3 id="3-5-Vue-js-是各个模板组成的有机整体"><a href="#3-5-Vue-js-是各个模板组成的有机整体" class="headerlink" title="3.5 Vue.js 是各个模板组成的有机整体"></a>3.5 Vue.js 是各个模板组成的有机整体</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3>
+<h3 id="3-3-组件的本质"><a href="#3-3-组件的本质" class="headerlink" title="3.3 组件的本质"></a>3.3 组件的本质</h3><p>组件是一组 DOM 元素的封装，这组 DOM 元素就是组件要渲染的内容，因此可以定义一个函数来代表组件，而函数的返回值（也是虚拟 DOM）就代表组件要渲染的内容</p>
+<h3 id="3-4-模板的工作原理"><a href="#3-4-模板的工作原理" class="headerlink" title="3.4 模板的工作原理"></a>3.4 模板的工作原理</h3><p>模板是如何工作的 —— 编译器</p>
+<p>编译器的作用是将模板编译为渲染函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &lt;div @click=&quot;handleClick&quot;&gt;click me&lt;/div&gt;</span></span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line">render () &#123;</span><br><span class="line">  <span class="keyword">return</span> h(<span class="string">&#x27;div&#x27;</span>, &#123; <span class="attr">onClick</span>: handleClick &#125;, <span class="string">&#x27;click me&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无论是使用模板还是手写渲染函数，对于一个组件来说，要渲染的内容最终都是通过渲染函数产生的，然后渲染器再把渲染函数返回的虚拟 DOM 渲染为真实 DOM，这就是模板的工作原理，也是 Vue.js 渲染页面的流程。</p>
+<h3 id="3-5-Vue-js-是各个模板组成的有机整体"><a href="#3-5-Vue-js-是各个模板组成的有机整体" class="headerlink" title="3.5 Vue.js 是各个模板组成的有机整体"></a>3.5 Vue.js 是各个模板组成的有机整体</h3><p>如前所述，组件的实现依赖于<code>渲染器</code>，模板的编译依赖于<code>编译器</code>，并且编译后生成的代码是根据渲染器和虚拟 DOM 的设计决定的，因此 Vue.js 的各个模板之间是互相关联、互相制约的，共同构成一个整体。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3>
       
     </div>
     <footer class="article-footer">
