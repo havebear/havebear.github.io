@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2024-10-29T06:49:20.038Z</updated>
+  <updated>2024-10-30T05:43:38.327Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《Vue.js 设计与实现》03 Vue.js 3 的设计思路</title>
+    <link href="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/"/>
+    <id>http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</id>
+    <published>2024-10-30T05:37:22.973Z</published>
+    <updated>2024-10-30T05:43:38.327Z</updated>
+    
+    <content type="html"><![CDATA[<p>在第 1 章中，我们阐述了框架设计是权衡的艺术，这里面存在取舍，例如性能和可维护性之间的取舍、运行时和编译时之间的取舍。在第 2 章中，我们详细讨论了框架设计的几个核心要素，有些要素是框架设计者必须要考虑的，另一些要素则是从专业和提升开发体验的角度考虑的。框架的设计将就全局视角的把控，一个项目就算在大，也是存在一条核心思路的，并围绕核心展开。本章就从全局视角了解 Vue.js 3 的设计思路、工作机制及其重要的组成部分。可以把这些组成部分当作独立的功能模块，看看它们之间是如何相互配合的。后续的章节中，我们会深入各个功能模块了解它们的运作机制。</p><span id="more"></span>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;在第 1 章中，我们阐述了框架设计是权衡的艺术，这里面存在取舍，例如性能和可维护性之间的取舍、运行时和编译时之间的取舍。在第 2 章中，我们详细讨论了框架设计的几个核心要素，有些要素是框架设计者必须要考虑的，另一些要素则是从专业和提升开发体验的角度考虑的。框架的设计将就全局视角的把控，一个项目就算在大，也是存在一条核心思路的，并围绕核心展开。本章就从全局视角了解 Vue.js 3 的设计思路、工作机制及其重要的组成部分。可以把这些组成部分当作独立的功能模块，看看它们之间是如何相互配合的。后续的章节中，我们会深入各个功能模块了解它们的运作机制。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Vue.js 设计与实现" scheme="http://havebear.com/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《Vue.js 设计与实现》02 框架设计的核心要素</title>
+    <link href="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/02%20%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E8%A6%81%E7%B4%A0/"/>
+    <id>http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/02%20%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E8%A6%81%E7%B4%A0/</id>
+    <published>2024-10-30T05:29:53.058Z</published>
+    <updated>2024-10-30T05:53:15.999Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>框架设计概览篇</strong></p><p>框架设计要比想象得复杂，并不是说只把功能开发完成，能用就算大功告成了，这里还有很多问题：</p><ul><li>框架应该给用户提供哪些构建的产物？</li><li>产物的模块格式如何？</li><li>当用户没有以预期的方式使用框架时，是否应该答应合适的警告信息从而提供更好的开发体验，让用户快速定位问题？</li><li>开发版本的构建和生产版本的构建有何区别？</li><li>热更新（Hot Module Replacement，HMR）需要框架层面的支持，我们是否考虑？</li><li>框架提供了多个功能，而用户只需要其中几个功能时，用户能都选择关闭其他功能从而减少最终资源的打包体积</li></ul><p>上述问题，是我们在设计框架时需要考虑的。学习本章时，要求大家对常用的模块格式有一定的了解，尤其是 rollup.js 和 webpack。</p><span id="more"></span>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;框架设计概览篇&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;框架设计要比想象得复杂，并不是说只把功能开发完成，能用就算大功告成了，这里还有很多问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;框架应该给用户提供哪些构建的产物？&lt;/li&gt;
+&lt;li&gt;产物的模块格式如何？&lt;/li&gt;
+&lt;li&gt;当用户没有以预期的方式使用框架时，是否应该答应合适的警告信息从而提供更好的开发体验，让用户快速定位问题？&lt;/li&gt;
+&lt;li&gt;开发版本的构建和生产版本的构建有何区别？&lt;/li&gt;
+&lt;li&gt;热更新（Hot Module Replacement，HMR）需要框架层面的支持，我们是否考虑？&lt;/li&gt;
+&lt;li&gt;框架提供了多个功能，而用户只需要其中几个功能时，用户能都选择关闭其他功能从而减少最终资源的打包体积&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上述问题，是我们在设计框架时需要考虑的。学习本章时，要求大家对常用的模块格式有一定的了解，尤其是 rollup.js 和 webpack。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Vue.js 设计与实现" scheme="http://havebear.com/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《Vue.js 设计与实现》01 权衡的艺术</title>
+    <link href="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/01%20%E6%9D%83%E8%A1%A1%E7%9A%84%E8%89%BA%E6%9C%AF/"/>
+    <id>http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/01%20%E6%9D%83%E8%A1%A1%E7%9A%84%E8%89%BA%E6%9C%AF/</id>
+    <published>2024-10-30T05:23:00.476Z</published>
+    <updated>2024-10-30T05:53:15.999Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>框架设计概览篇</strong></p><p>“框架设计里到处都体现了权衡的艺术”</p><p>深入探讨 Vue.js 3 各个模块的实现思路和细节之前，我认为有必要先来讨论视图层框架设计方面的内容。为什么呢？因为当我们设计一个框架的时候，框架本身各个模块之间并不是相互独立的，而是相互关联、相互制约的。作为框架设计者，一定要对框架的定位和方向拥有全局的把控，这样才能做好后续的模块设计和拆分。同样，作为学习中，我们在学习框架时，也应该从全局的角度对框架的设计拥有清晰的认知，否则很容易被细节困住，看不清全貌。</p><span id="more"></span>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;框架设计概览篇&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;“框架设计里到处都体现了权衡的艺术”&lt;/p&gt;
+&lt;p&gt;深入探讨 Vue.js 3 各个模块的实现思路和细节之前，我认为有必要先来讨论视图层框架设计方面的内容。为什么呢？因为当我们设计一个框架的时候，框架本身各个模块之间并不是相互独立的，而是相互关联、相互制约的。作为框架设计者，一定要对框架的定位和方向拥有全局的把控，这样才能做好后续的模块设计和拆分。同样，作为学习中，我们在学习框架时，也应该从全局的角度对框架的设计拥有清晰的认知，否则很容易被细节困住，看不清全貌。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Vue.js 设计与实现" scheme="http://havebear.com/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>富文本里面， 是如何做到划词的</title>
@@ -426,70 +501,6 @@
     
     
     <category term="SCSS" scheme="http://havebear.com/tags/SCSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>for-in 和 for-of 的区别</title>
-    <link href="http://havebear.com/2021/12/31/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/for-in%20%E5%92%8C%20for-of%20%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://havebear.com/2021/12/31/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/for-in%20%E5%92%8C%20for-of%20%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
-    <published>2021-12-31T07:09:56.850Z</published>
-    <updated>2021-12-31T07:13:24.955Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h2><ul><li>index索引为字符串型数字，不能直接进行几何运算</li><li>遍历顺序有可能不是按照实际数组的内部顺序</li><li>使用for in会遍历数组所有的可枚举属性，包括原型。例如上栗的原型方法method和name属性</li></ul><p>所以 for-in 更适合遍历对象，不要使用for in遍历数组。</p><p>for-in 遍历的是数组的索引（即键名），而for of遍历的是数组元素值。</p><p>for-of 遍历的只是数组内的元素，而不包括数组的原型属性method和索引name</p><p>for in 可以遍历到myObject的原型方法method,如果不想遍历原型方法和属性的话，可以在循环内部判断一下,hasOwnPropery方法可以判断某属性是否是该对象的实例属性</p><p>同样可以通过ES5的Object.keys(myObject)获取对象的实例属性组成的数组，不包括原型方法和属性</p><p>for..of适用遍历数/数组对象/字符串/map/set等拥有迭代器对象的集合.但是不能遍历对象,因为没有迭代器对象.与forEach()不同的是，它可以正确响应break、continue和return语句</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;for-in&quot;&gt;&lt;a href=&quot;#for-in&quot; class=&quot;headerlink&quot; title=&quot;for-in&quot;&gt;&lt;/a&gt;for-in&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;index索引为字符串型数字，不能直接进行几何运算&lt;/li&gt;
-&lt;li&gt;遍历顺序有可能不是按照实际</summary>
-      
-    
-    
-    
-    
-    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>通过WeakMap实现私有类变量</title>
-    <link href="http://havebear.com/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E9%80%9A%E8%BF%87WeakMap%E5%AE%9E%E7%8E%B0%E7%A7%81%E6%9C%89%E7%B1%BB%E5%8F%98%E9%87%8F/"/>
-    <id>http://havebear.com/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E9%80%9A%E8%BF%87WeakMap%E5%AE%9E%E7%8E%B0%E7%A7%81%E6%9C%89%E7%B1%BB%E5%8F%98%E9%87%8F/</id>
-    <published>2021-12-29T03:11:55.651Z</published>
-    <updated>2021-12-29T03:35:40.090Z</updated>
-    
-    <content type="html"><![CDATA[<p>主要利用 WeakMap（弱映射）的 “不可迭代键” 特性实现</p><ul><li>因为 WeakMap 中 键值对 任何时候都可能被销毁，所以没必要提供迭代其键值对的能力</li><li>因为不可迭代，所以也不能在不知道对象引用的情况下从 WeakMap 中取值</li><li>之所以限制只能使用 键值对 作为键，是为了保证只有通过键值对的引用才能取得值</li><li>如果允许原始值，那就没法区分初始化时使用的字符串字面量和初始化之后的一个相等字符串了</li></ul><p>基于上述特性，可以实现真正的私有变量的一种新方式，前提很明确，私有变量会存储在 WeakMap 中，以对象实例为键，以私有成员的字典为值。</p><p>通过闭包，维护一个 WeakMap 集合，维护私有变量</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> User = (<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> wm = <span class="keyword">new</span> <span class="built_in">WeakMap</span>()</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params">id</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.idProperty = <span class="built_in">Symbol</span>(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">      <span class="built_in">this</span>.setId(id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setPrivate (property, value) &#123;</span><br><span class="line">      <span class="comment">// 把当前实例当作键值，存储对应对象，存储对应 value</span></span><br><span class="line">      <span class="keyword">const</span> privateMembers = wm.get(<span class="built_in">this</span>) || &#123;&#125;</span><br><span class="line">      privateMembers[property] = value</span><br><span class="line">      wm.set(<span class="built_in">this</span>, privateMembers)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getPrivate (property) &#123;</span><br><span class="line">      <span class="keyword">return</span> wm.get(<span class="built_in">this</span>)[property]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setId (id) &#123;</span><br><span class="line">      <span class="built_in">this</span>.setPrivate(<span class="built_in">this</span>.idProperty, id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getId () &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.getPrivate(<span class="built_in">this</span>.idProperty)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> User</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;主要利用 WeakMap（弱映射）的 “不可迭代键” 特性实现&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;因为 WeakMap 中 键值对 任何时候都可能被销毁，所以没必要提供迭代其键值对的能力&lt;/li&gt;
-&lt;li&gt;因为不可迭代，所以也不能在不知道对象引用的情况下从 WeakMap 中取值&lt;</summary>
-      
-    
-    
-    
-    
-    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>0.1+0.2!==0.3？</title>
-    <link href="http://havebear.com/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/0.1+0.2!==0.3%EF%BC%9F/"/>
-    <id>http://havebear.com/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/0.1+0.2!==0.3%EF%BC%9F/</id>
-    <published>2021-12-29T03:11:36.868Z</published>
-    <updated>2023-09-12T07:27:26.574Z</updated>
-    
-    
-    
-    
-    
-    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
     
   </entry>
   
