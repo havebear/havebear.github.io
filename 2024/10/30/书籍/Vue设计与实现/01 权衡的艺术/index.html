@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Vue.js 设计与实现 01 权衡的艺术 | Have Bear</title>
+  <title>Vue.js 设计与实现 - 01 权衡的艺术 | Have Bear</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="“框架设计里到处都体现了权衡的艺术” 深入探讨 Vue.js 3 各个模块的实现思路和细节之前，我认为有必要先来讨论视图层框架设计方面的内容。为什么呢？因为当我们设计一个框架的时候，框架本身各个模块之间并不是相互独立的，而是相互关联、相互制约的。作为框架设计者，一定要对框架的定位和方向拥有全局的把控，这样才能做好后续的模块设计和拆分。同样，作为学习中，我们在学习框架时，也应该从全局的角度对框架的设">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue.js 设计与实现 01 权衡的艺术">
+<meta property="og:title" content="Vue.js 设计与实现 - 01 权衡的艺术">
 <meta property="og:url" content="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/01%20%E6%9D%83%E8%A1%A1%E7%9A%84%E8%89%BA%E6%9C%AF/index.html">
 <meta property="og:site_name" content="Have Bear">
 <meta property="og:description" content="“框架设计里到处都体现了权衡的艺术” 深入探讨 Vue.js 3 各个模块的实现思路和细节之前，我认为有必要先来讨论视图层框架设计方面的内容。为什么呢？因为当我们设计一个框架的时候，框架本身各个模块之间并不是相互独立的，而是相互关联、相互制约的。作为框架设计者，一定要对框架的定位和方向拥有全局的把控，这样才能做好后续的模块设计和拆分。同样，作为学习中，我们在学习框架时，也应该从全局的角度对框架的设">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-30T05:23:00.476Z">
-<meta property="article:modified_time" content="2024-10-30T07:34:07.031Z">
+<meta property="article:modified_time" content="2024-10-30T07:40:03.435Z">
 <meta property="article:author" content="havebear">
 <meta property="article:tag" content="阅读">
 <meta property="article:tag" content="Vue.js 设计与实现">
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Vue.js 设计与实现 01 权衡的艺术
+      Vue.js 设计与实现 - 01 权衡的艺术
     </h1>
   
 
@@ -136,14 +136,19 @@
 
 <p>这样我们就只需要一个 Compiler 函数就可以了，连 Render 都不需要，这就是一个纯编译时的框架。因为我们不需要支持任何运行时的内容，用户的代码需要通过编译器编译后才能实现。</p>
 <p>纯运行时的框架，由于没有编译的过程，所以没法分析用户提供的内容，但是加入编译步骤，可以分析用户提供的内容，看看哪些内容未来会不会变化，这样我们可以在编译时提取这些信息，然后将其传递给 Render 函数，做进一步的优化。</p>
-<h3 id="1-5-总结"><a href="#1-5-总结" class="headerlink" title="1.5 总结"></a>1.5 总结</h3><p>命令式关注过程，声明式关注结果，命令式性能上可以做极致优化，但是用户要承受巨大的心智负担；声明式能够有效减轻用户的心智负担，但是性能上有一定的牺牲，框架的设计者要想办法尽量使性能损耗最小化。</p>
-<p>声明式的更新性能消耗 = 找出差异的性能消耗 + 直接修改的性能消耗，虚拟 DOM 的意义在于找出差异的性能消耗最小化。</p>
-<p>Vue.js 3 是一个编译时 + 运行时的框架，它在保持灵活性的基础上，还能通过编译手段分析用户提供的内容，进一步提升更新性能。</p>
+<h3 id="1-5-总结"><a href="#1-5-总结" class="headerlink" title="1.5 总结"></a>1.5 总结</h3><ul>
+<li><p>命令式关注过程，声明式关注结果，命令式性能上可以做极致优化，但是用户要承受巨大的心智负担；声明式能够有效减轻用户的心智负担，但是性能上有一定的牺牲，框架的设计者要想办法尽量使性能损耗最小化。</p>
+</li>
+<li><p>声明式的更新性能消耗 = 找出差异的性能消耗 + 直接修改的性能消耗，虚拟 DOM 的意义在于找出差异的性能消耗最小化。</p>
+</li>
+<li><p>Vue.js 3 是一个编译时 + 运行时的框架，它在保持灵活性的基础上，还能通过编译手段分析用户提供的内容，进一步提升更新性能。</p>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/01%20%E6%9D%83%E8%A1%A1%E7%9A%84%E8%89%BA%E6%9C%AF/" data-id="cm2vk5eo600029ow43rs6cnfl" class="article-share-link">Share</a>
+      <a data-url="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/01%20%E6%9D%83%E8%A1%A1%E7%9A%84%E8%89%BA%E6%9C%AF/" data-id="cm2vkhxoj0005row40gs71n09" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Vue.js 设计与实现</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
@@ -158,7 +163,7 @@
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Vue.js 设计与实现 02 框架设计的核心要素
+          Vue.js 设计与实现 - 02 框架设计的核心要素
         
       </div>
     </a>
@@ -217,15 +222,15 @@
       <ul>
         
           <li>
-            <a href="/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/">Vue.js 设计与实现 03 Vue.js 3 的设计思路</a>
+            <a href="/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/">Vue.js 设计与实现 - 03 Vue.js 3 的设计思路</a>
           </li>
         
           <li>
-            <a href="/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/02%20%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E8%A6%81%E7%B4%A0/">Vue.js 设计与实现 02 框架设计的核心要素</a>
+            <a href="/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/02%20%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E8%A6%81%E7%B4%A0/">Vue.js 设计与实现 - 02 框架设计的核心要素</a>
           </li>
         
           <li>
-            <a href="/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/01%20%E6%9D%83%E8%A1%A1%E7%9A%84%E8%89%BA%E6%9C%AF/">Vue.js 设计与实现 01 权衡的艺术</a>
+            <a href="/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/01%20%E6%9D%83%E8%A1%A1%E7%9A%84%E8%89%BA%E6%9C%AF/">Vue.js 设计与实现 - 01 权衡的艺术</a>
           </li>
         
           <li>
