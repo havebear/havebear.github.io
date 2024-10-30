@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2024-10-30T05:43:38.327Z</updated>
+  <updated>2024-10-30T06:48:40.321Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>《Vue.js 设计与实现》03 Vue.js 3 的设计思路</title>
+    <title>Vue.js 设计与实现 03 Vue.js 3 的设计思路</title>
     <link href="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/"/>
     <id>http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</id>
     <published>2024-10-30T05:37:22.973Z</published>
-    <updated>2024-10-30T05:43:38.327Z</updated>
+    <updated>2024-10-30T06:48:40.321Z</updated>
     
     <content type="html"><![CDATA[<p>在第 1 章中，我们阐述了框架设计是权衡的艺术，这里面存在取舍，例如性能和可维护性之间的取舍、运行时和编译时之间的取舍。在第 2 章中，我们详细讨论了框架设计的几个核心要素，有些要素是框架设计者必须要考虑的，另一些要素则是从专业和提升开发体验的角度考虑的。框架的设计将就全局视角的把控，一个项目就算在大，也是存在一条核心思路的，并围绕核心展开。本章就从全局视角了解 Vue.js 3 的设计思路、工作机制及其重要的组成部分。可以把这些组成部分当作独立的功能模块，看看它们之间是如何相互配合的。后续的章节中，我们会深入各个功能模块了解它们的运作机制。</p><span id="more"></span>]]></content>
     
@@ -38,17 +38,16 @@
   </entry>
   
   <entry>
-    <title>《Vue.js 设计与实现》02 框架设计的核心要素</title>
+    <title>Vue.js 设计与实现 02 框架设计的核心要素</title>
     <link href="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/02%20%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E8%A6%81%E7%B4%A0/"/>
     <id>http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/02%20%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E8%A6%81%E7%B4%A0/</id>
     <published>2024-10-30T05:29:53.058Z</published>
-    <updated>2024-10-30T05:53:15.999Z</updated>
+    <updated>2024-10-30T06:48:38.604Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>框架设计概览篇</strong></p><p>框架设计要比想象得复杂，并不是说只把功能开发完成，能用就算大功告成了，这里还有很多问题：</p><ul><li>框架应该给用户提供哪些构建的产物？</li><li>产物的模块格式如何？</li><li>当用户没有以预期的方式使用框架时，是否应该答应合适的警告信息从而提供更好的开发体验，让用户快速定位问题？</li><li>开发版本的构建和生产版本的构建有何区别？</li><li>热更新（Hot Module Replacement，HMR）需要框架层面的支持，我们是否考虑？</li><li>框架提供了多个功能，而用户只需要其中几个功能时，用户能都选择关闭其他功能从而减少最终资源的打包体积</li></ul><p>上述问题，是我们在设计框架时需要考虑的。学习本章时，要求大家对常用的模块格式有一定的了解，尤其是 rollup.js 和 webpack。</p><span id="more"></span>]]></content>
+    <content type="html"><![CDATA[<p>框架设计要比想象得复杂，并不是说只把功能开发完成，能用就算大功告成了，这里还有很多问题：</p><ul><li>框架应该给用户提供哪些构建的产物？</li><li>产物的模块格式如何？</li><li>当用户没有以预期的方式使用框架时，是否应该答应合适的警告信息从而提供更好的开发体验，让用户快速定位问题？</li><li>开发版本的构建和生产版本的构建有何区别？</li><li>热更新（Hot Module Replacement，HMR）需要框架层面的支持，我们是否考虑？</li><li>框架提供了多个功能，而用户只需要其中几个功能时，用户能都选择关闭其他功能从而减少最终资源的打包体积</li></ul><p>上述问题，是我们在设计框架时需要考虑的。学习本章时，要求大家对常用的模块格式有一定的了解，尤其是 rollup.js 和 webpack。</p><span id="more"></span>]]></content>
     
     
-    <summary type="html">&lt;p&gt;&lt;strong&gt;框架设计概览篇&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;框架设计要比想象得复杂，并不是说只把功能开发完成，能用就算大功告成了，这里还有很多问题：&lt;/p&gt;
+    <summary type="html">&lt;p&gt;框架设计要比想象得复杂，并不是说只把功能开发完成，能用就算大功告成了，这里还有很多问题：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;框架应该给用户提供哪些构建的产物？&lt;/li&gt;
 &lt;li&gt;产物的模块格式如何？&lt;/li&gt;
@@ -69,17 +68,16 @@
   </entry>
   
   <entry>
-    <title>《Vue.js 设计与实现》01 权衡的艺术</title>
+    <title>Vue.js 设计与实现 01 权衡的艺术</title>
     <link href="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/01%20%E6%9D%83%E8%A1%A1%E7%9A%84%E8%89%BA%E6%9C%AF/"/>
     <id>http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/01%20%E6%9D%83%E8%A1%A1%E7%9A%84%E8%89%BA%E6%9C%AF/</id>
     <published>2024-10-30T05:23:00.476Z</published>
-    <updated>2024-10-30T06:43:56.549Z</updated>
+    <updated>2024-10-30T06:48:38.601Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>框架设计概览篇</strong></p><p>“框架设计里到处都体现了权衡的艺术”</p><p>深入探讨 Vue.js 3 各个模块的实现思路和细节之前，我认为有必要先来讨论视图层框架设计方面的内容。为什么呢？因为当我们设计一个框架的时候，框架本身各个模块之间并不是相互独立的，而是相互关联、相互制约的。作为框架设计者，一定要对框架的定位和方向拥有全局的把控，这样才能做好后续的模块设计和拆分。同样，作为学习中，我们在学习框架时，也应该从全局的角度对框架的设计拥有清晰的认知，否则很容易被细节困住，看不清全貌。</p><span id="more"></span><p><strong>1.1 命令式和声明式</strong></p><p>从范式上来看，视图层框架通常分为命令式和声明式，它们各有优缺点。作为框架的设计者，应该对两种范式都有足够的认知，这样才能做出正确的选择，甚至想办法集合两者的优点。</p><p><strong>1.1.1命令式</strong></p><p>如 JQuery，命令式框架的一大特点就是<strong>关注过程</strong>，可以看到下面的代码中，自然语言描述能够与代码产生一一对应的关系，代码本身描述的是“做事的过程”。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取 id 为 app 的 div 标签</span></span><br><span class="line"><span class="comment">// 设置它的文本内容</span></span><br><span class="line"><span class="comment">// 为其绑定点击事件，当点击时弹出提示：ok</span></span><br><span class="line">$(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line">  .text(<span class="string">&#x27;hello world&#x27;</span>)</span><br><span class="line">  .on(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> alert(<span class="string">&#x27;ok&#x27;</span>))</span><br></pre></td></tr></table></figure><p><strong>1.1.2声明式</strong></p><p>如 Vue，声明式框架的一大特点就是<strong>关注结果</strong>，代码本身描述的是“要做什么”，即结果，而不是“怎么做”。至于实现该结果的过程，则由 Vue.js 帮我们完成的，换句话说，Vue.js 帮我们封装了过程。因此，能够猜到 Vue.js 的内部实现是命令式的，暴露给用户的确是声明式。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div @click=<span class="string">&quot;() =&gt; alert(&#x27;ok&#x27;)&quot;</span>&gt;hello world&lt;/div&gt;</span><br></pre></td></tr></table></figure><p><strong>1.2 性能和可维护性的权衡</strong></p><p>命令式和声明式各有优缺点，在框架设计方面，则体现在性能与可维护性之间的权衡 —— <strong>声明式的代码不优于命令式代码的性能</strong></p><p>拿上面的例子来说，假设把 div 标签的文本内容修改为 hello world2，还有什么其他代码比下面的代码性能更好呢？答案是“没有”</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">div.textContent = <span class="string">&#x27;hello world2&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>对于 Vue.js 来讲，为了实现最优的更新性能，它需要找出差异（B）并只更新（A）变化的地方，所以：</p><ul><li>命令式代码的更新性能消耗 = A</li><li>声明式代码的更新性能消耗 = B + A</li></ul><p>框架本身就是封装了命令式代码才实现了面向用户的声明式。</p><p><strong>为什么 Vue.js 选择声明式的设计方案呢？</strong></p><p>原因在于声明式的代码可维护性更强。</p><p>这体现了我们在框架设计上要做出的关于可维护性与性能之间的权衡。在采用声明式提升可维护性的同时，性能就会有一定的损失，而框架设计者要做的是：<strong>在保持可维护性的同时让性能损失最小化</strong>。</p><p><strong>1.3 虚拟 DOM 的性能到底如何</strong></p><p>前面讲到的“声明式代码的更新性能消耗”，如果，我们能够最小化找出差异的性能消耗，就可以让声明式代码的性能无限接近命令式代码的性能，而所谓的虚拟 DOM，就是为了最小化找出差异这一步的性能消耗而出现的。</p><p><strong>1.4 运行时和编译时</strong></p>]]></content>
+    <content type="html"><![CDATA[<p>“框架设计里到处都体现了权衡的艺术”</p><p>深入探讨 Vue.js 3 各个模块的实现思路和细节之前，我认为有必要先来讨论视图层框架设计方面的内容。为什么呢？因为当我们设计一个框架的时候，框架本身各个模块之间并不是相互独立的，而是相互关联、相互制约的。作为框架设计者，一定要对框架的定位和方向拥有全局的把控，这样才能做好后续的模块设计和拆分。同样，作为学习中，我们在学习框架时，也应该从全局的角度对框架的设计拥有清晰的认知，否则很容易被细节困住，看不清全貌。</p><span id="more"></span><p><strong>1.1 命令式和声明式</strong></p><p>从范式上来看，视图层框架通常分为命令式和声明式，它们各有优缺点。作为框架的设计者，应该对两种范式都有足够的认知，这样才能做出正确的选择，甚至想办法集合两者的优点。</p><p><strong>1.1.1命令式</strong></p><p>如 JQuery，命令式框架的一大特点就是<strong>关注过程</strong>，可以看到下面的代码中，自然语言描述能够与代码产生一一对应的关系，代码本身描述的是“做事的过程”。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取 id 为 app 的 div 标签</span></span><br><span class="line"><span class="comment">// 设置它的文本内容</span></span><br><span class="line"><span class="comment">// 为其绑定点击事件，当点击时弹出提示：ok</span></span><br><span class="line">$(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line">  .text(<span class="string">&#x27;hello world&#x27;</span>)</span><br><span class="line">  .on(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> alert(<span class="string">&#x27;ok&#x27;</span>))</span><br></pre></td></tr></table></figure><p><strong>1.1.2声明式</strong></p><p>如 Vue，声明式框架的一大特点就是<strong>关注结果</strong>，代码本身描述的是“要做什么”，即结果，而不是“怎么做”。至于实现该结果的过程，则由 Vue.js 帮我们完成的，换句话说，Vue.js 帮我们封装了过程。因此，能够猜到 Vue.js 的内部实现是命令式的，暴露给用户的确是声明式。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div @click=<span class="string">&quot;() =&gt; alert(&#x27;ok&#x27;)&quot;</span>&gt;hello world&lt;/div&gt;</span><br></pre></td></tr></table></figure><p><strong>1.2 性能和可维护性的权衡</strong></p><p>命令式和声明式各有优缺点，在框架设计方面，则体现在性能与可维护性之间的权衡 —— <strong>声明式的代码不优于命令式代码的性能</strong></p><p>拿上面的例子来说，假设把 div 标签的文本内容修改为 hello world2，还有什么其他代码比下面的代码性能更好呢？答案是“没有”</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">div.textContent = <span class="string">&#x27;hello world2&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>对于 Vue.js 来讲，为了实现最优的更新性能，它需要找出差异（B）并只更新（A）变化的地方，所以：</p><ul><li>命令式代码的更新性能消耗 = A</li><li>声明式代码的更新性能消耗 = B + A</li></ul><p>框架本身就是封装了命令式代码才实现了面向用户的声明式。</p><p><strong>为什么 Vue.js 选择声明式的设计方案呢？</strong></p><p>原因在于声明式的代码可维护性更强。</p><p>这体现了我们在框架设计上要做出的关于可维护性与性能之间的权衡。在采用声明式提升可维护性的同时，性能就会有一定的损失，而框架设计者要做的是：<strong>在保持可维护性的同时让性能损失最小化</strong>。</p><p><strong>1.3 虚拟 DOM 的性能到底如何</strong></p><p>前面讲到的“声明式代码的更新性能消耗”，如果，我们能够最小化找出差异的性能消耗，就可以让声明式代码的性能无限接近命令式代码的性能，而所谓的虚拟 DOM，就是为了最小化找出差异这一步的性能消耗而出现的。</p><p><strong>1.4 运行时和编译时</strong></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;&lt;strong&gt;框架设计概览篇&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;“框架设计里到处都体现了权衡的艺术”&lt;/p&gt;
+    <summary type="html">&lt;p&gt;“框架设计里到处都体现了权衡的艺术”&lt;/p&gt;
 &lt;p&gt;深入探讨 Vue.js 3 各个模块的实现思路和细节之前，我认为有必要先来讨论视图层框架设计方面的内容。为什么呢？因为当我们设计一个框架的时候，框架本身各个模块之间并不是相互独立的，而是相互关联、相互制约的。作为框架设计者，一定要对框架的定位和方向拥有全局的把控，这样才能做好后续的模块设计和拆分。同样，作为学习中，我们在学习框架时，也应该从全局的角度对框架的设计拥有清晰的认知，否则很容易被细节困住，看不清全貌。&lt;/p&gt;</summary>
     
     
