@@ -6,7 +6,7 @@
   <link href="http://havebear.com/atom.xml" rel="self"/>
   
   <link href="http://havebear.com/"/>
-  <updated>2024-11-05T00:49:07.464Z</updated>
+  <updated>2024-11-06T07:58:24.289Z</updated>
   <id>http://havebear.com/</id>
   
   <author>
@@ -15,6 +15,111 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue.js 设计与实现 - 11 快速 Diff 算法</title>
+    <link href="http://havebear.com/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/11%20%E5%BF%AB%E9%80%9F%20Diff%20%E7%AE%97%E6%B3%95/"/>
+    <id>http://havebear.com/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/11%20%E5%BF%AB%E9%80%9F%20Diff%20%E7%AE%97%E6%B3%95/</id>
+    <published>2024-11-06T07:57:21.560Z</published>
+    <updated>2024-11-06T07:58:24.289Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>渲染器</code></p><span id="more"></span>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;渲染器&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Vue.js 设计与实现" scheme="http://havebear.com/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue.js 设计与实现 - 10 双端 Diff 算法</title>
+    <link href="http://havebear.com/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/10%20%E5%8F%8C%E7%AB%AF%20Diff%20%E7%AE%97%E6%B3%95/"/>
+    <id>http://havebear.com/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/10%20%E5%8F%8C%E7%AB%AF%20Diff%20%E7%AE%97%E6%B3%95/</id>
+    <published>2024-11-06T07:55:20.835Z</published>
+    <updated>2024-11-06T07:58:24.288Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>渲染器</code></p><span id="more"></span>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;渲染器&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Vue.js 设计与实现" scheme="http://havebear.com/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue.js 设计与实现 - 09 简单 Diff 算法</title>
+    <link href="http://havebear.com/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/09%20%E7%AE%80%E5%8D%95%20Diff%20%E7%AE%97%E6%B3%95/"/>
+    <id>http://havebear.com/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/09%20%E7%AE%80%E5%8D%95%20Diff%20%E7%AE%97%E6%B3%95/</id>
+    <published>2024-11-06T07:54:41.337Z</published>
+    <updated>2024-11-06T07:55:15.400Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>渲染器</code></p><span id="more"></span>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;渲染器&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Vue.js 设计与实现" scheme="http://havebear.com/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue.js 设计与实现 - 08 挂载与更新</title>
+    <link href="http://havebear.com/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/08%20%E6%8C%82%E8%BD%BD%E4%B8%8E%E6%9B%B4%E6%96%B0/"/>
+    <id>http://havebear.com/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/08%20%E6%8C%82%E8%BD%BD%E4%B8%8E%E6%9B%B4%E6%96%B0/</id>
+    <published>2024-11-06T07:53:59.754Z</published>
+    <updated>2024-11-06T07:55:15.397Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>渲染器</code></p><span id="more"></span>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;渲染器&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Vue.js 设计与实现" scheme="http://havebear.com/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue.js 设计与实现 - 07 渲染器的设计</title>
+    <link href="http://havebear.com/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/07%20%E6%B8%B2%E6%9F%93%E5%99%A8%E7%9A%84%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://havebear.com/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/07%20%E6%B8%B2%E6%9F%93%E5%99%A8%E7%9A%84%E8%AE%BE%E8%AE%A1/</id>
+    <published>2024-11-06T07:53:21.845Z</published>
+    <updated>2024-11-06T07:55:15.397Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>渲染器</code></p><span id="more"></span>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;渲染器&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="Vue.js 设计与实现" scheme="http://havebear.com/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue3 的侦听器</title>
@@ -59,12 +164,14 @@
     <link href="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/06%20%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%96%B9%E6%A1%88/"/>
     <id>http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/06%20%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%96%B9%E6%A1%88/</id>
     <published>2024-10-30T09:27:17.862Z</published>
-    <updated>2024-10-30T09:39:26.145Z</updated>
+    <updated>2024-11-05T08:21:35.966Z</updated>
     
-    <content type="html"><![CDATA[<p><code>第二篇 响应系统</code> </p><span id="more"></span>]]></content>
+    <content type="html"><![CDATA[<p>原始值指的是 Boolean、Number、String、Symbol、BigInt、Null 和 Undefined 等类型的值。在 JS 中，原始值是按值传递的，这意味着，如果一个函数接受原始值作为参数，那么形参和实参之间没有引用关系，它们是两个完全独立的值，对形参的修改不会影响实参。另外，JS 中的 Proxy 无法提供对原始值的代理，必须对其进行包装，才能实现对原始值的代理。</p><p><code>原始值</code> <code>按值传递</code> <code>形参</code> <code>实参</code> <code>包装</code></p><p><code>第二篇 响应系统</code> </p><span id="more"></span><h3 id="6-1-引入-ref-的概念"><a href="#6-1-引入-ref-的概念" class="headerlink" title="6.1 引入 ref 的概念"></a>6.1 引入 ref 的概念</h3><p>对于原始值，我们可以使用 ref 函数来创建一个包装对象，从而实现对原始值的响应式。</p><p>再为该包装对象添加属性 <code>__v_isRef</code> 用于区分普通对象和 ref 对象。</p><h3 id="6-2-响应丢失的问题"><a href="#6-2-响应丢失的问题" class="headerlink" title="6.2 响应丢失的问题"></a>6.2 响应丢失的问题</h3><p>对一个响应式对象做 <code>...</code> 展开操作时，会丢失响应性。</p><h3 id="6-3-自动脱-ref"><a href="#6-3-自动脱-ref" class="headerlink" title="6.3 自动脱 ref"></a>6.3 自动脱 ref</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3>]]></content>
     
     
-    <summary type="html">&lt;p&gt;&lt;code&gt;第二篇 响应系统&lt;/code&gt; &lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;原始值指的是 Boolean、Number、String、Symbol、BigInt、Null 和 Undefined 等类型的值。在 JS 中，原始值是按值传递的，这意味着，如果一个函数接受原始值作为参数，那么形参和实参之间没有引用关系，它们是两个完全独立的值，对形参的修改不会影响实参。另外，JS 中的 Proxy 无法提供对原始值的代理，必须对其进行包装，才能实现对原始值的代理。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;原始值&lt;/code&gt; &lt;code&gt;按值传递&lt;/code&gt; &lt;code&gt;形参&lt;/code&gt; &lt;code&gt;实参&lt;/code&gt; &lt;code&gt;包装&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;第二篇 响应系统&lt;/code&gt; &lt;/p&gt;</summary>
     
     
     
@@ -80,9 +187,9 @@
     <link href="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/05%20%E9%9D%9E%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%96%B9%E6%A1%88/"/>
     <id>http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/05%20%E9%9D%9E%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%96%B9%E6%A1%88/</id>
     <published>2024-10-30T09:27:14.575Z</published>
-    <updated>2024-11-05T03:28:30.631Z</updated>
+    <updated>2024-11-05T08:11:52.626Z</updated>
     
-    <content type="html"><![CDATA[<p>上一章中，着重讨论了响应系统的概念和实现，并简单介绍了响应式数据的基本原理。本章中我们把目光聚焦在响应式数据本身，深入探讨实现响应式数据需要考虑哪些内容，其中的难点是什么。除了拦截 get、set 操作外，还需要考虑其他问题，比如 追踪拦截for…in 循环？如何代理数组、对象、Set、Map 等类型的数据。想要实现完善的响应式数据，需要深入语言规范（ECMA-262）。</p><p><code>第二篇 响应系统</code> <code>Proxy</code> <code>Reflect</code></p><span id="more"></span><h3 id="理解-Proxy-和-Reflect"><a href="#理解-Proxy-和-Reflect" class="headerlink" title="理解 Proxy 和 Reflect"></a>理解 Proxy 和 Reflect</h3>]]></content>
+    <content type="html"><![CDATA[<p>上一章中，着重讨论了响应系统的概念和实现，并简单介绍了响应式数据的基本原理。本章中我们把目光聚焦在响应式数据本身，深入探讨实现响应式数据需要考虑哪些内容，其中的难点是什么。除了拦截 get、set 操作外，还需要考虑其他问题，比如 追踪拦截for…in 循环？如何代理数组、对象、Set、Map 等类型的数据。想要实现完善的响应式数据，需要深入语言规范（ECMA-262）。</p><p><code>第二篇 响应系统</code> <code>Proxy</code> <code>Reflect</code></p><span id="more"></span><h3 id="5-1-理解-Proxy-和-Reflect"><a href="#5-1-理解-Proxy-和-Reflect" class="headerlink" title="5.1 理解 Proxy 和 Reflect"></a>5.1 理解 Proxy 和 Reflect</h3><h3 id="5-2-JavaScript-对象及-Proxy-的工作原理"><a href="#5-2-JavaScript-对象及-Proxy-的工作原理" class="headerlink" title="5.2 JavaScript 对象及 Proxy 的工作原理"></a>5.2 JavaScript 对象及 Proxy 的工作原理</h3><p>JS 中有两种对象：常规对象（ordinary object）、异质对象（exotic object）</p><p>如何区分一个对象是普通对象还是函数呢？一个对象在什么情况下才能作为函数调用呢？答案是通过内部方法和内部槽来区分对象，例如函数对象会部署内部方法 [[Call]]</p><p>了解了内部方法，就可以解释什么是常规对象，什么是异质对象。满足以下三点要求的对象就是常规对象：</p><!-- 1. 作为函数调用时，会执行 [[Call]] 内部方法2. 作为构造函数调用时，会执行 [[Construct]] 内部方法3. 作为对象调用时，会执行 [[Get]] 内部方法 --><h3 id="5-3-如何代理-Object"><a href="#5-3-如何代理-Object" class="headerlink" title="5.3 如何代理 Object"></a>5.3 如何代理 Object</h3><h3 id="5-4-合理地触发响应"><a href="#5-4-合理地触发响应" class="headerlink" title="5.4 合理地触发响应"></a>5.4 合理地触发响应</h3><h3 id="5-5-浅响应和深响应"><a href="#5-5-浅响应和深响应" class="headerlink" title="5.5 浅响应和深响应"></a>5.5 浅响应和深响应</h3><h3 id="5-6-只读和浅只读"><a href="#5-6-只读和浅只读" class="headerlink" title="5.6 只读和浅只读"></a>5.6 只读和浅只读</h3><h3 id="5-7-代理数组"><a href="#5-7-代理数组" class="headerlink" title="5.7 代理数组"></a>5.7 代理数组</h3><p>在 JS 中，数组只是一个特殊的对象，为了实现对数组的代理，有必要了解相比普通对象，数组有哪些特殊的特性。</p><h3 id="5-8-代理-Set-和-Map"><a href="#5-8-代理-Set-和-Map" class="headerlink" title="5.8 代理 Set 和 Map"></a>5.8 代理 Set 和 Map</h3><h3 id="5-9-总结"><a href="#5-9-总结" class="headerlink" title="5.9 总结"></a>5.9 总结</h3>]]></content>
     
     
     <summary type="html">&lt;p&gt;上一章中，着重讨论了响应系统的概念和实现，并简单介绍了响应式数据的基本原理。本章中我们把目光聚焦在响应式数据本身，深入探讨实现响应式数据需要考虑哪些内容，其中的难点是什么。除了拦截 get、set 操作外，还需要考虑其他问题，比如 追踪拦截for…in 循环？如何代理数组、对象、Set、Map 等类型的数据。想要实现完善的响应式数据，需要深入语言规范（ECMA-262）。&lt;/p&gt;
@@ -392,114 +499,6 @@
     
     
     
-    
-    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>变量是如何在内存中存储的，以及垃圾回收机制</title>
-    <link href="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/"/>
-    <id>http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/</id>
-    <published>2024-10-28T02:53:33.129Z</published>
-    <updated>2024-10-28T02:57:41.857Z</updated>
-    
-    <content type="html"><![CDATA[<p>存储的数据结构：栈和堆</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;存储的数据结构：栈和堆&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    
-    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript reduce 方法</title>
-    <link href="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/"/>
-    <id>http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/</id>
-    <published>2024-10-28T02:52:21.065Z</published>
-    <updated>2024-10-28T03:08:36.552Z</updated>
-    
-    <content type="html"><![CDATA[<p>关于最后一个参数 – 初始值：</p><ol><li><p><strong>计算特定初始值的累计结果</strong><br>例如，计算数组中所有元素的乘积，并且希望从特定的初始值（比如 1）开始计算，而不是从数组的第一个元素开始。如果不设置初始值，第一个元素将作为初始累计值，可能不符合预期的计算逻辑。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> productWithInitialValue = arr.reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc * curr, <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(productWithInitialValue); <span class="comment">// 24</span></span><br></pre></td></tr></table></figure></li><li><p><strong>处理空数组</strong><br>如果不确定数组是否为空，设置初始值可以确保在空数组的情况下也能返回一个合理的值，而不是 undefined。<br>例如，计算数组中所有数字的和，如果数组为空，希望返回 0。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [];</span><br><span class="line"><span class="keyword">const</span> sumWithInitialValue = arr.reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc + curr, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sumWithInitialValue); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure></li><li><p><strong>处理非数值类型的初始状态</strong><br>如果要进行的累计操作不是简单的数值计算，而是涉及到更复杂的数据结构或状态，通常需要设置一个合适的初始值。<br>例如，将数组中的对象合并为一个新的对象，可以设置一个空对象作为初始值。**</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [&#123; <span class="attr">name</span>: <span class="string">&#x27;Alice&#x27;</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">&#x27;Bob&#x27;</span> &#125;];</span><br><span class="line"><span class="keyword">const</span> mergedObject = arr.reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> (&#123;...acc,...curr &#125;), &#123;&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(mergedObject); <span class="comment">// &#123; name: &#x27;Bob&#x27; &#125;</span></span><br></pre></td></tr></table></figure></li><li><p><strong>处理可能存在单个元素的数组</strong><br>当数组可能只有一个元素时，设置初始值可以确保处理逻辑的一致性。<br>例如，对数组中的元素进行特定的转换操作，如果只有一个元素，也希望按照统一的逻辑进行处理。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> transformedValue = arr.reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc + curr, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(transformedValue); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;关于最后一个参数 – 初始值：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;计算特定初始值的累计结果&lt;/strong&gt;&lt;br&gt;例如，计算数组中所有元素的乘积，并且希望从特定的初始值（比如 1）开始计算，而不是从数组的第一个元素开始。如果不设置初始值，第一个元素将作为初始</summary>
-      
-    
-    
-    
-    
-    <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人月神话阅读笔记</title>
-    <link href="http://havebear.com/2024/09/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/react/%E7%AC%AC%E4%B8%80%E4%B8%AA%20React%20%E9%A1%B9%E7%9B%AE/%E7%AC%94%E8%AE%B01/"/>
-    <id>http://havebear.com/2024/09/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/react/%E7%AC%AC%E4%B8%80%E4%B8%AA%20React%20%E9%A1%B9%E7%9B%AE/%E7%AC%94%E8%AE%B01/</id>
-    <published>2024-09-11T02:45:58.148Z</published>
-    <updated>2024-09-11T02:46:11.985Z</updated>
-    
-    
-    
-    
-    
-    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
-    
-    <category term="人月神话" scheme="http://havebear.com/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人月神话阅读笔记</title>
-    <link href="http://havebear.com/2024/09/11/%E4%B9%A6%E7%B1%8D/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/"/>
-    <id>http://havebear.com/2024/09/11/%E4%B9%A6%E7%B1%8D/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/</id>
-    <published>2024-09-11T02:31:40.667Z</published>
-    <updated>2024-09-11T02:35:46.569Z</updated>
-    
-    <content type="html"><![CDATA[<p>用人月+人天这种作为衡量一项工作的规模是非常危险和具有欺骗性的，它暗示着人员的数量和时间是可以相互替换的，任务是没有次序上的限制的，且不需要开发人员沟通交流的。随着人手的增多，沟通成本也会越来越多，甚至会比之前更加缓慢。</p><p>经验显示，一个需求的开发的时间安排是这样的，1/3计划，1/6做编码，1/4单元+组件+系统测试，1/4端到端系统测试测试。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;用人月+人天这种作为衡量一项工作的规模是非常危险和具有欺骗性的，它暗示着人员的数量和时间是可以相互替换的，任务是没有次序上的限制的，且不需要开发人员沟通交流的。随着人手的增多，沟通成本也会越来越多，甚至会比之前更加缓慢。&lt;/p&gt;
-&lt;p&gt;经验显示，一个需求的开发的时间安排是这</summary>
-      
-    
-    
-    
-    
-    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
-    
-    <category term="人月神话" scheme="http://havebear.com/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实现Event</title>
-    <link href="http://havebear.com/2023/09/12/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0Event/"/>
-    <id>http://havebear.com/2023/09/12/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0Event/</id>
-    <published>2023-09-12T07:40:37.322Z</published>
-    <updated>2024-09-11T02:43:51.835Z</updated>
-    
-    
-    
-    
-    
-    <category term="面试" scheme="http://havebear.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="JavaScript" scheme="http://havebear.com/tags/JavaScript/"/>
     

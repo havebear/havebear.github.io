@@ -66,6 +66,210 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-程序员/前端/javascript/变量是如何存储的" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/" class="article-date">
+  <time datetime="2024-10-28T02:53:33.129Z" itemprop="datePublished">2024-10-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/">变量是如何在内存中存储的，以及垃圾回收机制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>存储的数据结构：栈和堆</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/" data-id="cm2vpeyjx002wdgw454jlenjr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/javascript/reduce" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/" class="article-date">
+  <time datetime="2024-10-28T02:52:21.065Z" itemprop="datePublished">2024-10-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/">JavaScript reduce 方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于最后一个参数 – 初始值：</p>
+<ol>
+<li><p><strong>计算特定初始值的累计结果</strong><br>例如，计算数组中所有元素的乘积，并且希望从特定的初始值（比如 1）开始计算，而不是从数组的第一个元素开始。如果不设置初始值，第一个元素将作为初始累计值，可能不符合预期的计算逻辑。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> productWithInitialValue = arr.reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc * curr, <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(productWithInitialValue); <span class="comment">// 24</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>处理空数组</strong><br>如果不确定数组是否为空，设置初始值可以确保在空数组的情况下也能返回一个合理的值，而不是 undefined。<br>例如，计算数组中所有数字的和，如果数组为空，希望返回 0。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [];</span><br><span class="line"><span class="keyword">const</span> sumWithInitialValue = arr.reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc + curr, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sumWithInitialValue); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>处理非数值类型的初始状态</strong><br>如果要进行的累计操作不是简单的数值计算，而是涉及到更复杂的数据结构或状态，通常需要设置一个合适的初始值。<br>例如，将数组中的对象合并为一个新的对象，可以设置一个空对象作为初始值。**</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [&#123; <span class="attr">name</span>: <span class="string">&#x27;Alice&#x27;</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">&#x27;Bob&#x27;</span> &#125;];</span><br><span class="line"><span class="keyword">const</span> mergedObject = arr.reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> (&#123;...acc,...curr &#125;), &#123;&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(mergedObject); <span class="comment">// &#123; name: &#x27;Bob&#x27; &#125;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>处理可能存在单个元素的数组</strong><br>当数组可能只有一个元素时，设置初始值可以确保处理逻辑的一致性。<br>例如，对数组中的元素进行特定的转换操作，如果只有一个元素，也希望按照统一的逻辑进行处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> transformedValue = arr.reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc + curr, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(transformedValue); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2024/10/28/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/" data-id="cm2vpeyjs002odgw45l188crx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/react/第一个 React 项目/笔记1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2024/09/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/react/%E7%AC%AC%E4%B8%80%E4%B8%AA%20React%20%E9%A1%B9%E7%9B%AE/%E7%AC%94%E8%AE%B01/" class="article-date">
+  <time datetime="2024-09-11T02:45:58.148Z" itemprop="datePublished">2024-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/09/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/react/%E7%AC%AC%E4%B8%80%E4%B8%AA%20React%20%E9%A1%B9%E7%9B%AE/%E7%AC%94%E8%AE%B01/">人月神话阅读笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2024/09/11/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/react/%E7%AC%AC%E4%B8%80%E4%B8%AA%20React%20%E9%A1%B9%E7%9B%AE/%E7%AC%94%E8%AE%B01/" data-id="cm2vpeyn30091dgw42ylj8y4s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" rel="tag">人月神话</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-书籍/人月神话/笔记1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2024/09/11/%E4%B9%A6%E7%B1%8D/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/" class="article-date">
+  <time datetime="2024-09-11T02:31:40.667Z" itemprop="datePublished">2024-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/09/11/%E4%B9%A6%E7%B1%8D/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/">人月神话阅读笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用人月+人天这种作为衡量一项工作的规模是非常危险和具有欺骗性的，它暗示着人员的数量和时间是可以相互替换的，任务是没有次序上的限制的，且不需要开发人员沟通交流的。随着人手的增多，沟通成本也会越来越多，甚至会比之前更加缓慢。</p>
+<p>经验显示，一个需求的开发的时间安排是这样的，1/3计划，1/6做编码，1/4单元+组件+系统测试，1/4端到端系统测试测试。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2024/09/11/%E4%B9%A6%E7%B1%8D/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/%E7%AC%94%E8%AE%B01/" data-id="cm2vpeyhu000edgw4edw77mm8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" rel="tag">人月神话</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/面试/JavaScript笔试/实现Event" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/09/12/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0Event/" class="article-date">
+  <time datetime="2023-09-12T07:40:37.322Z" itemprop="datePublished">2023-09-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/09/12/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0Event/">实现Event</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2023/09/12/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0Event/" data-id="cm2vpeylo005fdgw46bnrb6g4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-程序员/前端/备忘录/手绘风格图表 chart.xkcd" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/09/12/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E5%A4%87%E5%BF%98%E5%BD%95/%E6%89%8B%E7%BB%98%E9%A3%8E%E6%A0%BC%E5%9B%BE%E8%A1%A8%20chart.xkcd/" class="article-date">
@@ -261,230 +465,10 @@
 
 
   
-    <article id="post-程序员/前端/javascript/for-in 和 for-of 的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/12/31/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/for-in%20%E5%92%8C%20for-of%20%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
-  <time datetime="2021-12-31T07:09:56.850Z" itemprop="datePublished">2021-12-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/31/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/for-in%20%E5%92%8C%20for-of%20%E7%9A%84%E5%8C%BA%E5%88%AB/">for-in 和 for-of 的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h2><ul>
-<li>index索引为字符串型数字，不能直接进行几何运算</li>
-<li>遍历顺序有可能不是按照实际数组的内部顺序</li>
-<li>使用for in会遍历数组所有的可枚举属性，包括原型。例如上栗的原型方法method和name属性</li>
-</ul>
-<p>所以 for-in 更适合遍历对象，不要使用for in遍历数组。</p>
-<p>for-in 遍历的是数组的索引（即键名），而for of遍历的是数组元素值。</p>
-<p>for-of 遍历的只是数组内的元素，而不包括数组的原型属性method和索引name</p>
-<p>for in 可以遍历到myObject的原型方法method,如果不想遍历原型方法和属性的话，可以在循环内部判断一下,hasOwnPropery方法可以判断某属性是否是该对象的实例属性</p>
-<p>同样可以通过ES5的Object.keys(myObject)获取对象的实例属性组成的数组，不包括原型方法和属性</p>
-<p>for..of适用遍历数/数组对象/字符串/map/set等拥有迭代器对象的集合.但是不能遍历对象,因为没有迭代器对象.与forEach()不同的是，它可以正确响应break、continue和return语句</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://havebear.com/2021/12/31/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/for-in%20%E5%92%8C%20for-of%20%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="cm2vpeyjn002kdgw4939l41uf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-程序员/前端/javascript/通过WeakMap实现私有类变量" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E9%80%9A%E8%BF%87WeakMap%E5%AE%9E%E7%8E%B0%E7%A7%81%E6%9C%89%E7%B1%BB%E5%8F%98%E9%87%8F/" class="article-date">
-  <time datetime="2021-12-29T03:11:55.651Z" itemprop="datePublished">2021-12-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E9%80%9A%E8%BF%87WeakMap%E5%AE%9E%E7%8E%B0%E7%A7%81%E6%9C%89%E7%B1%BB%E5%8F%98%E9%87%8F/">通过WeakMap实现私有类变量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>主要利用 WeakMap（弱映射）的 “不可迭代键” 特性实现</p>
-<ul>
-<li>因为 WeakMap 中 键值对 任何时候都可能被销毁，所以没必要提供迭代其键值对的能力</li>
-<li>因为不可迭代，所以也不能在不知道对象引用的情况下从 WeakMap 中取值</li>
-<li>之所以限制只能使用 键值对 作为键，是为了保证只有通过键值对的引用才能取得值</li>
-<li>如果允许原始值，那就没法区分初始化时使用的字符串字面量和初始化之后的一个相等字符串了</li>
-</ul>
-<p>基于上述特性，可以实现真正的私有变量的一种新方式，前提很明确，私有变量会存储在 WeakMap 中，以对象实例为键，以私有成员的字典为值。</p>
-<p>通过闭包，维护一个 WeakMap 集合，维护私有变量</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> User = (<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> wm = <span class="keyword">new</span> <span class="built_in">WeakMap</span>()</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params">id</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.idProperty = <span class="built_in">Symbol</span>(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">      <span class="built_in">this</span>.setId(id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setPrivate (property, value) &#123;</span><br><span class="line">      <span class="comment">// 把当前实例当作键值，存储对应对象，存储对应 value</span></span><br><span class="line">      <span class="keyword">const</span> privateMembers = wm.get(<span class="built_in">this</span>) || &#123;&#125;</span><br><span class="line">      privateMembers[property] = value</span><br><span class="line">      wm.set(<span class="built_in">this</span>, privateMembers)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getPrivate (property) &#123;</span><br><span class="line">      <span class="keyword">return</span> wm.get(<span class="built_in">this</span>)[property]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setId (id) &#123;</span><br><span class="line">      <span class="built_in">this</span>.setPrivate(<span class="built_in">this</span>.idProperty, id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getId () &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.getPrivate(<span class="built_in">this</span>.idProperty)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> User</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://havebear.com/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E9%80%9A%E8%BF%87WeakMap%E5%AE%9E%E7%8E%B0%E7%A7%81%E6%9C%89%E7%B1%BB%E5%8F%98%E9%87%8F/" data-id="cm2vpeyk6003cdgw4hxd5fu4k" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-程序员/前端/javascript/0.1+0.2!==0.3？" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/0.1+0.2!==0.3%EF%BC%9F/" class="article-date">
-  <time datetime="2021-12-29T03:11:36.868Z" itemprop="datePublished">2021-12-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/0.1+0.2!==0.3%EF%BC%9F/">0.1+0.2!==0.3？</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://havebear.com/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/0.1+0.2!==0.3%EF%BC%9F/" data-id="cm2vpeyje0027dgw462cs3wxy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-程序员/编程/浅谈MVVM" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/12/02/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E6%B5%85%E8%B0%88MVVM/" class="article-date">
-  <time datetime="2021-12-02T04:23:47.898Z" itemprop="datePublished">2021-12-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/02/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E6%B5%85%E8%B0%88MVVM/">浅谈MVVM</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>MVVM是Model-View-ViewModel的简写。是一种软件架构设计模式，由微软 WPF 和 Silverlight 的架构师 Ken Cooper 和 Ted Peters 开发，是一种简化用户界面的事件驱动编程方式。由 John Gossman（同样也是 WPF 和 Silverlight 的架构师）于2005年在他的博客上发表。即模型-视图-视图模型。</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/12/02/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E6%B5%85%E8%B0%88MVVM/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://havebear.com/2021/12/02/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E6%B5%85%E8%B0%88MVVM/" data-id="cm2vpeyi7000rdgw45qrn4wnc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-程序员/面试/JavaScript笔试/实现类的继承" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/" class="article-date">
-  <time datetime="2021-11-27T07:26:40.011Z" itemprop="datePublished">2021-11-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/">实现类的继承</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>类的继承在几年前是重点内容，有n种继承方式各有优劣，es6普及后越来越不重要，那么多种写法有点『回字有四样写法』的意思，如果还想深入理解的去看红宝书即可，我们目前只实现一种最理想的继承方式。</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/" data-id="cm2vpeylt005kdgw40ko95e3c" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; __(&#39;prev&#39;)</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">__(&#39;next&#39;) &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; __(&#39;prev&#39;)</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/">__(&#39;next&#39;) &amp;raquo;</a>
   </nav>
 </section>
         
@@ -507,7 +491,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue/" style="font-size: 14px;">Vue</a> <a href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" style="font-size: 13px;">Vue.js 设计与实现</a> <a href="/tags/Vue3/" style="font-size: 10px;">Vue3</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" style="font-size: 11px;">人月神话</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 19px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 16px;">前端工程化</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" style="font-size: 11px;">备忘录</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 12px;">设计原则和编程技巧</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 18px;">设计模式</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 14px;">转载</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 15px;">阅读</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17px;">面试</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" style="font-size: 15px;">Vue.js 设计与实现</a> <a href="/tags/Vue3/" style="font-size: 10px;">Vue3</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" style="font-size: 11px;">人月神话</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 19px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 14px;">前端工程化</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" style="font-size: 11px;">备忘录</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 12px;">设计原则和编程技巧</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 18px;">设计模式</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 13px;">转载</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 17px;">阅读</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 16px;">面试</a>
     </div>
   </div>
 
@@ -529,23 +513,23 @@
       <ul>
         
           <li>
-            <a href="/2024/11/05/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/vue/Vue3%20%E7%9A%84%E4%BE%A6%E5%90%AC%E5%99%A8/">Vue3 的侦听器</a>
+            <a href="/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/11%20%E5%BF%AB%E9%80%9F%20Diff%20%E7%AE%97%E6%B3%95/">Vue.js 设计与实现 - 11 快速 Diff 算法</a>
           </li>
         
           <li>
-            <a href="/2024/10/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%89%AF%E4%BD%9C%E7%94%A8%E5%87%BD%E6%95%B0/">副作用函数</a>
+            <a href="/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/10%20%E5%8F%8C%E7%AB%AF%20Diff%20%E7%AE%97%E6%B3%95/">Vue.js 设计与实现 - 10 双端 Diff 算法</a>
           </li>
         
           <li>
-            <a href="/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/06%20%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%96%B9%E6%A1%88/">Vue.js 设计与实现 - 06 原始值的响应式方案</a>
+            <a href="/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/09%20%E7%AE%80%E5%8D%95%20Diff%20%E7%AE%97%E6%B3%95/">Vue.js 设计与实现 - 09 简单 Diff 算法</a>
           </li>
         
           <li>
-            <a href="/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/05%20%E9%9D%9E%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%96%B9%E6%A1%88/">Vue.js 设计与实现 - 05 非原始值的响应式方案</a>
+            <a href="/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/08%20%E6%8C%82%E8%BD%BD%E4%B8%8E%E6%9B%B4%E6%96%B0/">Vue.js 设计与实现 - 08 挂载与更新</a>
           </li>
         
           <li>
-            <a href="/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/04%20%E5%93%8D%E5%BA%94%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%92%8C%E5%AE%9E%E7%8E%B0/">Vue.js 设计与实现 - 04 响应系统的作用和实现</a>
+            <a href="/2024/11/06/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/07%20%E6%B8%B2%E6%9F%93%E5%99%A8%E7%9A%84%E8%AE%BE%E8%AE%A1/">Vue.js 设计与实现 - 07 渲染器的设计</a>
           </li>
         
       </ul>
