@@ -66,6 +66,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-程序员/前端/javascript/for-in 和 for-of 的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/12/31/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/for-in%20%E5%92%8C%20for-of%20%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2021-12-31T07:09:56.850Z" itemprop="datePublished">2021-12-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/31/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/for-in%20%E5%92%8C%20for-of%20%E7%9A%84%E5%8C%BA%E5%88%AB/">for-in 和 for-of 的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h2><ul>
+<li>index索引为字符串型数字，不能直接进行几何运算</li>
+<li>遍历顺序有可能不是按照实际数组的内部顺序</li>
+<li>使用for in会遍历数组所有的可枚举属性，包括原型。例如上栗的原型方法method和name属性</li>
+</ul>
+<p>所以 for-in 更适合遍历对象，不要使用for in遍历数组。</p>
+<p>for-in 遍历的是数组的索引（即键名），而for of遍历的是数组元素值。</p>
+<p>for-of 遍历的只是数组内的元素，而不包括数组的原型属性method和索引name</p>
+<p>for in 可以遍历到myObject的原型方法method,如果不想遍历原型方法和属性的话，可以在循环内部判断一下,hasOwnPropery方法可以判断某属性是否是该对象的实例属性</p>
+<p>同样可以通过ES5的Object.keys(myObject)获取对象的实例属性组成的数组，不包括原型方法和属性</p>
+<p>for..of适用遍历数/数组对象/字符串/map/set等拥有迭代器对象的集合.但是不能遍历对象,因为没有迭代器对象.与forEach()不同的是，它可以正确响应break、continue和return语句</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2021/12/31/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/for-in%20%E5%92%8C%20for-of%20%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="cm2vpeyjn002kdgw4939l41uf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-程序员/前端/javascript/通过WeakMap实现私有类变量" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/12/29/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E9%80%9A%E8%BF%87WeakMap%E5%AE%9E%E7%8E%B0%E7%A7%81%E6%9C%89%E7%B1%BB%E5%8F%98%E9%87%8F/" class="article-date">
@@ -435,45 +484,6 @@
 
 
   
-    <article id="post-程序员/前端/javascript/Array中不会改变自身的方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/" class="article-date">
-  <time datetime="2021-11-27T07:26:40.005Z" itemprop="datePublished">2021-11-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/">Array中不会改变自身的方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>concat、entries、every、filter、find、findIndex、flat、flatMap、forEach、form、includes、indexOf、isArray、join、keys、lastIndexOf、map、of、reduce、reduceRight、slice、some、toLocaleString、toSource、toString、values</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://havebear.com/2021/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/Array%E4%B8%AD%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%E8%87%AA%E8%BA%AB%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="cm2vpeyjh002cdgw4brbbe3xo" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -500,7 +510,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue/" style="font-size: 13.75px;">Vue</a> <a href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" style="font-size: 16.25px;">Vue.js 设计与实现</a> <a href="/tags/Vue3/" style="font-size: 10px;">Vue3</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" style="font-size: 11.25px;">人月神话</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 15px;">前端工程化</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" style="font-size: 11.25px;">备忘录</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 12.5px;">设计原则和编程技巧</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 13.75px;">转载</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 17.5px;">阅读</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 18.75px;">面试</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 18.89px;">JavaScript</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue/" style="font-size: 13.33px;">Vue</a> <a href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" style="font-size: 15.56px;">Vue.js 设计与实现</a> <a href="/tags/Vue3/" style="font-size: 10px;">Vue3</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" style="font-size: 11.11px;">人月神话</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 14.44px;">前端工程化</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" style="font-size: 11.11px;">备忘录</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 12.22px;">设计原则和编程技巧</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16.67px;">设计模式</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 13.33px;">转载</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 16.67px;">阅读</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
     </div>
   </div>
 
@@ -526,6 +536,10 @@
           </li>
         
           <li>
+            <a href="/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20HTTP%20%E7%AF%87/">收集的面试题 - HTTP 篇</a>
+          </li>
+        
+          <li>
             <a href="/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20React%20%E7%AF%87/">收集的前端面试题 - React 篇</a>
           </li>
         
@@ -535,10 +549,6 @@
         
           <li>
             <a href="/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AF%87/">收集的前端面试题 - 浏览器篇</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20Vue%20%E7%AF%87/">收集的前端面试题 - Vue 篇</a>
           </li>
         
       </ul>

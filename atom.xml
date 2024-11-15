@@ -34,6 +34,23 @@
   </entry>
   
   <entry>
+    <title>收集的面试题 - HTTP 篇</title>
+    <link href="http://havebear.com/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20HTTP%20%E7%AF%87/"/>
+    <id>http://havebear.com/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20HTTP%20%E7%AF%87/</id>
+    <published>2024-11-15T09:39:58.110Z</published>
+    <updated>2024-11-15T09:55:02.215Z</updated>
+    
+    
+    
+    
+    
+    <category term="面试" scheme="http://havebear.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+    <category term="前端" scheme="http://havebear.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>收集的前端面试题 - React 篇</title>
     <link href="http://havebear.com/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20React%20%E7%AF%87/"/>
     <id>http://havebear.com/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20React%20%E7%AF%87/</id>
@@ -371,28 +388,6 @@
     
     <summary type="html">&lt;p&gt;响应系统也是 Vue.js 的重要组成部分。在本章中，首先讨论什么是&lt;code&gt;响应式数据&lt;/code&gt;和&lt;code&gt;副作用函数&lt;/code&gt;，然后尝试实现一个相对完善的响应系统。在这个过程中，我们会遇到各种各样的问题，例如如何避免无限递归？为什么需要嵌套的副作用函数？两个副作用函数之间会产生哪些影响？以及其他需要考虑的细节。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;第二篇 响应系统&lt;/code&gt; &lt;code&gt;响应式数据&lt;/code&gt; &lt;code&gt;副作用函数&lt;/code&gt; &lt;code&gt;Proxy&lt;/code&gt; &lt;code&gt;WekaMap&lt;/code&gt; &lt;code&gt;Set&lt;/code&gt; &lt;code&gt;Map&lt;/code&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="阅读" scheme="http://havebear.com/tags/%E9%98%85%E8%AF%BB/"/>
-    
-    <category term="Vue.js 设计与实现" scheme="http://havebear.com/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue.js 设计与实现 - 03 Vue.js 3 的设计思路</title>
-    <link href="http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/"/>
-    <id>http://havebear.com/2024/10/30/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</id>
-    <published>2024-10-30T05:37:22.973Z</published>
-    <updated>2024-11-05T00:49:07.460Z</updated>
-    
-    <content type="html"><![CDATA[<p>在第 1 章中，我们阐述了框架设计是权衡的艺术，这里面存在取舍，例如性能和可维护性之间的取舍、运行时和编译时之间的取舍。在第 2 章中，我们详细讨论了框架设计的几个核心要素，有些要素是框架设计者必须要考虑的，另一些要素则是从专业和提升开发体验的角度考虑的。框架的设计将就全局视角的把控，一个项目就算在大，也是存在一条核心思路的，并围绕核心展开。<strong>本章就从全局视角了解 Vue.js 3 的设计思路、工作机制及其重要的组成部分</strong>。可以把这些组成部分当作独立的功能模块，看看它们之间是如何相互配合的。后续的章节中，我们会深入各个功能模块了解它们的运作机制。</p><p><code>第一篇 框架设计概览</code> <code>虚拟DOM</code> <code>渲染器</code> <code>组件</code> <code>模板</code> <code>编译器</code></p><span id="more"></span><h3 id="3-1-声明式描述-UI（模板、Javascript-对象）"><a href="#3-1-声明式描述-UI（模板、Javascript-对象）" class="headerlink" title="3.1 声明式描述 UI（模板、Javascript 对象）"></a>3.1 声明式描述 UI（模板、Javascript 对象）</h3><p>Vue.js 3 是一个声明式的 UI 框架，意思是用户在使用 Vue.js 3 开发页面时是声明式地描述 UI 的。</p><p>在 Vue 中，我们可以使用模板来描述 UI，模板中可以使用各种标签来描述 UI，哪怕是事件，也有与之对应的描述方式。用户不需要手写任何命令式代码，这就是所谓的声明式描述 UI。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div @click&#x3D;&quot;handleClick&quot;&gt;</span><br><span class="line">  &lt;span&gt;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure><p>除了使用模板来描述 UI，我们还可以用 JavaScript 对象来描述：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">  tag: <span class="string">&#x27;div&#x27;</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    onClick: handleClick</span><br><span class="line">  &#125;,</span><br><span class="line">  children: [</span><br><span class="line">    &#123; <span class="attr">tag</span>: <span class="string">&#x27;span&#x27;</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>使用 JavaScript 对象描述 UI 更加灵活，但是它的可读性不如模板。而用 JavaScript 对象描述 UI 的方式，就是所谓的<code>虚拟DOM</code></p><p>Vue 会根据组件的 render 函数的返回值，拿到虚拟 DOM，然后根据虚拟 DOM 生成真实 DOM，最后将真实 DOM 挂载到页面中。</p><h3 id="3-2-初识渲染器"><a href="#3-2-初识渲染器" class="headerlink" title="3.2 初识渲染器"></a>3.2 初识渲染器</h3><p>我们已经了解了什么是<code>虚拟DOM</code>（用JavaScript 对象来描述真实的 DOM 结构）。那么，<code>虚拟DOM</code> 是如何变成真实 DOM 渲染到浏览器页面中的呢 —— 渲染器</p><p>实现思路：</p><ul><li>把 vnode.tag 作为标签名创建 DOM 元素</li><li>为元素添加属性和事件<ul><li>遍历 vnode.props 对象，key 以 on 开头的是事件，否则是属性</li></ul></li><li>处理 children<ul><li>如果 children 是一个数组，递归调用 render 函数，将返回的 vnode 作为子节点添加到元素中</li><li>如果 children 是一个字符串，创建文本节点添加到元素中</li></ul></li></ul><h3 id="3-3-组件的本质"><a href="#3-3-组件的本质" class="headerlink" title="3.3 组件的本质"></a>3.3 组件的本质</h3><p>组件是一组 DOM 元素的封装，这组 DOM 元素就是组件要渲染的内容，因此可以定义一个函数来代表组件，而函数的返回值（也是虚拟 DOM）就代表组件要渲染的内容</p><h3 id="3-4-模板的工作原理"><a href="#3-4-模板的工作原理" class="headerlink" title="3.4 模板的工作原理"></a>3.4 模板的工作原理</h3><p>模板是如何工作的 —— 编译器</p><p>编译器的作用是将模板编译为渲染函数：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &lt;div @click=&quot;handleClick&quot;&gt;click me&lt;/div&gt;</span></span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line">render () &#123;</span><br><span class="line">  <span class="keyword">return</span> h(<span class="string">&#x27;div&#x27;</span>, &#123; <span class="attr">onClick</span>: handleClick &#125;, <span class="string">&#x27;click me&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>无论是使用模板还是手写渲染函数，对于一个组件来说，要渲染的内容最终都是通过渲染函数产生的，然后渲染器再把渲染函数返回的虚拟 DOM 渲染为真实 DOM，这就是模板的工作原理，也是 Vue.js 渲染页面的流程。</p><h3 id="3-5-Vue-js-是各个模板组成的有机整体"><a href="#3-5-Vue-js-是各个模板组成的有机整体" class="headerlink" title="3.5 Vue.js 是各个模板组成的有机整体"></a>3.5 Vue.js 是各个模板组成的有机整体</h3><p>如前所述，组件的实现依赖于<code>渲染器</code>，模板的编译依赖于<code>编译器</code>，并且编译后生成的代码是根据渲染器和虚拟 DOM 的设计决定的，因此 Vue.js 的各个模板之间是互相关联、互相制约的，共同构成一个整体。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;在第 1 章中，我们阐述了框架设计是权衡的艺术，这里面存在取舍，例如性能和可维护性之间的取舍、运行时和编译时之间的取舍。在第 2 章中，我们详细讨论了框架设计的几个核心要素，有些要素是框架设计者必须要考虑的，另一些要素则是从专业和提升开发体验的角度考虑的。框架的设计将就全局视角的把控，一个项目就算在大，也是存在一条核心思路的，并围绕核心展开。&lt;strong&gt;本章就从全局视角了解 Vue.js 3 的设计思路、工作机制及其重要的组成部分&lt;/strong&gt;。可以把这些组成部分当作独立的功能模块，看看它们之间是如何相互配合的。后续的章节中，我们会深入各个功能模块了解它们的运作机制。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;第一篇 框架设计概览&lt;/code&gt; &lt;code&gt;虚拟DOM&lt;/code&gt; &lt;code&gt;渲染器&lt;/code&gt; &lt;code&gt;组件&lt;/code&gt; &lt;code&gt;模板&lt;/code&gt; &lt;code&gt;编译器&lt;/code&gt;&lt;/p&gt;</summary>
     
     
     
