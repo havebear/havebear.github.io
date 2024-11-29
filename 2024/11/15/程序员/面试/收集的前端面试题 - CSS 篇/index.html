@@ -13,7 +13,7 @@
 <meta property="og:description" content="CSS 世界">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-15T09:33:59.786Z">
-<meta property="article:modified_time" content="2024-11-29T09:31:00.150Z">
+<meta property="article:modified_time" content="2024-11-29T10:03:56.007Z">
 <meta property="article:author" content="havebear">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="前端">
@@ -94,26 +94,50 @@
 <span id="more"></span>
 
 <ul>
-<li>CSS 选择器的优先级</li>
-<li>link 和 @import 的区别</li>
-<li>有那些方式（CSS）可以隐藏页面元素</li>
-<li>em\px\rem 的区别</li>
-<li>块级元素水平居中的方法</li>
-<li>CSS 有几种定位方式</li>
+<li>CSS 选择器  ⭐<ul>
+<li>有哪些</li>
+<li>优先级</li>
+</ul>
+</li>
+<li>CSS 单位有哪些</li>
+<li>对盒模型的理解  ⭐</li>
+<li>有哪些方式（CSS）可以隐藏页面元素（以及区别）</li>
+<li>水平垂直居中的方式有哪些  ⭐</li>
+<li>CSS 的定位方式</li>
 <li>如何理解 z-index</li>
 <li>如何理解层叠上下文</li>
 <li>清除浮动有哪些方法</li>
 <li>对 css-sprites 的理解</li>
 <li>对媒体查询的理解</li>
-<li>对和模型的理解</li>
 <li>标准盒模型和怪异盒模型有什么区别</li>
 <li>对 BFC（Block Formatting Context，块级上下文）的理解</li>
 <li>为什么有时候用 translate 来改变位置而不是定位</li>
 <li>伪类和伪元素的区别</li>
-<li>对 flex 的理解</li>
+<li>对 flex 的理解  ⭐</li>
 <li>关于 CSS 的动画与过渡问题</li>
+<li>说说设备像素，css像素，设备独立像素，dpr，ppi之间的区别？</li>
+<li>link 和 @import 的区别</li>
+<li>实现 div 高度永远是宽度的一半</li>
+<li>CSS 实现自适应正方形、等宽高比矩形</li>
+<li>flex 是什么属性的缩写</li>
+<li>实现两栏布局的方式</li>
+<li>实现三列布局的方式</li>
+<li>CSS 动画有哪些</li>
+<li>BFC 与 IFC 区别</li>
+<li>两个div上下排列，都设margin，有什么现象？</li>
+<li>PostCSS、Sass、Less的异同，以及使用配置，至少掌握一种（算工程化内容）</li>
 </ul>
-<h2 id="CSS-选择器的优先级"><a href="#CSS-选择器的优先级" class="headerlink" title="CSS 选择器的优先级"></a>CSS 选择器的优先级</h2><p>内联 &gt; ID选择器 &gt; 类选择器 &gt; 标签选择器</p>
+<h2 id="CSS-选择器"><a href="#CSS-选择器" class="headerlink" title="CSS 选择器"></a>CSS 选择器</h2><h3 id="有哪些"><a href="#有哪些" class="headerlink" title="有哪些"></a>有哪些</h3><ul>
+<li><strong>元素选择器（Element Selector）</strong><br>选择指定元素类型的所有元素，例如p选择所有段落元素。</li>
+<li><strong>类选择器（Class Selector）</strong><br>选择具有指定类名的元素，使用”.”符号表示，例如.class选择所有具有class为”class”的元素。</li>
+<li><strong>ID选择器（ID Selector）</strong><br>选择具有指定id的唯一元素，使用”#”符号表示，例如#myId选择id为”myId”的元素。</li>
+<li><strong>属性选择器（Attribute Selector）</strong><br>选择具有指定属性或属性值的元素，例如[type=”text”]选择所有type属性值为”text”的元素。</li>
+<li><strong>后代选择器（Descendant Selector）</strong><br>选择指定元素的后代元素，使用空格分隔，例如div p选择所有div元素内部的p元素。</li>
+<li><strong>直接子元素选择器（Child Selector）</strong><br>选择指定元素的直接子元素，使用”&gt;”符号表示，例如div &gt; p选择所有div元素的直接子元素p。</li>
+<li><strong>伪类选择器（Pseudo-class Selector）</strong><br>选择具有特定状态或行为的元素，例如:hover选择鼠标悬停的元素。</li>
+<li><strong>伪元素选择器（Pseudo-element Selector）</strong><br>选择元素的特定部分，例如::before选择元素的前面插入内容。</li>
+</ul>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p><strong>!important &gt; 内联 &gt; ID选择器 &gt; 类选择器 &gt; 标签选择器</strong></p>
 <p>到具体的计算层面，优先级是由 A 、B、C、D 的值来决定的，其中它们的值计算规则如下：</p>
 <ul>
 <li>A 的值等于 1 的前提是存在内联样式, 否则 A = 0;</li>
@@ -129,6 +153,21 @@
 
 <p>我们的比较优先级的方式是从 A 到 D 去比较值的大小，A、B、C、D 权重从左到右，依次减小。判断优先级时，从左到右，一一比较，直到比较出最大值，即可停止。</p>
 <p>比如第二个例子的 B 与第一个例子的B相比，1 &gt; 0,接下来就不需要比较了，第二个选择器的优先级更高。</p>
+<h2 id="CSS-单位有哪些"><a href="#CSS-单位有哪些" class="headerlink" title="CSS 单位有哪些"></a>CSS 单位有哪些</h2><ul>
+<li><strong>px</strong>（像素）：最常用的单位，相对于显示器屏幕的一个像素。</li>
+<li>**%**（百分比）：相对于父元素的百分比。</li>
+<li><strong>em</strong>：相对于当前元素的字体大小。</li>
+<li><strong>rem</strong>：相对于根元素（html 元素）的字体大小。</li>
+<li><strong>vw</strong>：视口宽度的百分比，1vw 等于视口宽度的 1%。</li>
+<li><strong>vh</strong>：视口高度的百分比，`1vh 等于视口高度的 1%。</li>
+</ul>
+<h2 id="对盒模型的理解"><a href="#对盒模型的理解" class="headerlink" title="对盒模型的理解"></a>对盒模型的理解</h2><p>CSS盒模型是指在网页布局中，每个元素可以看作一个矩形的盒子，这个盒子包含了内容、内边距、边框和外边距。盒模型的组成部分包括：</p>
+<ul>
+<li><strong>内容区域</strong>（content area）：显示元素的实际内容，比如文本、图片等。</li>
+<li><strong>内边距</strong>（padding）：内容区域与边框之间的空白区域，可以通过padding属性进行设置。</li>
+<li><strong>边框</strong>（border）：内边距和外边距之间的边界，可以通过border属性进行设置。</li>
+<li><strong>外边距</strong>（margin）：边框与相邻元素之间的空白区域，可以通过margin属性进行设置。</li>
+</ul>
 <h2 id="link-和-import-的区别"><a href="#link-和-import-的区别" class="headerlink" title="link 和 @import 的区别"></a>link 和 @import 的区别</h2><ul>
 <li>link 属于 XHTML 标签，而 @import 是 CSS 提供的。</li>
 <li>页面被加载时，link 会同时被加载，而 @import 引用的CSS会等到页面被加载完再加载。</li>
@@ -136,11 +175,9 @@
 <li>link 方式的样式权重高于 @import 的权重。</li>
 <li>使用 DOM 控制样式时的差别。当使用 JS 控制 DOM 去改变样式的时候，只能使用 link 标签，因为 @import 不是 DOM 可以控制的。</li>
 </ul>
-<h2 id="为什么有时候用-translate-来改变位置而不是定位"><a href="#为什么有时候用-translate-来改变位置而不是定位" class="headerlink" title="为什么有时候用 translate 来改变位置而不是定位"></a>为什么有时候用 translate 来改变位置而不是定位</h2><p>translate()是transform的一个值。改变transform或opacity不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。transform使浏览器为元素创建一个 GPU 图层，但改变绝对定位会使用到 CPU。 因此translate()更高效，可以缩短平滑动画的绘制时间。</p>
+<h2 id="对盒模型的理解-⭐"><a href="#对盒模型的理解-⭐" class="headerlink" title="对盒模型的理解 ⭐"></a>对盒模型的理解 ⭐</h2><h2 id="为什么有时候用-translate-来改变位置而不是定位"><a href="#为什么有时候用-translate-来改变位置而不是定位" class="headerlink" title="为什么有时候用 translate 来改变位置而不是定位"></a>为什么有时候用 translate 来改变位置而不是定位</h2><p>translate()是transform的一个值。改变transform或opacity不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。transform使浏览器为元素创建一个 GPU 图层，但改变绝对定位会使用到 CPU。 因此translate()更高效，可以缩短平滑动画的绘制时间。</p>
 <p>而translate改变位置时，元素依然会占据其原始空间，绝对定位就不会发生这种情况。</p>
-<blockquote>
 <p>扩展阅读：<a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/">CSS3 3D transform变换-张鑫旭</a></p>
-</blockquote>
 <h2 id="对-flex-的理解"><a href="#对-flex-的理解" class="headerlink" title="对 flex 的理解"></a>对 flex 的理解</h2><p>web应用有不同设备尺寸和分辨率，这时需要响应式界面设计来满足复杂的布局需求，Flex弹性盒模型的优势在于开发人员只是声明布局应该具有的行为，而不需要给出具体的实现方式，浏览器负责完成实际布局，当布局涉及到不定宽度，分布对齐的场景时，就要优先考虑弹性盒布局</p>
 <p>具体用法移步阮一峰的 <a href="%5B123%5D(http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)">flex语法</a>、<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html">flex实战</a>，讲得非常通俗易懂，而且我们一两句话说不清楚。</p>
 <h2 id="关于-CSS-的动画与过渡问题"><a href="#关于-CSS-的动画与过渡问题" class="headerlink" title="关于 CSS 的动画与过渡问题"></a>关于 CSS 的动画与过渡问题</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaohuochai/p/5391663.html">深入理解CSS动画animation</a></p>
