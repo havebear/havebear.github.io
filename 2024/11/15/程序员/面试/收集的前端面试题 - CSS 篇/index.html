@@ -12,12 +12,16 @@
 <meta property="og:site_name" content="Have Bear">
 <meta property="og:description" content="CSS 世界">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://havebear.com/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20CSS%20%E7%AF%87/image.png">
+<meta property="og:image" content="http://havebear.com/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20CSS%20%E7%AF%87/image-1.png">
+<meta property="og:image" content="http://havebear.com/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20CSS%20%E7%AF%87/image-2.png">
 <meta property="article:published_time" content="2024-11-15T09:33:59.786Z">
-<meta property="article:modified_time" content="2024-12-02T02:25:09.705Z">
+<meta property="article:modified_time" content="2024-12-04T09:35:39.429Z">
 <meta property="article:author" content="havebear">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://havebear.com/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20CSS%20%E7%AF%87/image.png">
   
     <link rel="alternate" href="/atom.xml" title="Have Bear" type="application/atom+xml">
   
@@ -161,13 +165,23 @@
 <li><strong>vw</strong>：视口宽度的百分比，1vw 等于视口宽度的 1%。</li>
 <li><strong>vh</strong>：视口高度的百分比，`1vh 等于视口高度的 1%。</li>
 </ul>
-<h2 id="对盒模型的理解"><a href="#对盒模型的理解" class="headerlink" title="对盒模型的理解"></a>对盒模型的理解</h2><p>CSS盒模型是指在网页布局中，每个元素可以看作一个矩形的盒子，这个盒子包含了内容、内边距、边框和外边距。盒模型的组成部分包括：</p>
+<h2 id="对盒模型的理解-⭐"><a href="#对盒模型的理解-⭐" class="headerlink" title="对盒模型的理解 ⭐"></a>对盒模型的理解 ⭐</h2><p>CSS盒模型是指在网页布局中，每个元素可以看作一个矩形的盒子，这个盒子包含了内容、内边距、边框和外边距。盒模型的组成部分包括：</p>
+<p><img src="image.png" alt="alt text"></p>
 <ul>
 <li><strong>内容区域</strong>（content area）：显示元素的实际内容，比如文本、图片等。</li>
 <li><strong>内边距</strong>（padding）：内容区域与边框之间的空白区域，可以通过padding属性进行设置。</li>
 <li><strong>边框</strong>（border）：内边距和外边距之间的边界，可以通过border属性进行设置。</li>
 <li><strong>外边距</strong>（margin）：边框与相邻元素之间的空白区域，可以通过margin属性进行设置。</li>
 </ul>
+<p>在标准的盒模型中：</p>
+<p><img src="image-1.png" alt="alt text"></p>
+<p>元素的宽度 = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right</p>
+<p>怪异盒模型(IE) 盒子：</p>
+<p><img src="image-2.png" alt="alt text"></p>
+<p>元素的宽度 = margin-left + width + margin-right</p>
+<p>虽然现代浏览器默认使用W3C的标准盒模型，但是在不少情况下怪异盒模型更好用，于是W3C在css3中加入box-sizing。</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">box</span>-sizing: content-<span class="built_in">box</span> <span class="comment">// 标准盒模型</span></span><br><span class="line"><span class="built_in">box</span>-sizing: border-<span class="built_in">box</span> <span class="comment">// 怪异盒模型</span></span><br><span class="line"><span class="built_in">box</span>-sizing: padding-<span class="built_in">box</span> <span class="comment">// 火狐的私有模型，没人用</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="link-和-import-的区别"><a href="#link-和-import-的区别" class="headerlink" title="link 和 @import 的区别"></a>link 和 @import 的区别</h2><ul>
 <li>link 属于 XHTML 标签，而 @import 是 CSS 提供的。</li>
 <li>页面被加载时，link 会同时被加载，而 @import 引用的CSS会等到页面被加载完再加载。</li>
@@ -175,7 +189,7 @@
 <li>link 方式的样式权重高于 @import 的权重。</li>
 <li>使用 DOM 控制样式时的差别。当使用 JS 控制 DOM 去改变样式的时候，只能使用 link 标签，因为 @import 不是 DOM 可以控制的。</li>
 </ul>
-<h2 id="对盒模型的理解-⭐"><a href="#对盒模型的理解-⭐" class="headerlink" title="对盒模型的理解 ⭐"></a>对盒模型的理解 ⭐</h2><h2 id="为什么有时候用-translate-来改变位置而不是定位"><a href="#为什么有时候用-translate-来改变位置而不是定位" class="headerlink" title="为什么有时候用 translate 来改变位置而不是定位"></a>为什么有时候用 translate 来改变位置而不是定位</h2><p>translate()是transform的一个值。改变transform或opacity不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。transform使浏览器为元素创建一个 GPU 图层，但改变绝对定位会使用到 CPU。 因此translate()更高效，可以缩短平滑动画的绘制时间。</p>
+<h2 id="为什么有时候用-translate-来改变位置而不是定位"><a href="#为什么有时候用-translate-来改变位置而不是定位" class="headerlink" title="为什么有时候用 translate 来改变位置而不是定位"></a>为什么有时候用 translate 来改变位置而不是定位</h2><p>translate()是transform的一个值。改变transform或opacity不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。而改变绝对定位会触发重新布局，进而触发重绘和复合。transform使浏览器为元素创建一个 GPU 图层，但改变绝对定位会使用到 CPU。 因此translate()更高效，可以缩短平滑动画的绘制时间。</p>
 <p>而translate改变位置时，元素依然会占据其原始空间，绝对定位就不会发生这种情况。</p>
 <p>扩展阅读：<a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/">CSS3 3D transform变换-张鑫旭</a></p>
 <h2 id="对-flex-的理解"><a href="#对-flex-的理解" class="headerlink" title="对 flex 的理解"></a>对 flex 的理解</h2><p>web应用有不同设备尺寸和分辨率，这时需要响应式界面设计来满足复杂的布局需求，Flex弹性盒模型的优势在于开发人员只是声明布局应该具有的行为，而不需要给出具体的实现方式，浏览器负责完成实际布局，当布局涉及到不定宽度，分布对齐的场景时，就要优先考虑弹性盒布局</p>
