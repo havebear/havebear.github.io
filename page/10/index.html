@@ -66,6 +66,90 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-程序员/前端/浏览器/浅谈垃圾回收" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" class="article-date">
+  <time datetime="2021-04-30T09:21:48.741Z" itemprop="datePublished">2021-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">浅谈垃圾回收</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" data-id="cm42jnpgn005vqow46juyg19t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/面试/JavaScript笔试/模拟JavaScript中的new" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E6%A8%A1%E6%8B%9FJavaScript%E4%B8%AD%E7%9A%84new/" class="article-date">
+  <time datetime="2021-04-30T07:34:53.068Z" itemprop="datePublished">2021-04-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E6%A8%A1%E6%8B%9FJavaScript%E4%B8%AD%E7%9A%84new/">模拟JavaScript中的new</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>new 操作符做了那些事情</p>
+<ul>
+<li>创建一个全新的对象</li>
+<li>将对象的__proto__指向（链接）构造函数的prototype属性（原型对象）</li>
+<li>构造函数通过call或者apply执行，将创建的对象传入，使this指向创建的对象</li>
+<li>如果函数没有返回对象类型Object（Function、Array、Data、RegExg、Error），则返回创建的对象的引用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">objectFactory</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">  <span class="comment">// 获取第一个参数，即构造函数</span></span><br><span class="line">  <span class="keyword">const</span> Constructor = [].shift.call(<span class="built_in">arguments</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更改obj的__proto__为构造函数的原型对象</span></span><br><span class="line">  obj.__proto__ = Constructor.prototype</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 执行构造函数，并改变this指向，为obj绑定属性</span></span><br><span class="line">  <span class="keyword">const</span> ret = Constructor.apply(obj, <span class="built_in">arguments</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 判断ret类型是否为对象类型，是则返回ret，否则返回obj的引用</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> ret === <span class="string">&quot;object&quot;</span> ? ret : obj</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = objectFactory(A, <span class="string">&#x27;张三&#x27;</span>) <span class="comment">// A &#123; name: &quot;test&quot; &#125;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/JavaScript%E7%AC%94%E8%AF%95/%E6%A8%A1%E6%8B%9FJavaScript%E4%B8%AD%E7%9A%84new/" data-id="cm42jnpgz006wqow4bf8wfjok" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-程序员/前端/javascript/浅谈JavaScript中的事件委托" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88JavaScript%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" class="article-date">
@@ -493,58 +577,6 @@
 
 
   
-    <article id="post-程序员/网络/HTTP1.0" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BD%91%E7%BB%9C/HTTP1.0/" class="article-date">
-  <time datetime="2021-04-30T07:33:49.822Z" itemprop="datePublished">2021-04-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BD%91%E7%BB%9C/HTTP1.0/" data-id="cm42jnpf50022qow46mqebrpa" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-程序员/编程/面向接口编程" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B/" class="article-date">
-  <time datetime="2021-04-30T07:33:49.821Z" itemprop="datePublished">2021-04-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://havebear.com/2021/04/30/%E7%A8%8B%E5%BA%8F%E5%91%98/%E7%BC%96%E7%A8%8B/%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B/" data-id="cm42jnpew001gqow4czgr0d2g" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -593,6 +625,14 @@
       <ul>
         
           <li>
+            <a href="/2024/12/09/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20Vue2%20%E7%AF%87/">收集的前端面试题 - Vue3 篇</a>
+          </li>
+        
+          <li>
+            <a href="/2024/12/09/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20TypeScript%20%E7%AF%87/">收集的前端面试题 - TypeScript 篇</a>
+          </li>
+        
+          <li>
             <a href="/2024/12/05/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/css/%E6%8E%A2%E7%B4%A2flex%E4%B8%BA1%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">探索 flex:1 常见问题与解决方案</a>
           </li>
         
@@ -602,14 +642,6 @@
         
           <li>
             <a href="/2024/11/27/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20HTML%20%E7%AF%87/">收集的前端面试题 - HTML 篇</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87/">收集的面试题 - HTTP 篇</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/15/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20HTTP%20%E7%AF%87/">收集的面试题 - HTTP 篇</a>
           </li>
         
       </ul>
