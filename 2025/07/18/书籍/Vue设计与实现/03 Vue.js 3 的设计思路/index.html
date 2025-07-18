@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vue.js 设计与实现 - 03 Vue.js 3 的设计思路 | Have Bear</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在第 1 章中，我们阐述了框架设计是权衡的艺术，这里面存在取舍，例如性能和可维护性之间的取舍、运行时和编译时之间的取舍。在第 2 章中，我们详细讨论了框架设计的几个核心要素，有些要素是框架设计者必须要考虑的，另一些要素则是从专业和提升开发体验的角度考虑的。框架的设计将就全局视角的把控，一个项目就算在大，也是存在一条核心思路的，并围绕核心展开。本章就从全局视角了解 Vue.js 3 的设计思路、工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js 设计与实现 - 03 Vue.js 3 的设计思路">
+<meta property="og:url" content="http://havebear.com/2025/07/18/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/index.html">
+<meta property="og:site_name" content="Have Bear">
+<meta property="og:description" content="在第 1 章中，我们阐述了框架设计是权衡的艺术，这里面存在取舍，例如性能和可维护性之间的取舍、运行时和编译时之间的取舍。在第 2 章中，我们详细讨论了框架设计的几个核心要素，有些要素是框架设计者必须要考虑的，另一些要素则是从专业和提升开发体验的角度考虑的。框架的设计将就全局视角的把控，一个项目就算在大，也是存在一条核心思路的，并围绕核心展开。本章就从全局视角了解 Vue.js 3 的设计思路、工作">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-18T06:03:17.103Z">
+<meta property="article:modified_time" content="2025-07-18T06:03:17.103Z">
+<meta property="article:author" content="havebear">
+<meta property="article:tag" content="阅读">
+<meta property="article:tag" content="Vue.js 设计与实现">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Have Bear" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Have Bear</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://havebear.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-书籍/Vue设计与实现/03 Vue.js 3 的设计思路" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.103Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue.js 设计与实现 - 03 Vue.js 3 的设计思路
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在第 1 章中，我们阐述了框架设计是权衡的艺术，这里面存在取舍，例如性能和可维护性之间的取舍、运行时和编译时之间的取舍。在第 2 章中，我们详细讨论了框架设计的几个核心要素，有些要素是框架设计者必须要考虑的，另一些要素则是从专业和提升开发体验的角度考虑的。框架的设计将就全局视角的把控，一个项目就算在大，也是存在一条核心思路的，并围绕核心展开。<strong>本章就从全局视角了解 Vue.js 3 的设计思路、工作机制及其重要的组成部分</strong>。可以把这些组成部分当作独立的功能模块，看看它们之间是如何相互配合的。后续的章节中，我们会深入各个功能模块了解它们的运作机制。</p>
+<p><code>第一篇 框架设计概览</code> <code>虚拟DOM</code> <code>渲染器</code> <code>组件</code> <code>模板</code> <code>编译器</code></p>
+<span id="more"></span>
+
+<h3 id="3-1-声明式描述-UI（模板、Javascript-对象）"><a href="#3-1-声明式描述-UI（模板、Javascript-对象）" class="headerlink" title="3.1 声明式描述 UI（模板、Javascript 对象）"></a>3.1 声明式描述 UI（模板、Javascript 对象）</h3><p>Vue.js 3 是一个声明式的 UI 框架，意思是用户在使用 Vue.js 3 开发页面时是声明式地描述 UI 的。</p>
+<p>在 Vue 中，我们可以使用模板来描述 UI，模板中可以使用各种标签来描述 UI，哪怕是事件，也有与之对应的描述方式。用户不需要手写任何命令式代码，这就是所谓的声明式描述 UI。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div @click=&quot;handleClick&quot;&gt;</span><br><span class="line">  &lt;span&gt;&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>除了使用模板来描述 UI，我们还可以用 JavaScript 对象来描述：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">  <span class="attr">tag</span>: <span class="string">&#x27;div&#x27;</span>,</span><br><span class="line">  <span class="attr">props</span>: &#123;</span><br><span class="line">    <span class="attr">onClick</span>: handleClick</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">children</span>: [</span><br><span class="line">    &#123; <span class="attr">tag</span>: <span class="string">&#x27;span&#x27;</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 JavaScript 对象描述 UI 更加灵活，但是它的可读性不如模板。而用 JavaScript 对象描述 UI 的方式，就是所谓的<code>虚拟DOM</code></p>
+<p>Vue 会根据组件的 render 函数的返回值，拿到虚拟 DOM，然后根据虚拟 DOM 生成真实 DOM，最后将真实 DOM 挂载到页面中。</p>
+<h3 id="3-2-初识渲染器"><a href="#3-2-初识渲染器" class="headerlink" title="3.2 初识渲染器"></a>3.2 初识渲染器</h3><p>我们已经了解了什么是<code>虚拟DOM</code>（用JavaScript 对象来描述真实的 DOM 结构）。那么，<code>虚拟DOM</code> 是如何变成真实 DOM 渲染到浏览器页面中的呢 —— 渲染器</p>
+<p>实现思路：</p>
+<ul>
+<li>把 vnode.tag 作为标签名创建 DOM 元素</li>
+<li>为元素添加属性和事件<ul>
+<li>遍历 vnode.props 对象，key 以 on 开头的是事件，否则是属性</li>
+</ul>
+</li>
+<li>处理 children<ul>
+<li>如果 children 是一个数组，递归调用 render 函数，将返回的 vnode 作为子节点添加到元素中</li>
+<li>如果 children 是一个字符串，创建文本节点添加到元素中</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-组件的本质"><a href="#3-3-组件的本质" class="headerlink" title="3.3 组件的本质"></a>3.3 组件的本质</h3><p>组件是一组 DOM 元素的封装，这组 DOM 元素就是组件要渲染的内容，因此可以定义一个函数来代表组件，而函数的返回值（也是虚拟 DOM）就代表组件要渲染的内容</p>
+<h3 id="3-4-模板的工作原理"><a href="#3-4-模板的工作原理" class="headerlink" title="3.4 模板的工作原理"></a>3.4 模板的工作原理</h3><p>模板是如何工作的 —— 编译器</p>
+<p>编译器的作用是将模板编译为渲染函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &lt;div @click=&quot;handleClick&quot;&gt;click me&lt;/div&gt;</span></span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line"><span class="title function_">render</span> () &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">h</span>(<span class="string">&#x27;div&#x27;</span>, &#123; <span class="attr">onClick</span>: handleClick &#125;, <span class="string">&#x27;click me&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无论是使用模板还是手写渲染函数，对于一个组件来说，要渲染的内容最终都是通过渲染函数产生的，然后渲染器再把渲染函数返回的虚拟 DOM 渲染为真实 DOM，这就是模板的工作原理，也是 Vue.js 渲染页面的流程。</p>
+<h3 id="3-5-Vue-js-是各个模板组成的有机整体"><a href="#3-5-Vue-js-是各个模板组成的有机整体" class="headerlink" title="3.5 Vue.js 是各个模板组成的有机整体"></a>3.5 Vue.js 是各个模板组成的有机整体</h3><p>如前所述，组件的实现依赖于<code>渲染器</code>，模板的编译依赖于<code>编译器</code>，并且编译后生成的代码是根据渲染器和虚拟 DOM 的设计决定的，因此 Vue.js 的各个模板之间是互相关联、互相制约的，共同构成一个整体。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/03%20Vue.js%203%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/" data-id="cmd8fcqeq000v64g57eij9340" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Vue.js 设计与实现</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/07/18/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/04%20%E5%93%8D%E5%BA%94%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%92%8C%E5%AE%9E%E7%8E%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vue.js 设计与实现 - 04 响应系统的作用和实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/07/18/%E4%B9%A6%E7%B1%8D/Vue%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/05%20%E9%9D%9E%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E6%96%B9%E6%A1%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue.js 设计与实现 - 05 非原始值的响应式方案</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SCSS/" rel="tag">SCSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Vue.js 设计与实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3/" rel="tag">Vue3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" rel="tag">人月神话</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" rel="tag">备忘录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" rel="tag">开发日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">设计原则和编程技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E8%AE%B0/" rel="tag">随记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 19px;">JavaScript</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" style="font-size: 16px;">Vue.js 设计与实现</a> <a href="/tags/Vue3/" style="font-size: 10px;">Vue3</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" style="font-size: 11px;">人月神话</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 15px;">前端工程化</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" style="font-size: 11px;">备忘录</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" style="font-size: 10px;">开发日志</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 12px;">设计原则和编程技巧</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17px;">设计模式</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 14px;">转载</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 17px;">阅读</a> <a href="/tags/%E9%9A%8F%E8%AE%B0/" style="font-size: 10px;">随记</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 18px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/07/18/%E9%9A%8F%E8%AE%B0/2025%E5%B9%B407%E6%9C%8818%E6%97%A5%E9%9A%8F%E8%AE%B0/">2025年07月18日随记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%AD-%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E7%AF%87/">输入URL到渲染全面梳理中-页面渲染篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8A-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%AF%87/">输入URL到渲染全面梳理上-网络通信篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8B-%E6%80%BB%E7%BB%93/">输入URL到渲染全面梳理下-总结篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20HTTP%20%E7%AF%87/">收集的面试题 - HTTP 篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 havebear<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

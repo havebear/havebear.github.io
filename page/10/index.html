@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Have Bear</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前端、博客、总结、资源">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Have Bear">
+<meta property="og:url" content="http://havebear.com/page/10/index.html">
+<meta property="og:site_name" content="Have Bear">
+<meta property="og:description" content="前端、博客、总结、资源">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="havebear">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Have Bear" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Have Bear</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://havebear.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-程序员/前端/javascript/变量是如何存储的" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.108Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/">变量是如何在内存中存储的，以及垃圾回收机制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>存储的数据结构：栈和堆</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E5%8F%98%E9%87%8F%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E7%9A%84/" data-id="cmd8fcqf5004464g5g0x1bkan" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/javascript/浅谈JavaScript的对象原型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88JavaScript%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.108Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88JavaScript%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B/">浅谈JavaScript的对象原型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88JavaScript%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B/" data-id="cmd8fcqf5004664g556l052cp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/javascript/浅谈JavaScript中的事件委托" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88JavaScript%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.108Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88JavaScript%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">JavaScript中的事件委托</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>什么叫事件委托呢？它还有一个名字叫事件代理，JavaScript高级程序设计上讲：事件委托就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。</p>
+        
+          <p class="article-more-link">
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88JavaScript%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88JavaScript%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" data-id="cmd8fcqf6004864g5cacc7myq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/javascript/浅谈Object.freeze()" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88Object.freeze()/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.108Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88Object.freeze()/">浅谈 Object.freeze()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="对象常量"><a href="#对象常量" class="headerlink" title="对象常量"></a>对象常量</h2><p>结合 writable: false 和 configurable: false 可以创建一个整整的常量属性（不可修改、重定义和删除）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj, <span class="string">&#x27;test&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="number">123</span>,</span><br><span class="line">  <span class="attr">writable</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">configurable</span>: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="禁止扩展-Object-preventExtensions-obj"><a href="#禁止扩展-Object-preventExtensions-obj" class="headerlink" title="禁止扩展 Object.preventExtensions(obj)"></a>禁止扩展 Object.preventExtensions(obj)</h2><p>禁止一个对象添加新属性，并保留已有属性，可以使用 Object.preventExtensions(obj)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">preventExtensions</span>(obj)</span><br></pre></td></tr></table></figure>
+
+<h2 id="密封-Object-seal-obj"><a href="#密封-Object-seal-obj" class="headerlink" title="密封 Object.seal(obj)"></a>密封 Object.seal(obj)</h2><p>Object.seal(obj) 会创建一个 “密封” 对象，这个方法实际上会在一个现有对象上调用 Object.preventExtensions(obj)，并把所有属性表记为 configurable: false</p>
+<p>所以，密封之后不仅不能添加新属性，也不能重新配置或者删除任何现有属性（虽然可以修改属性的值）</p>
+<h2 id="冻结-Object-freeze-obj"><a href="#冻结-Object-freeze-obj" class="headerlink" title="冻结 Object.freeze(obj)"></a>冻结 Object.freeze(obj)</h2><p>Object.freeze(obj) 会创建一个冻结对象，这个方法实际上会在一个现有对象上调用 Object.seal(obj)，并把所有 “数据访问” 属性标记为 writable: false，这样就无法修改它们的值</p>
+<p>这个方法是你可以应用在对象上级别最高的不可变性，它会禁止对于对象本身及其任意直接属性的修改（属性引用的其他对象不受影响）</p>
+<p>如果想 “深度冻结” 一个对象，对该对象调用 Object.freeze(obj)，在遍历所有引用的对象，并在这些对象上调用 Object.freeze(..)，需要注意，这样会无意中冻结其他对象</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88Object.freeze()/" data-id="cmd8fcqf6004a64g50f0b7pwx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/javascript/浅谈作用域" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.108Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E4%BD%9C%E7%94%A8%E5%9F%9F/">浅谈作用域</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E4%BD%9C%E7%94%A8%E5%9F%9F/" data-id="cmd8fcqf6004c64g51l4n38ah" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/javascript/通过WeakMap实现私有类变量" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E9%80%9A%E8%BF%87WeakMap%E5%AE%9E%E7%8E%B0%E7%A7%81%E6%9C%89%E7%B1%BB%E5%8F%98%E9%87%8F/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.108Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E9%80%9A%E8%BF%87WeakMap%E5%AE%9E%E7%8E%B0%E7%A7%81%E6%9C%89%E7%B1%BB%E5%8F%98%E9%87%8F/">通过WeakMap实现私有类变量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>主要利用 WeakMap（弱映射）的 “不可迭代键” 特性实现</p>
+<ul>
+<li>因为 WeakMap 中 键值对 任何时候都可能被销毁，所以没必要提供迭代其键值对的能力</li>
+<li>因为不可迭代，所以也不能在不知道对象引用的情况下从 WeakMap 中取值</li>
+<li>之所以限制只能使用 键值对 作为键，是为了保证只有通过键值对的引用才能取得值</li>
+<li>如果允许原始值，那就没法区分初始化时使用的字符串字面量和初始化之后的一个相等字符串了</li>
+</ul>
+<p>基于上述特性，可以实现真正的私有变量的一种新方式，前提很明确，私有变量会存储在 WeakMap 中，以对象实例为键，以私有成员的字典为值。</p>
+<p>通过闭包，维护一个 WeakMap 集合，维护私有变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">User</span> = (<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> wm = <span class="keyword">new</span> <span class="title class_">WeakMap</span>()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span> (<span class="params">id</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">idProperty</span> = <span class="title class_">Symbol</span>(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">setId</span>(id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">setPrivate</span> (property, value) &#123;</span><br><span class="line">      <span class="comment">// 把当前实例当作键值，存储对应对象，存储对应 value</span></span><br><span class="line">      <span class="keyword">const</span> privateMembers = wm.<span class="title function_">get</span>(<span class="variable language_">this</span>) || &#123;&#125;</span><br><span class="line">      privateMembers[property] = value</span><br><span class="line">      wm.<span class="title function_">set</span>(<span class="variable language_">this</span>, privateMembers)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">getPrivate</span> (property) &#123;</span><br><span class="line">      <span class="keyword">return</span> wm.<span class="title function_">get</span>(<span class="variable language_">this</span>)[property]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">setId</span> (id) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">setPrivate</span>(<span class="variable language_">this</span>.<span class="property">idProperty</span>, id)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">getId</span> () &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">getPrivate</span>(<span class="variable language_">this</span>.<span class="property">idProperty</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">User</span></span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E9%80%9A%E8%BF%87WeakMap%E5%AE%9E%E7%8E%B0%E7%A7%81%E6%9C%89%E7%B1%BB%E5%8F%98%E9%87%8F/" data-id="cmd8fcqf6004e64g5amti8j49" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/javascript/浅谈函数防抖与节流" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.108Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/">浅谈函数防抖与节流</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/" data-id="cmd8fcqf7004g64g5cswp45qd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/javascript/浅谈闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E9%97%AD%E5%8C%85/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.108Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E9%97%AD%E5%8C%85/">浅谈闭包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>闭包的作用：私有化变量和缓存变量</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E9%97%AD%E5%8C%85/" data-id="cmd8fcqf7004k64g52ktvgay0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/javascript/浅谈事件循环" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.108Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">浅谈事件循环</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/%E6%B5%85%E8%B0%88%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" data-id="cmd8fcqf9005164g52gpj80a3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-程序员/前端/javascript/reduce" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.107Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/">JavaScript reduce 方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于最后一个参数 – 初始值：</p>
+<ol>
+<li><p><strong>计算特定初始值的累计结果</strong><br>例如，计算数组中所有元素的乘积，并且希望从特定的初始值（比如 1）开始计算，而不是从数组的第一个元素开始。如果不设置初始值，第一个元素将作为初始累计值，可能不符合预期的计算逻辑。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> productWithInitialValue = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc * curr, <span class="number">1</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(productWithInitialValue); <span class="comment">// 24</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>处理空数组</strong><br>如果不确定数组是否为空，设置初始值可以确保在空数组的情况下也能返回一个合理的值，而不是 undefined。<br>例如，计算数组中所有数字的和，如果数组为空，希望返回 0。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [];</span><br><span class="line"><span class="keyword">const</span> sumWithInitialValue = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc + curr, <span class="number">0</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sumWithInitialValue); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>处理非数值类型的初始状态</strong><br>如果要进行的累计操作不是简单的数值计算，而是涉及到更复杂的数据结构或状态，通常需要设置一个合适的初始值。<br>例如，将数组中的对象合并为一个新的对象，可以设置一个空对象作为初始值。**</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [&#123; <span class="attr">name</span>: <span class="string">&#x27;Alice&#x27;</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">&#x27;Bob&#x27;</span> &#125;];</span><br><span class="line"><span class="keyword">const</span> mergedObject = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> (&#123;...acc,...curr &#125;), &#123;&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mergedObject); <span class="comment">// &#123; name: &#x27;Bob&#x27; &#125;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>处理可能存在单个元素的数组</strong><br>当数组可能只有一个元素时，设置初始值可以确保处理逻辑的一致性。<br>例如，对数组中的元素进行特定的转换操作，如果只有一个元素，也希望按照统一的逻辑进行处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> transformedValue = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc + curr, <span class="number">0</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(transformedValue); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/javascript/reduce/" data-id="cmd8fcqf3003q64g57a658u0n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/9/">&amp;laquo; __(&#39;prev&#39;)</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/11/">__(&#39;next&#39;) &amp;raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SCSS/" rel="tag">SCSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Vue.js 设计与实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3/" rel="tag">Vue3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" rel="tag">人月神话</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" rel="tag">备忘录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" rel="tag">开发日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">设计原则和编程技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E8%AE%B0/" rel="tag">随记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 19px;">JavaScript</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" style="font-size: 16px;">Vue.js 设计与实现</a> <a href="/tags/Vue3/" style="font-size: 10px;">Vue3</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" style="font-size: 11px;">人月神话</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 15px;">前端工程化</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" style="font-size: 11px;">备忘录</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" style="font-size: 10px;">开发日志</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 12px;">设计原则和编程技巧</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17px;">设计模式</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 14px;">转载</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 17px;">阅读</a> <a href="/tags/%E9%9A%8F%E8%AE%B0/" style="font-size: 10px;">随记</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 18px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/07/18/%E9%9A%8F%E8%AE%B0/2025%E5%B9%B407%E6%9C%8818%E6%97%A5%E9%9A%8F%E8%AE%B0/">2025年07月18日随记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%AD-%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E7%AF%87/">输入URL到渲染全面梳理中-页面渲染篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8A-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%AF%87/">输入URL到渲染全面梳理上-网络通信篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8B-%E6%80%BB%E7%BB%93/">输入URL到渲染全面梳理下-总结篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20HTTP%20%E7%AF%87/">收集的面试题 - HTTP 篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 havebear<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

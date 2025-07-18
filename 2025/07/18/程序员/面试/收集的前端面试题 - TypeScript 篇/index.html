@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>收集的前端面试题 - TypeScript 篇 | Have Bear</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是 TypeScriptTypeScript是一种由微软开发的开源编程语言，它是JavaScript的超集。TypeScript通过添加静态类型、类、接口和模块等功能，使得在大型应用程序中更容易进行维护和扩展。它可以被编译为纯JavaScript，从而能够在任何支持JavaScript的地方运行。使用TypeScript可以帮助开发人员在编码过程中避免一些常见的错误，并提供更好的代码编辑功">
+<meta property="og:type" content="article">
+<meta property="og:title" content="收集的前端面试题 - TypeScript 篇">
+<meta property="og:url" content="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20TypeScript%20%E7%AF%87/index.html">
+<meta property="og:site_name" content="Have Bear">
+<meta property="og:description" content="什么是 TypeScriptTypeScript是一种由微软开发的开源编程语言，它是JavaScript的超集。TypeScript通过添加静态类型、类、接口和模块等功能，使得在大型应用程序中更容易进行维护和扩展。它可以被编译为纯JavaScript，从而能够在任何支持JavaScript的地方运行。使用TypeScript可以帮助开发人员在编码过程中避免一些常见的错误，并提供更好的代码编辑功">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-18T06:03:17.130Z">
+<meta property="article:modified_time" content="2025-07-18T06:03:17.130Z">
+<meta property="article:author" content="havebear">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Have Bear" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Have Bear</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://havebear.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-程序员/面试/收集的前端面试题 - TypeScript 篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20TypeScript%20%E7%AF%87/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.130Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      收集的前端面试题 - TypeScript 篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+<h2 id="什么是-TypeScript"><a href="#什么是-TypeScript" class="headerlink" title="什么是 TypeScript"></a>什么是 TypeScript</h2><p>TypeScript是一种由微软开发的开源编程语言，它是JavaScript的超集。TypeScript通过添加静态类型、类、接口和模块等功能，使得在大型应用程序中更容易进行维护和扩展。它可以被编译为纯JavaScript，从而能够在任何支持JavaScript的地方运行。使用TypeScript可以帮助开发人员在编码过程中避免一些常见的错误，并提供更好的代码编辑功能和工具支持。</p>
+<h2 id="类型声明和类型推断的区别，并举例"><a href="#类型声明和类型推断的区别，并举例" class="headerlink" title="类型声明和类型推断的区别，并举例"></a>类型声明和类型推断的区别，并举例</h2><p>类型声明是显式地为变量或者函数指定类型，而类型推断是 TypeScript 根据赋值语句右侧的值自动推断变量类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类型声明</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">name</span>: <span class="built_in">string</span> = <span class="string">&quot;John&quot;</span>;</span><br><span class="line"><span class="comment">// 类型推断</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">20</span>; <span class="comment">// 推断为 number 类型</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="什么是接口（interface），作用和使用场景，接口和类型别名（Type-Alias）的区别"><a href="#什么是接口（interface），作用和使用场景，接口和类型别名（Type-Alias）的区别" class="headerlink" title="什么是接口（interface），作用和使用场景，接口和类型别名（Type Alias）的区别"></a>什么是接口（interface），作用和使用场景，接口和类型别名（Type Alias）的区别</h2><p><strong>interface</strong></p>
+<ol>
+<li>定义对象类型，主要用于定义对象的形状，描述对象应该具有哪些属性和方法<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>可扩展性，interface 可以被扩展，可以通过继承来添加更多的属性和方法<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="attr">gender</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>实现接口，以确保类具有接口中定义的所有属性和方法<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span> <span class="keyword">implements</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"><span class="attr">name</span>: <span class="built_in">string</span>, <span class="attr">age</span>: <span class="built_in">number</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>type</strong></p>
+<ol>
+<li>定义类型别名，可以用于定义任何类型的别名，包括基本类型、联合类型、交叉类型等。<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表示一个可以是字符串或数字的类型</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">StringOrNumber</span> = <span class="built_in">string</span> | <span class="built_in">number</span>;</span><br></pre></td></tr></table></figure></li>
+<li>不能被扩展。</li>
+<li>用于复杂类型，如函数类型、元组类型等。<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表示一个接受一个数字参数并返回 void 的函数</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Callback</span> = <span class="function">(<span class="params"><span class="attr">arg</span>: <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">void</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>interface 用于描述对象的形状，描述对象应该具有的属性和方法。在 TypeScript 中，interface 可以用来约束对象的结构，以提高代码的可读性和维护性。</p>
+<p>总结：</p>
+<ul>
+<li>interface 和 type 在很多情况下可以相互替代，但在一些特定场景下，选择其中一个可能更加合适</li>
+<li>如果主要定义对象的形状，并且可能需要扩展，那么 interface 是一个好的选择</li>
+<li>如果需要定义复杂的类型别名，或者不需要扩展的类型，那么 type 是一个好的选择</li>
+</ul>
+<h2 id="什么是泛型（generics），作用和使用场景"><a href="#什么是泛型（generics），作用和使用场景" class="headerlink" title="什么是泛型（generics），作用和使用场景"></a>什么是泛型（generics），作用和使用场景</h2><p>泛型是一种参数化类型，它可以在定义时不确定具体的类型，而是在使用时才确定具体的类型。泛型可以用于函数、类、接口等，以提高代码的复用性和灵活性。例如</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> identity&lt;T&gt;(<span class="attr">arg</span>: T): T &#123;</span><br><span class="line">  <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> output = identity&lt;<span class="built_in">string</span>&gt;(<span class="string">&quot;hello&quot;</span>); <span class="comment">// 调用时指定具体的类型</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="什么是枚举（enum），作用和使用场景，枚举和常量枚举的区别"><a href="#什么是枚举（enum），作用和使用场景，枚举和常量枚举的区别" class="headerlink" title="什么是枚举（enum），作用和使用场景，枚举和常量枚举的区别"></a>什么是枚举（enum），作用和使用场景，枚举和常量枚举的区别</h2><p>枚举（enum）是一种用于定义一组命名常量的类型，它可以提高代码的可读性和维护性。枚举是一种类型，它允许你定义一组命名常量，枚举中的每个成员都有一个名称和一个值：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Color</span> &#123;</span><br><span class="line">  <span class="title class_">Red</span>,</span><br><span class="line">  <span class="title class_">Green</span>,</span><br><span class="line">  <span class="title class_">Blue</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">c</span>: <span class="title class_">Color</span> = <span class="title class_">Color</span>.<span class="property">Red</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，定义了一个名为 Color 的枚举，它包含了三个成员：<code>Red</code>、<code>Green</code> 和 <code>Blue</code>。默认情况下，枚举成员的值从 0 开始递增，所以它们的值分别为 0、1 和 2。可以使用枚举成员来访问枚举值，例如：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">c</span>: <span class="title class_">Color</span> = <span class="title class_">Color</span>.<span class="property">Red</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(color); <span class="comment">// 输出 0</span></span><br></pre></td></tr></table></figure>
+
+<p>手动分配枚举值：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Color</span> &#123;</span><br><span class="line">  <span class="title class_">Red</span> = <span class="number">1</span>,</span><br><span class="line">  <span class="title class_">Green</span> = <span class="number">2</span>,</span><br><span class="line">  <span class="title class_">Blue</span> = <span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">Direction</span> &#123;</span><br><span class="line">  <span class="title class_">Up</span> = <span class="string">&quot;UP&quot;</span>,</span><br><span class="line">  <span class="title class_">Down</span> = <span class="string">&quot;DOWN&quot;</span>,</span><br><span class="line">  <span class="title class_">Left</span> = <span class="string">&quot;LEFT&quot;</span>,</span><br><span class="line">  <span class="title class_">Right</span> = <span class="string">&quot;RIGHT&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>常量枚举（const enum），它是在编译阶段被完全移除的枚举，不会在生成的 JavaScript 代码中出现，而是在编译阶段被替换为相应的常量值。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">enum</span> <span class="title class_">Color</span> &#123;</span><br><span class="line">  <span class="title class_">Red</span>,</span><br><span class="line">  <span class="title class_">Green</span>,</span><br><span class="line">  <span class="title class_">Blue</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">c</span>: <span class="title class_">Color</span> = <span class="title class_">Color</span>.<span class="property">Red</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，定义了一个常量枚举 <code>Color</code>，在编译后的 JavaScript 代码中， color 变量将被直接赋值为 0，而不会有 <code>Color</code> 枚举的存在。</p>
+<p>优点：</p>
+<ul>
+<li>常量枚举可以减少生成的 JavaScript 代码的大小，因为它们在编译时被替换它们的值</li>
+<li>它们也可以提高代码的性能，因为在运行时不需要进行枚举的查找</li>
+</ul>
+<p>枚举和常量枚举：</p>
+<ul>
+<li><code>枚举</code>可以包含计算得出的值，而常量枚举则在编译阶段被删除，并且不能包含计算得出的值，只能包含常量成员</li>
+<li><code>常量枚举</code>在编译后会被删除，而普通枚举会生成真实的对象。</li>
+</ul>
+<h2 id="介绍-TypeScript-的可选属性、只读属性和类型断言"><a href="#介绍-TypeScript-的可选属性、只读属性和类型断言" class="headerlink" title="介绍 TypeScript 的可选属性、只读属性和类型断言"></a>介绍 TypeScript 的可选属性、只读属性和类型断言</h2><ul>
+<li>可选属性，使用 <code>?</code> 来标记一个属性可以存在，也可以不存在。</li>
+<li>只读属性，使用 <code>readonly</code> 来标记一个属性只能在声明时赋值，不能在后续的代码中修改。</li>
+<li>类型断言，使用 <code>as</code> 关键字来告诉编译器一个变量的类型。<br>使用场景：<ul>
+<li>当你不确定一个变量的类型时，可以使用类型断言来告诉编译器。<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">str</span>: <span class="built_in">any</span> = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">len</span>: <span class="built_in">number</span> = (str <span class="keyword">as</span> <span class="built_in">string</span>).<span class="property">length</span>; <span class="comment">// 类型断言</span></span><br></pre></td></tr></table></figure></li>
+<li>当你需要将一个联合类型的值指定为其中的某一个类型时。<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">x</span>: <span class="built_in">number</span> | <span class="built_in">string</span> = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">str</span>: <span class="built_in">string</span> = x <span class="keyword">as</span> <span class="built_in">string</span>; <span class="comment">// 类型断言</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p>类型断言只是一种告诉编译器你认为某个值的类型的方式，但是它并不能真正改变值的类型，如果断言不正确，在运行时将导致错误。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可选属性</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">age</span>?: <span class="built_in">number</span>; <span class="comment">// 可选属性</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 只读属性</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">  <span class="keyword">readonly</span> <span class="attr">title</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">b1</span>: <span class="title class_">Book</span> = &#123; <span class="attr">title</span>: <span class="string">&quot;TypeScript&quot;</span> &#125;;</span><br><span class="line">b1.<span class="property">title</span> = <span class="string">&quot;JavaScript&quot;</span>; <span class="comment">// 报错，只读属性不能修改</span></span><br><span class="line"><span class="comment">// 类型断言</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">str</span>: <span class="built_in">string</span> = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">len</span>: <span class="built_in">number</span> = (str <span class="keyword">as</span> <span class="built_in">any</span>).<span class="property">length</span>; <span class="comment">// 类型断言</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="联合类型（Union-Types）"><a href="#联合类型（Union-Types）" class="headerlink" title="联合类型（Union Types）"></a>联合类型（Union Types）</h2><p>允许一个变量可以是多种类型中的一种，使用 <code>|</code> 来分隔不同的类型。可以让代码更加灵活和可维护，同时也可以提高类型安全性。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// value 可以是 string 类型或者 number 类型</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">value</span>: value | <span class="built_in">number</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="交叉类型（Intersection-Types）"><a href="#交叉类型（Intersection-Types）" class="headerlink" title="交叉类型（Intersection Types）"></a>交叉类型（Intersection Types）</h2><p>用于将多个类型合并为一个类型，通过使用 <code>&amp;</code> 符号实现。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">Person</span> = &#123; <span class="attr">name</span>: <span class="built_in">string</span>; <span class="attr">age</span>: <span class="built_in">number</span> &#125;;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Employee</span> = &#123; <span class="attr">salary</span>: <span class="built_in">number</span> &#125;;</span><br><span class="line"><span class="comment">// PersonEmployee 类型包含了 Person 和 Employee 类型的所有属性，即 name、age 和 salary 属性</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">PersonEmployee</span> = <span class="title class_">Person</span> &amp; <span class="title class_">Employee</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">employee</span>: <span class="title class_">PersonEmployee</span> = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="attr">salary</span>: <span class="number">5000</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>接口也可以交叉：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Shape</span> &#123;</span><br><span class="line">  <span class="title function_">area</span>(): <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Colorful</span> &#123;</span><br><span class="line">  <span class="attr">color</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ColorfulShape 类型包含了 Shape 和 Colorful 接口的所有属性，即 area() 方法和 color 属性</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">ColorfulShape</span> = <span class="title class_">Shape</span> &amp; <span class="title class_">Colorful</span>;</span><br></pre></td></tr></table></figure>
+
+<p>注意事项：</p>
+<ul>
+<li>如果交叉的类型中有同名的属性，那么这些属性的类型必须是兼容的</li>
+<li>交叉类型可以创建非常复杂的类型，但也可能导致代码的可读性降低，在使用时要确保代码的意图清晰，避免过度复杂的类型定义</li>
+</ul>
+<h2 id="索引类型（Index-Types）"><a href="#索引类型（Index-Types）" class="headerlink" title="索引类型（Index Types）"></a>索引类型（Index Types）</h2><p>使用场景：</p>
+<ul>
+<li>处理动态属性名<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Config</span> &#123;</span><br><span class="line">  [<span class="attr">key</span>: <span class="built_in">string</span>]: <span class="built_in">string</span> | <span class="built_in">number</span> | <span class="built_in">boolean</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="attr">config</span>: <span class="title class_">Config</span> = &#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">  <span class="attr">enableLog</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">timeout</span>: <span class="number">5000</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getConfig</span>(<span class="params"><span class="attr">key</span>: <span class="built_in">string</span></span>): <span class="built_in">string</span> | <span class="built_in">number</span> | <span class="built_in">boolean</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> config[key]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>处理 API 响应数据，当从 API 接收到的数据结构不确定时，可以使用索引类型来处理这些数据<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">ApiResponse</span> &#123;</span><br><span class="line">  [<span class="attr">key</span>: <span class="built_in">string</span>]: <span class="built_in">any</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="attr">response</span>: <span class="title class_">ApiResponse</span> = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="attr">salary</span>: <span class="number">5000</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>创建可扩展的对象类型（可以动态添加属性的对象类型）<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">ExtensibleObject</span> = &#123;</span><br><span class="line">  [<span class="attr">key</span>: <span class="built_in">string</span>]: <span class="built_in">any</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="attr">obj</span>: <span class="title class_">ExtensibleObject</span> = &#123;&#125;;</span><br><span class="line">obj.<span class="property">a</span> = <span class="string">&#x27;test&#x27;</span></span><br><span class="line">obj.<span class="property">b</span> = <span class="number">123</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="const-和-readonly-关键字"><a href="#const-和-readonly-关键字" class="headerlink" title="const 和 readonly 关键字"></a>const 和 readonly 关键字</h2><p>const</p>
+<ol>
+<li>用于变量声明，const 用于声明一个常量，它的值不能被重新赋值</li>
+<li>基本类型和引用类型的区别</li>
+</ol>
+<ul>
+<li>基本类型：const 声明的基本类型变量的值是不可变的，即不能被重新赋值</li>
+<li>引用类型：const 声明的引用类型变量的引用是不可变的，即不能被重新赋值，但引用类型的属性或元素可以被修改</li>
+</ul>
+<p>readonly</p>
+<ol>
+<li>用于属性声明，readonly 用于声明类的属性或接口的属性为只读属性，即只能在对象初始化时或在构造函数中赋值，之后不能被重新赋值</li>
+<li>数组和对象的只读性，当 readonly 用于数组或对象类型时，数组或对象本身的引用可以被重新赋值，但它们的元素或属性不能被修改（如果它们不是本身也被 readonly 修饰）</li>
+</ol>
+<p>使用场景：</p>
+<ul>
+<li>const<ul>
+<li>当你确定一个变量的值在整个程序执行过程中都不会改变时，使用 const 声明变量。</li>
+<li>对于简单的值类型（如数字、字符串、布尔值）和不可变的引用类型（如不可变的对象或数组），使用 const 可以提高代码的可读性和安全性。</li>
+</ul>
+</li>
+<li>readonly<ul>
+<li>在类中，当你希望某个属性在对象创建后不能被修改时，使用 readonly 修饰属性。</li>
+<li>在接口中，当你希望某个属性在实现该接口的对象中是只读的时，使用 readonly 修饰属性。</li>
+<li>对于需要在多个地方共享但不希望被修改的对象或数组，可以使用 readonly 修饰它们的类型，以确保它们的内容不会被意外修改。</li>
+</ul>
+</li>
+</ul>
+<h2 id="any-类型"><a href="#any-类型" class="headerlink" title="any 类型"></a>any 类型</h2><p>尽管any类型提供了灵活性，但由于它会放弃TypeScript的静态类型检查，因此滥用any类型可能会降低代码的健壮性和可维护性。当滥用any类型时，可能会导致以下后果:</p>
+<ul>
+<li>代码可读性下降</li>
+<li>潜在的运行时错误</li>
+<li>类型安全受损</li>
+</ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+<li>基本类型<ul>
+<li>number，表示数字，包含证书和浮点数</li>
+<li>string，表示文本字符串</li>
+<li>boolean，表示布尔值，true 和 false</li>
+<li>null、undefined</li>
+<li>symbol，表示唯一、不可变的值</li>
+</ul>
+</li>
+<li>复合类型<ul>
+<li>array，数组</li>
+<li>tuple，元组</li>
+<li>enum，枚举</li>
+</ul>
+</li>
+<li>对象类型<ul>
+<li>object，表示任意对象（除了 number、string、boolean、symbol、null、undefined 之外的类型）</li>
+<li>interface，接口，用于描述对象的结构，可重复使用</li>
+</ul>
+</li>
+<li>函数类型<ul>
+<li>function，表示函数类型</li>
+<li>void，表示函数没有返回值</li>
+<li>any，表示任意类型</li>
+</ul>
+</li>
+<li>高级类型<ul>
+<li>union types，联合类型，允许一个变量可以是多种类型中的一种</li>
+<li>intersection types，交叉类型，用于将多个类型合并为一个类型</li>
+</ul>
+</li>
+</ul>
+<h2 id="interface-给-Function-Array-Class（indexable）做声明"><a href="#interface-给-Function-Array-Class（indexable）做声明" class="headerlink" title="interface 给 Function/Array/Class（indexable）做声明"></a>interface 给 Function/Array/Class（indexable）做声明</h2><ul>
+<li>函数<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 描述了一个函数类型，该函数接收两个参数并返回一个数字</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">MyFunction</span> &#123;</span><br><span class="line">  (<span class="attr">arg1</span>: <span class="built_in">string</span>, <span class="attr">arg2</span>: <span class="built_in">number</span>): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">myAdd</span>: <span class="title class_">MyFunction</span> = <span class="keyword">function</span> (<span class="params">x, y</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>数组<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 描述了一个具有数字索引签名的字符串数组。意味着我们可以通过数字索引来访问数组元素。</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">MyArray</span> &#123;</span><br><span class="line">  [<span class="attr">index</span>: <span class="built_in">number</span>]: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">myArray</span>: <span class="title class_">StringArray</span> = [<span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Fred&#x27;</span>];</span><br></pre></td></tr></table></figure></li>
+<li>类<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">StringDictionary</span> &#123;</span><br><span class="line">  [<span class="attr">index</span>: <span class="built_in">string</span>]: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">myDict</span>: <span class="title class_">StringDictionary</span> = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Bob&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="string">&#x27;30&#x27;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20TypeScript%20%E7%AF%87/" data-id="cmd8fcqf0002w64g5e1bn5smr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20Vue3%20%E7%AF%87/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          收集的前端面试题 - Vue3 篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20CSS%20%E7%AF%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">收集的前端面试题 - CSS 篇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SCSS/" rel="tag">SCSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Vue.js 设计与实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3/" rel="tag">Vue3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" rel="tag">人月神话</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" rel="tag">备忘录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" rel="tag">开发日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">设计原则和编程技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E8%AE%B0/" rel="tag">随记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 19px;">JavaScript</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" style="font-size: 16px;">Vue.js 设计与实现</a> <a href="/tags/Vue3/" style="font-size: 10px;">Vue3</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" style="font-size: 11px;">人月神话</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 15px;">前端工程化</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" style="font-size: 11px;">备忘录</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" style="font-size: 10px;">开发日志</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 12px;">设计原则和编程技巧</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17px;">设计模式</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 14px;">转载</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 17px;">阅读</a> <a href="/tags/%E9%9A%8F%E8%AE%B0/" style="font-size: 10px;">随记</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 18px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/07/18/%E9%9A%8F%E8%AE%B0/2025%E5%B9%B407%E6%9C%8818%E6%97%A5%E9%9A%8F%E8%AE%B0/">2025年07月18日随记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%AD-%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E7%AF%87/">输入URL到渲染全面梳理中-页面渲染篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8A-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%AF%87/">输入URL到渲染全面梳理上-网络通信篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8B-%E6%80%BB%E7%BB%93/">输入URL到渲染全面梳理下-总结篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20HTTP%20%E7%AF%87/">收集的面试题 - HTTP 篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 havebear<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

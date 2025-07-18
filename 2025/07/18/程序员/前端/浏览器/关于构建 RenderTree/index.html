@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于构建 RenderTree | Have Bear</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系： 一、解析 HTML 文档  当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。 DOM 树是一个由节点组成的树状结构，每个节点代表 HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于构建 RenderTree">
+<meta property="og:url" content="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/index.html">
+<meta property="og:site_name" content="Have Bear">
+<meta property="og:description" content="在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系： 一、解析 HTML 文档  当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。 DOM 树是一个由节点组成的树状结构，每个节点代表 HTML">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-18T06:03:17.115Z">
+<meta property="article:modified_time" content="2025-07-18T06:03:17.115Z">
+<meta property="article:author" content="havebear">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Have Bear" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Have Bear</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://havebear.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-程序员/前端/浏览器/关于构建 RenderTree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/" class="article-date">
+  <time datetime="2025-07-18T06:03:17.115Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于构建 RenderTree
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在浏览器中，解析 HTML 文档、解析 CSS 样式表和构建渲染树是一系列紧密相关的过程，它们共同作用以将网页内容呈现给用户。以下是它们之间的关系：</p>
+<p><strong>一、解析 HTML 文档</strong></p>
+<ol>
+<li>当浏览器接收到一个 HTML 文档时，它会开始解析这个文档。解析过程是将 HTML 文本转换为 DOM（Document Object Model）树的过程。</li>
+<li>DOM 树是一个由节点组成的树状结构，每个节点代表 HTML 文档中的一个元素。例如，<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>、<code>&lt;div&gt;</code>等都是 DOM 树中的节点。</li>
+<li>解析 HTML 文档是一个逐步的过程，浏览器会按照 HTML 文本的顺序依次处理每个标签，构建 DOM 树的节点，并确定它们之间的父子关系。</li>
+</ol>
+<p><strong>二、解析 CSS 样式表</strong></p>
+<ol>
+<li>同时，浏览器也会解析网页中引用的 CSS 样式表。CSS 样式表定义了网页中元素的外观样式，如颜色、字体、布局等。</li>
+<li>解析 CSS 样式表的过程是将 CSS 文本转换为一组规则的过程。这些规则描述了如何将样式应用于特定的 HTML 元素。</li>
+<li>浏览器会根据 CSS 选择器和元素的属性来确定哪些规则适用于哪些元素。例如，选择器<code>p</code>将适用于所有<code>&lt;p&gt;</code>标签的元素。</li>
+</ol>
+<p><strong>三、构建渲染树</strong></p>
+<ol>
+<li>在解析 HTML 文档和 CSS 样式表之后，浏览器开始构建渲染树。渲染树是由可视元素及其对应的样式信息组成的树状结构。</li>
+<li>构建渲染树的过程是将 DOM 树中的节点与 CSS 样式表中的规则进行匹配，确定每个节点的最终样式。只有可见的元素才会被包含在渲染树中，例如<code>&lt;head&gt;</code>标签中的内容通常不会在渲染树中。</li>
+<li>渲染树中的每个节点都包含了元素的样式信息，如颜色、字体大小、位置等。这些信息将用于后续的布局和绘制过程。</li>
+</ol>
+<p><strong>四、关系总结</strong></p>
+<ol>
+<li>解析 HTML 文档是构建渲染树的基础，它提供了网页的结构信息。</li>
+<li>解析 CSS 样式表为构建渲染树提供了样式信息，确定了每个元素的外观。</li>
+<li>构建渲染树是将 HTML 结构和 CSS 样式结合起来的过程，它确定了网页中每个可见元素的最终外观和位置，为后续的布局和绘制过程提供了输入。</li>
+</ol>
+<p>总之，解析 HTML 文档、解析 CSS 样式表和构建渲染树是浏览器渲染网页的关键步骤，它们相互协作以将网页内容以可视化的形式呈现给用户。</p>
+<span id="more"></span>
+
+<p><strong>执行顺序</strong><br>在浏览器中，解析 HTML 构建 DOM 和解析 CSS 样式表并不是严格意义上的同时进行，但也不是完全顺序进行的。</p>
+<p>一般来说，浏览器在解析 HTML 的过程中，一旦遇到 <code>&lt;link&gt;</code> 标签引用外部 CSS 文件或者 <code>&lt;style&gt;</code> 标签内的 CSS 样式定义时，会发起对 CSS 资源的请求并开始解析 CSS 样式表，但并不会等待 CSS 完全解析完成后才继续解析 HTML。</p>
+<p>浏览器会一边继续解析 HTML 构建 DOM，一边逐步接收和解析 CSS 样式表。当 DOM 构建完成并且 CSS 样式表也解析完成后，浏览器会根据 DOM 和 CSS 信息构建渲染树。</p>
+<p>所以，可以认为这两个过程是部分并行进行的，但最终的渲染树构建需要等待两者都完成一定程度的处理。</p>
+<p><strong>渲染树是在 解析 HTML 文档和解析样式完成后才创建的吗?</strong></p>
+<p>渲染树是在解析 HTML 文档和解析 CSS 样式表基本完成后创建的。</p>
+<p>具体来说：</p>
+<ul>
+<li>浏览器一边解析 HTML 文档构建 DOM 树，一边解析 CSS 样式表生成样式规则。</li>
+<li>当 HTML 文档解析到一定程度且 CSS 样式表也有足够的信息可用时，浏览器就开始构建渲染树。并不是要完全等 HTML 和 CSS 都百分百解析完才创建渲染树。</li>
+<li>渲染树只包含那些最终会在页面上显示的元素，并且每个元素都带有其对应的计算后的样式信息。</li>
+</ul>
+<p>所以，可以认为渲染树是在 HTML 文档和 CSS 样式表的解析过程中逐步构建起来的，而不是等到二者完全解析完成后才一次性创建。</p>
+<p><strong>怎么确定渲染树构建完成</strong></p>
+<p>以下是关于确定渲染树构建完成以及页面渲染时机的相关内容：</p>
+<p><strong>一、确定渲染树构建完成</strong></p>
+<p>通常可以通过以下几种方式来大致判断渲染树构建完成：</p>
+<ol>
+<li><p>浏览器开发者工具中的性能分析：</p>
+<ul>
+<li>在现代浏览器的开发者工具中，可以使用性能分析工具来观察页面加载的各个阶段。当看到“Paint”（绘制）事件发生时，通常意味着渲染树已经构建完成并且开始进行页面的绘制。</li>
+<li>通过观察“Network”（网络）面板，可以确定所有关键资源（如 HTML、CSS、JavaScript 和图像等）是否已经加载完成，这也可以作为渲染树可能构建完成的一个标志。</li>
+</ul>
+</li>
+<li><p>监听事件：</p>
+<ul>
+<li>可以监听 <code>DOMContentLoaded</code> 事件，这个事件在 DOM 树构建完成后触发，但此时渲染树可能还未完全构建完成，因为 CSS 等资源可能还在加载或解析中。</li>
+<li>监听 <code>load</code> 事件，这个事件在页面的所有资源（包括图像、脚本、样式表等）加载完成后触发，此时渲染树通常已经构建完成并且页面已经进行了至少一次的渲染。</li>
+</ul>
+</li>
+</ol>
+<p><strong>二、页面渲染时机</strong></p>
+<p>页面渲染的时机主要取决于以下几个因素：</p>
+<ol>
+<li><p>HTML 和 CSS 的加载与解析：</p>
+<ul>
+<li>浏览器首先下载 HTML 文档并开始解析，构建 DOM 树。同时，如果遇到 <code>&lt;link&gt;</code> 标签引用的外部 CSS 文件，会下载并解析这些样式表。当 HTML 和 CSS 的解析达到一定程度，有足够的信息可以构建渲染树时，浏览器就会开始进行渲染。</li>
+<li>如果 CSS 文件较大或者网络较慢，可能会延迟渲染树的构建和页面的渲染。</li>
+</ul>
+</li>
+<li><p>JavaScript 的执行：</p>
+<ul>
+<li>如前面提到的，如果没有设置 <code>async</code> 或 <code>defer</code> 属性的 <code>&lt;script&gt;</code> 标签会阻塞 HTML 的解析，从而也会影响渲染树的构建和页面渲染。设置了 <code>async</code> 或 <code>defer</code> 属性的脚本会在不阻塞 HTML 解析的情况下异步加载和执行，但它们仍然可能在渲染树构建完成之前或之后影响页面的渲染。</li>
+</ul>
+</li>
+<li><p>图像和其他资源的加载：</p>
+<ul>
+<li>图像和其他外部资源（如视频、音频等）的加载也会影响页面的渲染。如果图像较大或者网络较慢，可能会导致页面在等待图像加载完成后才进行渲染。</li>
+</ul>
+</li>
+<li><p>浏览器的优化策略：</p>
+<ul>
+<li>不同的浏览器可能有不同的优化策略来决定何时进行渲染。例如，一些浏览器可能会在 CSS 解析完成之前进行一些初步的渲染，以提供更快的反馈给用户。</li>
+</ul>
+</li>
+</ol>
+<p>总的来说，页面渲染的时机是一个复杂的过程，受到多种因素的影响。开发人员可以通过优化 HTML、CSS 和 JavaScript 的加载和执行，以及合理管理图像和其他资源的加载，来提高页面的渲染性能。</p>
+<p>当渲染树构建完成后，通常会进行以下步骤：</p>
+<p><strong>一、布局（Layout）</strong></p>
+<ol>
+<li>确定每个元素在页面上的大小和位置。浏览器会根据渲染树中的元素及其对应的样式信息，计算出每个元素在视口（viewport）中的准确位置和尺寸。<ul>
+<li>对于块级元素，会考虑其宽度、高度、外边距（margin）、内边距（padding）等属性来确定其在页面上占据的空间。</li>
+<li>对于行内元素和文本，会根据字体大小、行高、字间距等属性来确定其在一行中的位置。</li>
+</ul>
+</li>
+</ol>
+<p><strong>二、绘制（Paint）</strong></p>
+<ol>
+<li>将每个元素绘制到屏幕上。这一步骤是将布局阶段确定的元素的视觉表现实际绘制出来。<ul>
+<li>浏览器会遍历渲染树，根据每个元素的样式属性（如颜色、背景、边框等），使用图形库将元素绘制到屏幕上的相应位置。</li>
+<li>绘制过程可以分为多个层次，例如先绘制背景，然后绘制文本和图像等内容。</li>
+</ul>
+</li>
+</ol>
+<p><strong>三、合成（Composite）</strong></p>
+<ol>
+<li>对于一些复杂的页面，可能会涉及到多个图层的合成。例如，如果一个元素设置了 <code>transform</code> 或 <code>opacity</code> 属性，浏览器可能会将其单独放在一个图层中，以便更高效地进行动画和变换。</li>
+<li>浏览器会将各个图层组合在一起，形成最终的页面图像，并显示在屏幕上。</li>
+<li>在合成过程中，浏览器还会进行一些优化，例如避免不必要的重绘和重排，以提高页面的性能和响应速度。</li>
+</ol>
+<p>总之，渲染树构建完成后，浏览器会依次进行布局、绘制和合成等步骤，以将页面呈现给用户。这些步骤是一个复杂的过程，涉及到多个子系统的协同工作，并且会受到各种因素的影响，如页面的复杂度、资源的加载速度、用户的交互等。开发人员可以通过优化页面的结构、样式和脚本，以及合理使用浏览器的性能优化技术，来提高页面的渲染性能和用户体验。</p>
+<p>以下是一些优化渲染树构建和绘制过程的方法：</p>
+<p><strong>一、优化 HTML 结构</strong></p>
+<ol>
+<li><p>保持 HTML 结构简洁：</p>
+<ul>
+<li>避免不必要的嵌套和复杂的 DOM 结构。简洁的 HTML 可以更快地被解析，减少构建渲染树的时间。</li>
+<li>删除不必要的注释和空元素。</li>
+</ul>
+</li>
+<li><p>使用语义化标签：</p>
+<ul>
+<li>语义化的 HTML 标签不仅有助于提高代码的可读性和可维护性，还能让浏览器更高效地解析和构建渲染树。例如，使用 <code>&lt;header&gt;</code>、<code>&lt;nav&gt;</code>、<code>&lt;main&gt;</code>、<code>&lt;footer&gt;</code> 等标签来明确页面的结构。</li>
+</ul>
+</li>
+</ol>
+<p><strong>二、优化 CSS</strong></p>
+<ol>
+<li><p>避免使用复杂的选择器：</p>
+<ul>
+<li>复杂的 CSS 选择器会增加样式匹配的时间，从而影响渲染性能。尽量使用简单、直接的选择器。</li>
+<li>例如，避免使用过多的层级选择器和属性选择器。</li>
+</ul>
+</li>
+<li><p>减少不必要的样式规则：</p>
+<ul>
+<li>去除页面中未使用的样式规则，避免加载和解析不必要的 CSS。</li>
+<li>可以使用工具来检查和优化 CSS 文件的大小和复杂度。</li>
+</ul>
+</li>
+<li><p>避免使用 <code>@import</code>：</p>
+<ul>
+<li><code>@import</code> 语句会阻止浏览器并行下载 CSS 文件，从而延长页面的加载时间。尽量使用 <code>&lt;link&gt;</code> 标签来引入外部 CSS 文件。</li>
+</ul>
+</li>
+<li><p>压缩和合并 CSS 文件：</p>
+<ul>
+<li>减小 CSS 文件的大小可以加快下载速度。可以使用工具来压缩 CSS 文件，并将多个 CSS 文件合并为一个，减少 HTTP 请求次数。</li>
+</ul>
+</li>
+</ol>
+<p><strong>三、优化 JavaScript</strong></p>
+<ol>
+<li><p>避免阻塞 DOM 构建和渲染：</p>
+<ul>
+<li>如前面提到的，没有设置 <code>async</code> 或 <code>defer</code> 属性的 <code>&lt;script&gt;</code> 标签会阻塞 HTML 的解析和渲染树的构建。尽量将脚本放在页面底部，或者使用 <code>async</code> 或 <code>defer</code> 属性来异步加载脚本。</li>
+<li>避免在脚本中进行长时间的计算或操作，以免阻塞页面的渲染。</li>
+</ul>
+</li>
+<li><p>减少 DOM 操作：</p>
+<ul>
+<li>频繁的 DOM 操作会导致重排（reflow）和重绘（repaint），影响渲染性能。尽量减少对 DOM 的添加、删除和修改操作。</li>
+<li>可以使用文档片段（document fragment）或虚拟 DOM 等技术来减少实际的 DOM 操作次数。</li>
+</ul>
+</li>
+</ol>
+<p><strong>四、优化图像和其他资源</strong></p>
+<ol>
+<li><p>优化图像：</p>
+<ul>
+<li>压缩图像大小，以减少下载时间。可以使用工具来压缩图像，同时保持图像的质量。</li>
+<li>使用适当的图像格式。例如，对于照片可以使用 JPEG 格式，对于图标和简单的图形可以使用 PNG 或 SVG 格式。</li>
+<li>延迟加载图像。对于不在视口内的图像，可以使用懒加载技术，在用户滚动到图像位置时再加载图像。</li>
+</ul>
+</li>
+<li><p>优化其他资源：</p>
+<ul>
+<li>对于视频、音频等资源，也可以进行压缩和优化，以减少加载时间。</li>
+<li>合理使用缓存，避免重复下载相同的资源。</li>
+</ul>
+</li>
+</ol>
+<p><strong>五、使用性能优化工具和技术</strong></p>
+<ol>
+<li><p>浏览器开发者工具：</p>
+<ul>
+<li>使用浏览器的开发者工具来分析页面的性能，找出潜在的瓶颈和优化点。</li>
+<li>可以查看网络请求、资源加载时间、JavaScript 执行时间等信息，以便针对性地进行优化。</li>
+</ul>
+</li>
+<li><p>性能监测工具：</p>
+<ul>
+<li>使用性能监测工具，如 Google PageSpeed Insights、WebPageTest 等，来评估页面的性能，并获得优化建议。</li>
+</ul>
+</li>
+<li><p>预加载和预渲染：</p>
+<ul>
+<li>可以使用预加载技术，提前加载页面可能需要的资源，如 CSS、JavaScript 和图像等，以减少用户等待时间。</li>
+<li>预渲染可以在用户访问页面之前，提前渲染页面的内容，提供更快的用户体验。但预渲染需要谨慎使用，因为它可能会消耗大量的资源。</li>
+</ul>
+</li>
+</ol>
+<p>通过以上方法，可以有效地优化渲染树的构建和绘制过程，提高页面的性能和用户体验。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://havebear.com/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%85%B3%E4%BA%8E%E6%9E%84%E5%BB%BA%20RenderTree/" data-id="cmd8fcqff005v64g578xabd94" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E8%B7%A8%E5%9F%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">浅谈垃圾回收</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SCSS/" rel="tag">SCSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Vue.js 设计与实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3/" rel="tag">Vue3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" rel="tag">人月神话</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" rel="tag">备忘录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" rel="tag">开发日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">设计原则和编程技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E8%AE%B0/" rel="tag">随记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 19px;">JavaScript</a> <a href="/tags/SCSS/" style="font-size: 10px;">SCSS</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/Vue-js-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" style="font-size: 16px;">Vue.js 设计与实现</a> <a href="/tags/Vue3/" style="font-size: 10px;">Vue3</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D/" style="font-size: 11px;">人月神话</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 15px;">前端工程化</a> <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" style="font-size: 11px;">备忘录</a> <a href="/tags/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" style="font-size: 10px;">开发日志</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 12px;">设计原则和编程技巧</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17px;">设计模式</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 14px;">转载</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 17px;">阅读</a> <a href="/tags/%E9%9A%8F%E8%AE%B0/" style="font-size: 10px;">随记</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 18px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/07/18/%E9%9A%8F%E8%AE%B0/2025%E5%B9%B407%E6%9C%8818%E6%97%A5%E9%9A%8F%E8%AE%B0/">2025年07月18日随记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%AD-%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E7%AF%87/">输入URL到渲染全面梳理中-页面渲染篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8A-%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%AF%87/">输入URL到渲染全面梳理上-网络通信篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B8%B2%E6%9F%93%E5%85%A8%E9%9D%A2%E6%A2%B3%E7%90%86%E4%B8%8B-%E6%80%BB%E7%BB%93/">输入URL到渲染全面梳理下-总结篇</a>
+          </li>
+        
+          <li>
+            <a href="/2025/07/18/%E7%A8%8B%E5%BA%8F%E5%91%98/%E9%9D%A2%E8%AF%95/%E6%94%B6%E9%9B%86%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98%20-%20HTTP%20%E7%AF%87/">收集的面试题 - HTTP 篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 havebear<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
